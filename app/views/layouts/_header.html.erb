@@ -1,0 +1,17 @@
+<nav class="navbar navbar-default">
+    <ul class="nav nav-tabs">
+        <% if user_signed_in? %>
+        <li role="presentation"> <%= link_to "Welcome #{current_user.first_name}", user_path(current_user)  %></li>
+        <% end %>
+        <li> <%= link_to "Home", root_path %> </li>
+
+        <% if user_signed_in? %>
+
+          <li role="presentation"> <%= link_to "Sign out", destroy_user_session_path, :method => :delete%></li>
+        <% else %>
+          <li role="presentation"> <%= link_to "Sign in", new_user_session_path %></li>
+          <li role="presentation"> <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %></li>
+          <li role="presentation" > <%= link_to "Sign up", new_user_registration_path %></li>
+        <% end %>
+    </ul>
+</nav>
