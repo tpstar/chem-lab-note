@@ -5,6 +5,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  validates :first_name, :last_name, presence: true
+  has_many :reactions
+  has_many :chemicals
+
+
    def self.from_omniauth(access_token)
      data = access_token.info
      user = User.where(:email => data["email"]).first
