@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  bp: 1
+  mL: MyString
+  float: MyString
+
+two:
+  name: MyString
+  bp: 1
+  mL: MyString
+  float: MyString

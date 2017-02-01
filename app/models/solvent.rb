@@ -1,0 +1,2 @@
+class Solvent < ApplicationRecord
+end
