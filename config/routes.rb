@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  get 'chemicals/index'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  # get 'users/index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :reactions, :users
+  resources :reactions
   root 'reactions#index'
+
+  get '*unmatched_route', :to => 'reactions#index'
 end
