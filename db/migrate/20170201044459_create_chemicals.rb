@@ -11,6 +11,7 @@ class CreateChemicals < ActiveRecord::Migration[5.0]
       t.float :mol
       t.float :mp
       t.float :bp
+      t.integer :user_id
 
       t.timestamps
     end

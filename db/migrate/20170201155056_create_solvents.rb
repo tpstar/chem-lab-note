@@ -4,6 +4,7 @@ class CreateSolvents < ActiveRecord::Migration[5.0]
       t.string :name
       t.integer :bp
       t.float :mL
+      t.integer :reaction_id
 
       t.timestamps
     end
