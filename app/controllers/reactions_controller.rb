@@ -35,17 +35,6 @@ class ReactionsController < ApplicationController
     params.require(:reaction).permit(:title, :date, :chemical_attributes => [:name, :formula, :fw, :density, :eq, :g, :mL, :mol, :mp, :bp])
   end
 
-  t.string :name
-  t.string :formula
-  t.float :fw
-  t.float :density
-  t.float :eq
-  t.float :g
-  t.float :mL
-  t.float :mol
-  t.float :mp
-  t.float :bp
-
   # def find_reaction
   #   @reaction = Reaction.find_by_id(params[:id])
   # end
