@@ -1,4 +1,4 @@
-class ReactionsController < ApplicationController
+class Api::ReactionsController < ApplicationController
   # before_action :find_reaction, except: [:index, :create]
 
   def index
@@ -7,13 +7,21 @@ class ReactionsController < ApplicationController
   end
 
   def create
-    @reaction = Reaction.find_or_create_by(title: reaction_params[:title])
-    @reaction.update_attributes(reaction_params)
-    # if request.headers["Profile-Type"] == "watchlist"
-    #   render json: Reaction.where(watchlist: true)
-    # else
-    #   render json: Reaction.where(timeline: true)
-    # end
+    reaction = Reaction.new(reaction_params)
+    if reaction.save
+      render json: reaction
+    else
+      render json: {error: "This reaction was not created.", status: 500}, status: 500
+    end
+  end
+
+  def update
+    reaction = Reaction.new(reaction_params)
+    if reaction.save
+      render json: reaction
+    else
+      render json: {error: "This reaction was not created.", status: 500}, status: 500
+    end
   end
 
   def show
