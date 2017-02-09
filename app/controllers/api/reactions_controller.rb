@@ -1,5 +1,5 @@
 class Api::ReactionsController < ApplicationController
-  # before_action :find_reaction, except: [:index, :create]
+  before_action :find_reaction, only: [:show, :update, :destroy]
 
   def index
     reactions = Reaction.all
@@ -7,7 +7,7 @@ class Api::ReactionsController < ApplicationController
   end
 
   def create
-    reaction = Reaction.new(reaction_params)
+    reaction = current_user.reactions.build(reaction_params)
     if reaction.save
       render json: reaction
     else
@@ -16,34 +16,37 @@ class Api::ReactionsController < ApplicationController
   end
 
   def update
-    reaction = Reaction.new(reaction_params)
-    if reaction.save
-      render json: reaction
+    if @reaction.save
+      render json: @reaction
     else
-      render json: {error: "This reaction was not created.", status: 500}, status: 500
+      render json: {error: "This reaction was not updated.", status: 500}, status: 500
     end
   end
 
   def show
-    reaction = Reaction.find(params[:id])
-    render json: reaction
+    if @reaction
+      render json: @reaction
+    else
+      render json: {error: "Could not find the reaction!", status: 404}, status: 404
+    end
   end
 
   def destroy
-    # if @reaction.destroy
-    #   render json: { message: "#{@reaction.title} was successfully removed" }
-    # else
-    #   render json: { error: "There was an issue removing #{@reaction.title}"}
-    # end
+    @reaction.destroy
+    render json: {message: "This reaction was deleted", status: 200}, status: 200
   end
 
   private
 
   def reaction_params
-    params.require(:reaction).permit(:title, :date, :chemical_attributes => [:name, :formula, :fw, :density, :eq, :g, :mL, :mol, :mp, :bp])
+    params.require(:reaction).permit(:title, :date,
+      :chemical_attributes => [:name, :formula, :fw, :density, :eq, :g, :mL, :mol, :mp, :bp],
+      :sovent_attributes => [:name, :bp, :mL],
+      :condition_attribute => [:time, :temp])
   end
 
-  # def find_reaction
-  #   @reaction = Reaction.find_by_id(params[:id])
-  # end
+  def find_reaction
+    @reaction = Reaction.find_by_id(params[:id])
+  end
+
 end

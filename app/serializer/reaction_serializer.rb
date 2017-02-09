@@ -1,5 +1,7 @@
 class ReactionSerializer < ActiveModel::Serializer
   attributes :title, :date
-  has_one :user
+  belongs_to :user
   has_many :chemicals
+  has_one :solvent
+  has_one :condition
 end

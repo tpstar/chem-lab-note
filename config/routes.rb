@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :reactions, :chemicals
   end
 
-  root 'reactions#index'
+  root 'api/reactions#index'
 
   # get '*unmatched_route', :to => 'reactions#index'
 end
