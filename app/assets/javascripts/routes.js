@@ -8,7 +8,12 @@
 				$stateProvider
 					.state('reactions', {
 						url: "/",
-						templateUrl: "reactions/index.html",
+						templateUrl: "reactions/reactions.list.html",
+						controller: 'ReactionsController as vm'
+					})
+					.state('reactions.detail', {
+						url: "/reactions/:reactionId",
+						templateUrl: 'reactions/reactions.detail.html'
 						controller: 'ReactionsController as vm'
 					});
 
