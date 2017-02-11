@@ -11,6 +11,11 @@
 						templateUrl: "reactions/reactions.list.html",
 						controller: 'ReactionsController as vm'
 					})
+					.state('reactions.new', {
+						url: 'reactions/new',
+						templateUrl: 'reactions/reactions.new.html',
+						controller: 'ReactionsController as vm'
+					})
 					.state('reactions.detail', {
 						url: "reactions/:reactionId",
 						templateUrl: 'reactions/reactions.detail.html',
