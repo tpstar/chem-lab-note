@@ -12,8 +12,8 @@
 						controller: 'ReactionsController as vm'
 					})
 					.state('reactions.detail', {
-						url: "/reactions/:reactionId",
-						templateUrl: 'reactions/reactions.detail.html'
+						url: "reactions/:reactionId",
+						templateUrl: 'reactions/reactions.detail.html',
 						controller: 'ReactionsController as vm'
 					});
 

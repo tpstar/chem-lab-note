@@ -1,7 +1,11 @@
 <h1>Reactions</h1>
-<div data-ng-repeat="reaction in vm.reactions">
+<hr>
+
+<a ui-sref="reactions.detail({ reactionId: reaction.id })"
+   data-ng-repeat="reaction in vm.reactions">
+
   <h3><span data-ng-bind="reaction.title"></span></h3>
-</div>
+</a>
 <div class="reactionDetail">
   <ui-view></ui-view>
 </div>

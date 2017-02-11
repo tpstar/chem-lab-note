@@ -5,7 +5,8 @@
 		.module('chemApp')
     .factory('ReactionService', ['$http', function($http) {
       return {
-        all
+        all,
+				getDetail
       }
 
       function all() {
@@ -13,5 +14,10 @@
           .then(response => response.data)
           .catch(err => console.log(err))
       }
+			function getDetail(reactionId) {
+				return $http.get(`/api/reactions/${reactionId}`)
+					.then(response => response.data)
+					.catch(err => console.log(err))
+			}
     }]);
 }())
