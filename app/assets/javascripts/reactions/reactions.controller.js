@@ -3,14 +3,16 @@
 
 	angular
 		.module('chemApp')
-    .controller('ReactionsController', ['ReactionService', '$stateParams', function(ReactionService, $stateParams) {
+    .controller('ReactionsController', ['ReactionService', '$stateParams', '$scope', '$state',
+			function(ReactionService, $stateParams, $scope, $state) {
       var vm = this;
 
 			vm.createReaction = createReaction;
+			vm.deleteReaction = deleteReaction;
 
       ReactionService.all()
-        .then(data => vm.reactions = data);
-				
+        .then(data => $scope.reactions = data);
+
 			if ($stateParams.reactionId) {
 				ReactionService
 					.getDetail($stateParams.reactionId)
@@ -20,10 +22,20 @@
 			}
 
 			function createReaction() {
-				console.log(vm.reaction);
 				ReactionService
 					.create(vm.reaction)
-					.then(reaction => vm.reactions.push(reaction))
+					.then(reaction => $scope.$parent.reactions.push(reaction))
+					.then(vm.reaction = {})
+			}
+
+			function deleteReaction() {
+				ReactionService
+					.destroy(vm.reaction.id)
+					.then(function(){
+						var currentReactions = $scope.$parent.reactions.filter(reaction => reaction.id !== vm.reaction.id)
+						$scope.$parent.reactions = currentReactions;
+						$state.go('reactions')
+					})
 			}
     }])
 }())

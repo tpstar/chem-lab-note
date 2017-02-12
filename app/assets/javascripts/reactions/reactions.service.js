@@ -7,7 +7,8 @@
       return {
         all,
 				getDetail,
-				create
+				create,
+				destroy
       }
 
       function all() {
@@ -36,5 +37,16 @@
 					.then(response => response.data)
 					.catch(err => console.log(err))
 			}
+
+			function destroy(reactionId) {
+				const req = {
+					method: 'DELETE',
+					url: `/api/reactions/${reactionId}`,
+				}
+				return $http(req)
+					.then(response => console.log(response.data.message))
+					.catch(err => console.log(err))
+			}
+
     }]);
 }())
