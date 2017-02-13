@@ -8,6 +8,7 @@
       var vm = this;
 
 			vm.createReaction = createReaction;
+			vm.updateReaction = updateReaction;
 			vm.deleteReaction = deleteReaction;
 
       ReactionService.all()
@@ -17,7 +18,10 @@
 				ReactionService
 					.getDetail($stateParams.reactionId)
 					.then(function(data) {
+						data.date = Date(data.date)
+						console.log(data);
 						vm.reaction = data;
+						// vm.reaction = Date(vm.reaction.date);
 					})
 			}
 
@@ -26,6 +30,13 @@
 					.create(vm.reaction)
 					.then(reaction => $scope.$parent.reactions.push(reaction))
 					.then(vm.reaction = {})
+			}
+
+			function updateReaction() {
+				// vm.reaction.date = Date(vm.reaction.date);
+				console.log(vm.reaction);
+				ReactionService
+					.update(vm.reaction)
 			}
 
 			function deleteReaction() {

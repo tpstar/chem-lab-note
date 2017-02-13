@@ -20,6 +20,11 @@
 						url: "reactions/:reactionId",
 						templateUrl: 'reactions/reactions.detail.html',
 						controller: 'ReactionsController as vm'
+					})
+					.state('reactions.detail.edit', {
+						url: "reactions/:reactionId/edit",
+						templateUrl: 'reactions/reactions.edit.html',
+						controller: 'ReactionsController as vm'
 					});
 
 				$urlRouterProvider.otherwise("/");

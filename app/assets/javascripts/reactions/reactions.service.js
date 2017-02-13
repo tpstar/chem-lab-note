@@ -8,6 +8,7 @@
         all,
 				getDetail,
 				create,
+				update,
 				destroy
       }
 
@@ -28,6 +29,21 @@
 				const req = {
 					method: 'POST',
 					url: '/api/reactions',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					data: { reaction: reactionInfo }
+				}
+				return $http(req)
+					.then(response => response.data)
+					.catch(err => console.log(err))
+			}
+
+			function update(reactionInfo) {
+				// reactionInfo.date = new Date(reactionInfo.date);
+				const req = {
+					method: 'PUT',
+					url: `/api/reactions/${reactionInfo.id}`,
 					headers: {
 						'Content-Type': 'application/json'
 					},
