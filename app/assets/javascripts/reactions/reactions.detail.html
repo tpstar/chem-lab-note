@@ -1,6 +1,6 @@
 <h3>{{vm.reaction.title}} <span ng-if="vm.reaction.date">created on {{vm.reaction.date}}</span></h3>
 <a ui-sref="reactions.detail.edit">
-  <button ng-click='vm.updateReaction()'>Edit Reaction</button>
+  <button>Edit Reaction</button>
 </a>
 <button ng-click='vm.deleteReaction()'>Delete Reaction</button>
 <ui-view></ui-view>

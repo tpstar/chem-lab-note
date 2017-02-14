@@ -25,7 +25,6 @@
 			}
 
 			function create(reactionInfo) {
-				console.log(reactionInfo);
 				const req = {
 					method: 'POST',
 					url: '/api/reactions',
@@ -35,12 +34,12 @@
 					data: { reaction: reactionInfo }
 				}
 				return $http(req)
+					.then(console.log(req))
 					.then(response => response.data)
 					.catch(err => console.log(err))
 			}
 
 			function update(reactionInfo) {
-				// reactionInfo.date = new Date(reactionInfo.date);
 				const req = {
 					method: 'PUT',
 					url: `/api/reactions/${reactionInfo.id}`,
@@ -50,6 +49,7 @@
 					data: { reaction: reactionInfo }
 				}
 				return $http(req)
+					.then(console.log(req))
 					.then(response => response.data)
 					.catch(err => console.log(err))
 			}
