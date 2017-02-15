@@ -16,6 +16,7 @@ class Api::ReactionsController < ApplicationController
   end
 
   def update
+    @reaction.update(reaction_params)
     if @reaction.save
       render json: @reaction
     else

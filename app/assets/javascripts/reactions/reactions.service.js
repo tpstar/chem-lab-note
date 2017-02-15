@@ -34,12 +34,15 @@
 					data: { reaction: reactionInfo }
 				}
 				return $http(req)
-					.then(console.log(req))
 					.then(response => response.data)
 					.catch(err => console.log(err))
 			}
 
 			function update(reactionInfo) {
+				// console.log(reactionInfo) //updated data carries here
+				// return $http.put(`/api/reactions/${reactionInfo.id}`,
+				// 	{ reaction: reactionInfo })
+				// 	.then(response => console.log(response.data))
 				const req = {
 					method: 'PUT',
 					url: `/api/reactions/${reactionInfo.id}`,
@@ -50,7 +53,7 @@
 				}
 				return $http(req)
 					.then(console.log(req))
-					.then(response => response.data)
+					.then(response => console.log(response.data))
 					.catch(err => console.log(err))
 			}
 

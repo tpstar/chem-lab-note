@@ -7,6 +7,11 @@
 			function(ReactionService, $stateParams, $scope, $state) {
       var vm = this;
 
+			vm.reaction = {
+				title: '',
+				date: 'yyyy-mm-dd'
+			}
+
 			vm.createReaction = createReaction;
 			vm.updateReaction = updateReaction;
 			vm.deleteReaction = deleteReaction;
@@ -29,11 +34,10 @@
 					.then(vm.reaction = {})
 			}
 
-			function updateReaction() {
-				// console.log(vm.reaction);
+			function updateReaction(reactionInfo) {
 				ReactionService
-					.update(vm.reaction)
-					// .then(console.log(vm.reaction))
+					.update(reactionInfo)
+					// .then(data => console.log(data))
 			}
 
 			function deleteReaction() {
