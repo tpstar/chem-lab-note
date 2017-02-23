@@ -6,8 +6,13 @@
 		.config(['$stateProvider', '$urlRouterProvider',
 			function($stateProvider, $urlRouterProvider) {
 				$stateProvider
+				.state('home', {
+					url: '/home',
+					templateUrl: 'home/_home.html',
+					controller: 'HomeController as vm'
+					})
 					.state('reactions', {
-						url: "/",
+						url: "/reactions",
 						templateUrl: "reactions/reactions.list.html",
 						controller: 'ReactionsController as vm'
 					})
@@ -27,7 +32,7 @@
 						controller: 'ReactionsController as vm'
 					});
 
-				$urlRouterProvider.otherwise("/");
+				$urlRouterProvider.otherwise("home");
 
 		}])
 }())
