@@ -6,9 +6,17 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   </head>
 
   <body ng-app="chemApp">
+    <!-- <%= #render 'layouts/header' %> -->
+    <!-- <% #if notice %> -->
+      <!-- <p class="notice"><%= notice %></p> -->
+    <!-- <% end %> -->
+    <!-- <% if notice %> -->
+      <!-- <p class="alert"><%= alert %></p> -->
+    <!-- <% end %> -->
 
     <div class="container">
       <%= yield %>
