@@ -52,7 +52,7 @@
 					data: { reaction: reactionInfo }
 				}
 				return $http(req)
-					.then(console.log(req))
+					// .then(console.log(req))
 					.then(response => console.log(response.data))
 					.catch(err => console.log(err))
 			}
