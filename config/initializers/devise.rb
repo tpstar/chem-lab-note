@@ -244,7 +244,7 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
   # config.omniauth :google_oauth2, "GOOGLE_CLIENT_ID", "GOOGLE_CLIENT_SECRET", { }
-  config.omniauth :google_oauth2, '467129057280-r709aovjck75suubgmq8qpfhv7vrabau.apps.googleusercontent.com', '2o-K6DkfRzMdikS_I0AsTeyB', { }
+  # config.omniauth :google_oauth2, '467129057280-r709aovjck75suubgmq8qpfhv7vrabau.apps.googleusercontent.com', '2o-K6DkfRzMdikS_I0AsTeyB', { }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
