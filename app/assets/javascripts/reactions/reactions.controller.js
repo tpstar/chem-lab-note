@@ -32,7 +32,10 @@
 			function updateReaction(reactionInfo) {
 				ReactionService
 					.update(reactionInfo)
-					.then(reaction => console.log(reaction))
+					.then(function(data) {
+						vm.reaction = data; //for view binding
+						console.log(vm.reaction)
+					})
 			}
 
 			function deleteReaction() {

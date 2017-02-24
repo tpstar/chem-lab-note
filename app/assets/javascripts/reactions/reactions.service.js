@@ -53,7 +53,7 @@
 				}
 				return $http(req)
 					// .then(console.log(req))
-					.then(response => console.log(response.data))
+					.then(response => response.data)
 					.catch(err => console.log(err))
 			}
 
