@@ -1,4 +1,4 @@
-angular.module('flapperNews')
+angular.module('chemApp')
   .controller('NavCtrl', ['$scope', 'Auth',
     function($scope, Auth) {
 
