@@ -1,4 +1,5 @@
 class Api::ReactionsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_reaction, only: [:show, :update, :destroy]
 
   def index

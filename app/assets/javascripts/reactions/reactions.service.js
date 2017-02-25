@@ -15,7 +15,7 @@
       function all() {
         return $http.get('/api/reactions')
           .then(response => response.data)
-          .catch(err => console.log(err))
+          .catch(err => console.log("Please login or signup first."))
       }
 
 			function getDetail(reactionId) {

@@ -33,14 +33,9 @@
 				ReactionService
 					.update(reactionInfo)
 					.then(function(data) {
-						console.log(data)
+						// console.log(data)
 						$scope.$parent.vm.reaction = data
-						// var tempReactions = $scope.$parent.reactions.filter(reaction => reaction.id !== data.id)
-						// tempReactions.push(data);
-						// console.log(tempReactions);
-						// console.log($scope.$parent.reactions);
-						// $scope.$parent.reactions = tempReactions;
-						// console.log($scope.$parent.reactions); //$scope.$parent.reactions change but not the details view
+						//bind vm.reaction in parent reaction.detail to edited reaction data
 					})
 			}
 
