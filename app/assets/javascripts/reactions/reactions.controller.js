@@ -12,7 +12,15 @@
 			vm.deleteReaction = deleteReaction;
 
       ReactionService.all()
-        .then(data => $scope.reactions = data);
+        .then(function(response) {
+					console.log(response);
+					if (response.status === 201) {
+						$scope.reactions = response.data;
+					} else if (response.status === 406) {
+						$scope.errorMessage = "Please login or sign up first!"
+					}
+
+				})
 
 			if ($stateParams.reactionId) {
 				ReactionService
