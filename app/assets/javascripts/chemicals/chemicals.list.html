@@ -1,0 +1,21 @@
+<h1>Chemicals</h1>
+<hr>
+<div ng-show="errorMessage">
+  <h3>{{errorMessage}}</h3>
+</div>
+
+
+<div ng-hide="errorMessage">
+  <a ui-sref="reactions.new"> <h3>Create a Reaction</h3> </a>
+
+  <hr>
+
+  <a ui-sref="reactions.detail({ reactionId: reaction.id })"
+     data-ng-repeat="reaction in reactions">
+
+    <h3><span data-ng-bind="reaction.title"></span></h3>
+  </a>
+  <div class="reactionDetail">
+    <ui-view></ui-view>
+  </div>
+</div>

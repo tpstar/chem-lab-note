@@ -1,4 +1,5 @@
 class Api::ChemicalsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_chemical, only: [:show, :update, :destroy]
   def index
     chemicals = Chemical.all

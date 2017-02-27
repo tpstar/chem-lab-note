@@ -31,6 +31,11 @@
 						templateUrl: 'reactions/reactions.edit.html',
 						controller: 'ReactionsController as vm'
 					})
+					.state('chemicals', {
+						url: "/chemicals",
+						templateUrl: "chemicals/chemicals.list.html",
+						controller: 'ChemicalsController as vm'
+					})
 					.state('login', {
 						url: '/login',
 						templateUrl: 'auth/_login.html',
