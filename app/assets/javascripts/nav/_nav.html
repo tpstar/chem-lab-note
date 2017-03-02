@@ -1,13 +1,21 @@
-<div ng-controller="NavCtrl">
-  <div class="container topnav">
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#/home">Home</a></li>
-        <li ng-hide="signedIn()"><a ui-sref="login">Log In</a></li>
-        <li ng-hide="signedIn()"><a ui-sref="register">Register</a></li>
-        <li ng-show="signedIn()"><a href="#/">{{user.first_name}}</a></li>
-        <li ng-show="signedIn()"><a ng-click="logout()">Log Out</a></li>
-      </ul>
-    </div>
+
+<nav class="navbar navbar-toggleable-md navbar-light"
+  role="navigation"
+  style="background-color: #282c34; font-size: 16px"
+  ng-controller="NavCtrl">
+
+  <a class="navbar-brand" href="#">
+    <!-- <img ng-src="img/Lour72.jpg" width="300" height="300" alt=""> -->
+    Chem Lab Note
+  </a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#/home">Home</a></li>
+      <li ng-hide="signedIn()"><a ui-sref="login">Log In</a></li>
+      <li ng-hide="signedIn()"><a ui-sref="register">Register</a></li>
+      <li ng-show="signedIn()"><a href="#/">{{user.first_name}}</a></li>
+      <li ng-show="signedIn()"><a ng-click="logout()">Log Out</a></li>
+    </ul>
   </div>
-</div>
+</nav>
