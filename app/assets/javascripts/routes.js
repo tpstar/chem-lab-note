@@ -13,6 +13,11 @@
 					})
 					.state('reactions', {
 						url: "/reactions",
+						templateUrl: "reactions/reactions.html",
+						controller: 'ReactionsController as vm'
+					})
+					.state('reactions.list', {
+						url: "/reactions.list",
 						templateUrl: "reactions/reactions.list.html",
 						controller: 'ReactionsController as vm'
 					})
