@@ -36,6 +36,11 @@
 						templateUrl: "chemicals/chemicals.list.html",
 						controller: 'ChemicalsController as vm'
 					})
+					.state('chemicals.new', {
+						url: 'chemicals/new',
+						templateUrl: 'chemicals/chemicals.new.html',
+						controller: 'ChemicalsController as vm'
+					})
 					.state('login', {
 						url: '/login',
 						templateUrl: 'auth/_login.html',

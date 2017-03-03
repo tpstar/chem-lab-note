@@ -6,14 +6,14 @@
 
 
 <div ng-hide="errorMessage">
-  <a ui-sref="reactions.new"> <h3>Create a Reaction</h3> </a>
+  <a ui-sref="chemicals.new"> <h3>Create a Chemical</h3> </a>
 
   <hr>
 
-  <a ui-sref="reactions.detail({ reactionId: reaction.id })"
-     data-ng-repeat="reaction in reactions">
+  <a ui-sref="chemicals.detail({ chemicalId: chemical.id })"
+     data-ng-repeat="chemical in chemicals">
 
-    <h3><span data-ng-bind="reaction.title"></span></h3>
+    <h3><span data-ng-bind="chemical.name"></span></h3>
   </a>
   <div class="reactionDetail">
     <ui-view></ui-view>
