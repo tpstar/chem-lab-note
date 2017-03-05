@@ -13,7 +13,6 @@
 
       ChemicalService.all()
         .then(function(response) {
-					console.log(response);
 					if (response.status === 201) {
 						$scope.chemicals = response.data;
 					} else if (response.status === 406) {
@@ -33,9 +32,12 @@
 			function createChemical() {
 				ChemicalService
 					.create(vm.chemical)
-					.then(chemical => $scope.$parent.chemicals.push(chemical)) // for display
-								// $state.go('chemicals.detail'))
-					.then(vm.chemical = {})
+					.then(function(chemical) {
+						$scope.$parent.chemicals.push(chemical); // for display
+						$state.go('chemicals.detail', {'chemicalId': chemical.id});
+						console.log(chemical.id);
+					})
+					// .then(vm.chemical = {})
 			}
 
 			function updateChemical(chemicalInfo) {
@@ -54,7 +56,7 @@
 					.then(function(){
 						var currentReactions = $scope.$parent.chemicals.filter(chemical => chemical.id !== vm.chemical.id)
 						$scope.$parent.chemicals = currentReactions;
-						$state.go('chemicals')
+						$state.go('chemicals.list')
 					})
 			}
     }])

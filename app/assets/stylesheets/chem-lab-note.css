@@ -16,7 +16,7 @@ Premium: http://www.gridgum.com
   color: gray;
   font-weight: bold;
 }
-#post-submit{
+#chem-lab-note-button{
   background: #68dff0;
   font-size: 14px;
   border-radius: 4px;
@@ -24,6 +24,11 @@ Premium: http://www.gridgum.com
   border: 1px solid #64c3c2 !important;
   padding: 5px 15px;
   margin-right: 15px;
+  color: gray;
+}
+
+.form-horizontal p {
+  font-size: 14px;
 }
 
 
