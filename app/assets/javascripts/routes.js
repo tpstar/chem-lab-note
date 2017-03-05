@@ -17,22 +17,22 @@
 						controller: 'ReactionsController as vm'
 					})
 					.state('reactions.list', {
-						url: "/reactions/list",
+						url: "/list",
 						templateUrl: "reactions/reactions.list.html",
 						controller: 'ReactionsController as vm'
 					})
 					.state('reactions.new', {
-						url: 'reactions/new',
+						url: '/new',
 						templateUrl: 'reactions/reactions.new.html',
 						controller: 'ReactionsController as vm'
 					})
 					.state('reactions.detail', {
-						url: "reactions/:reactionId",
+						url: "/:reactionId",
 						templateUrl: 'reactions/reactions.detail.html',
 						controller: 'ReactionsController as vm'
 					})
 					.state('reactions.detail.edit', {
-						url: "reactions/:reactionId/edit",
+						url: "/:reactionId/edit",
 						templateUrl: 'reactions/reactions.edit.html',
 						controller: 'ReactionsController as vm'
 					})
@@ -42,22 +42,22 @@
 						controller: 'ChemicalsController as vm'
 					})
 					.state('chemicals.list', {
-						url: "/chemicals/list",
+						url: "/list",
 						templateUrl: "chemicals/chemicals.list.html",
 						controller: 'ChemicalsController as vm'
 					})
 					.state('chemicals.new', {
-						url: 'chemicals/new',
+						url: '/new',
 						templateUrl: 'chemicals/chemicals.new.html',
 						controller: 'ChemicalsController as vm'
 					})
 					.state('chemicals.detail', {
-						url: "chemicals/:reactionId",
+						url: "/:chemicalId",
 						templateUrl: 'chemicals/chemicals.detail.html',
 						controller: 'ChemicalsController as vm'
 					})
 					.state('chemicals.detail.edit', {
-						url: "chemicals/:reactionId/edit",
+						url: "/:chemicalId/edit",
 						templateUrl: 'chemicals/chemicals.edit.html',
 						controller: 'ChemicalsController as vm'
 					})

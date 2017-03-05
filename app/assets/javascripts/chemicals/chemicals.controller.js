@@ -33,7 +33,7 @@
 			function createChemical() {
 				ChemicalService
 					.create(vm.chemical)
-					.then(chemical => $scope.$parent.chemicals.push(chemical);) // for display
+					.then(chemical => $scope.$parent.chemicals.push(chemical)) // for display
 								// $state.go('chemicals.detail'))
 					.then(vm.chemical = {})
 			}
