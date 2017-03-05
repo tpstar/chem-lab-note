@@ -1,21 +1,7 @@
-<h1>Chemicals</h1>
-<hr>
-<div ng-show="errorMessage">
-  <h3>{{errorMessage}}</h3>
-</div>
-
-
-<div ng-hide="errorMessage">
-  <a ui-sref="chemicals.new"> <h3>Create a Chemical</h3> </a>
-
-  <hr>
-
+<div class="col-md-8 col-md-offset-1 col-sm-8 col-sm-offset-1 mb">
   <a ui-sref="chemicals.detail({ chemicalId: chemical.id })"
      data-ng-repeat="chemical in chemicals">
 
     <h3><span data-ng-bind="chemical.name"></span></h3>
   </a>
-  <div class="reactionDetail">
-    <ui-view></ui-view>
-  </div>
 </div>

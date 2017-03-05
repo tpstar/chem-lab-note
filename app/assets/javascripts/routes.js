@@ -17,7 +17,7 @@
 						controller: 'ReactionsController as vm'
 					})
 					.state('reactions.list', {
-						url: "/reactions.list",
+						url: "/reactions/list",
 						templateUrl: "reactions/reactions.list.html",
 						controller: 'ReactionsController as vm'
 					})
@@ -38,12 +38,27 @@
 					})
 					.state('chemicals', {
 						url: "/chemicals",
+						templateUrl: "chemicals/chemicals.html",
+						controller: 'ChemicalsController as vm'
+					})
+					.state('chemicals.list', {
+						url: "/chemicals/list",
 						templateUrl: "chemicals/chemicals.list.html",
 						controller: 'ChemicalsController as vm'
 					})
 					.state('chemicals.new', {
 						url: 'chemicals/new',
 						templateUrl: 'chemicals/chemicals.new.html',
+						controller: 'ChemicalsController as vm'
+					})
+					.state('chemicals.detail', {
+						url: "chemicals/:reactionId",
+						templateUrl: 'chemicals/chemicals.detail.html',
+						controller: 'ChemicalsController as vm'
+					})
+					.state('chemicals.detail.edit', {
+						url: "chemicals/:reactionId/edit",
+						templateUrl: 'chemicals/chemicals.edit.html',
 						controller: 'ChemicalsController as vm'
 					})
 					.state('login', {

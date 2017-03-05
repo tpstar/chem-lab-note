@@ -18,38 +18,38 @@
           .catch(error => error)
       }
 
-			function getDetail(chemcalId) {
-				return $http.get(`/api/chemicals/${chemcalId}`)
+			function getDetail(chemicalId) {
+				return $http.get(`/api/chemicals/${chemicalId}`)
 					.then(response => response.data)
 					.catch(err => console.log(err))
 			}
 
-			function create(chemcalInfo) {
+			function create(chemicalInfo) {
 				const req = {
 					method: 'POST',
 					url: '/api/chemicals',
 					headers: {
 						'Content-Type': 'application/json'
 					},
-					data: { chemcal: chemcalInfo }
+					data: { chemical: chemicalInfo }
 				}
 				return $http(req)
 					.then(response => response.data)
 					.catch(err => console.log(err))
 			}
 
-			function update(chemcalInfo) {
-				// console.log(chemcalInfo) //updated data carries here
-				// return $http.put(`/api/chemicals/${chemcalInfo.id}`,
-				// 	{ chemcal: chemcalInfo })
+			function update(chemicalInfo) {
+				// console.log(chemicalInfo) //updated data carries here
+				// return $http.put(`/api/chemicals/${chemicalInfo.id}`,
+				// 	{ chemical: chemicalInfo })
 				// 	.then(response => console.log(response.data))
 				const req = {
 					method: 'PUT',
-					url: `/api/chemicals/${chemcalInfo.id}`,
+					url: `/api/chemicals/${chemicalInfo.id}`,
 					headers: {
 						'Content-Type': 'application/json'
 					},
-					data: { chemcal: chemcalInfo }
+					data: { chemical: chemicalInfo }
 				}
 				return $http(req)
 					// .then(console.log(req))
@@ -57,10 +57,10 @@
 					.catch(err => console.log(err))
 			}
 
-			function destroy(chemcalId) {
+			function destroy(chemicalId) {
 				const req = {
 					method: 'DELETE',
-					url: `/api/chemicals/${chemcalId}`,
+					url: `/api/chemicals/${chemicalId}`,
 				}
 				return $http(req)
 					.then(response => console.log(response.data.message))
