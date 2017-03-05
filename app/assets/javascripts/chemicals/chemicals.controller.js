@@ -36,17 +36,16 @@
 					.then(function(chemical) {
 						$scope.$parent.chemicals.push(chemical); // for display
 						$state.go('chemicals.detail', {'chemicalId': chemical.id});
-						console.log(chemical.id);
 					})
-					// .then(vm.chemical = {})
 			}
 
 			function updateChemical(chemicalInfo) {
 				ChemicalService
 					.update(chemicalInfo)
-					.then(function(data) {
+					.then(function(chemical) {
+						$state.go('chemicals.detail', {'chemicalId': chemical.id});
 						// console.log(data)
-						$scope.$parent.vm.chemical = data
+						// $scope.$parent.vm.chemical = data
 						//bind vm.chemical in parent chemical.detail to edited chemical data
 					})
 			}

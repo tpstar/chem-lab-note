@@ -16,6 +16,7 @@ class Api::ChemicalsController < ApplicationController
   end
 
   def update
+    @chemical.update(chemical_params)
     if @chemical.save
       render json: @chemical
     else

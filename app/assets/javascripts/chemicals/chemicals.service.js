@@ -39,7 +39,7 @@
 			}
 
 			function update(chemicalInfo) {
-				// console.log(chemicalInfo) //updated data carries here
+				console.log(chemicalInfo) //updated data carries here
 				// return $http.put(`/api/chemicals/${chemicalInfo.id}`,
 				// 	{ chemical: chemicalInfo })
 				// 	.then(response => console.log(response.data))
