@@ -10,6 +10,7 @@
 			vm.createChemical = createChemical;
 			vm.updateChemical = updateChemical;
 			vm.deleteChemical = deleteChemical;
+			vm.uploadEditChem = uploadEditChem;
 
       ChemicalService.all()
         .then(function(response) {
@@ -59,5 +60,11 @@
 						$state.go('chemicals.list')
 					})
 			}
+
+			function uploadEditChem(id) {
+				console.log(id);
+				$state.go('chemicals.edit', {'chemicalId': id} )
+			}
+
     }])
 }())

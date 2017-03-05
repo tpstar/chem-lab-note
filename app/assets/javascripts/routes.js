@@ -56,7 +56,7 @@
 						templateUrl: 'chemicals/chemicals.detail.html',
 						controller: 'ChemicalsController as vm'
 					})
-					.state('chemicals.detail.edit', {
+					.state('chemicals.edit', {
 						url: "/:chemicalId/edit",
 						templateUrl: 'chemicals/chemicals.edit.html',
 						controller: 'ChemicalsController as vm'
