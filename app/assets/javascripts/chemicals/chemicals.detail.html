@@ -1,0 +1,63 @@
+<div class="row mt">
+
+  <div class="col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1 mb">
+      <div class="text-center">
+          <h4> Chemical</h4>
+      </div>
+      <br>
+      <form class="form-horizontal">
+
+        <div class="form-group">
+          <label for="Name" class="control-label col-xs-3">Name</label>
+          <div class="col-xs-9">
+              <p class="form-control-static">{{vm.chemical.name}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="Formula" class="control-label col-xs-3">Formula</label>
+          <div class="col-xs-9">
+              <p class="form-control-static">{{vm.chemical.formula}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="Formula Weight" class="control-label col-xs-3">Formula Weight</label>
+          <div class="col-xs-9">
+            <p class="form-control-static">{{vm.chemical.fw}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="density" class="control-label col-xs-3">Density (g/mL)</label>
+          <div class="col-xs-9">
+            <p class="form-control-static">{{vm.chemical.density}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="mp" class="control-label col-xs-3">Melting point (<sup>o</sup>C)</label>
+          <div class="col-xs-9">
+            <p class="form-control-static">{{vm.chemical.mp}}</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="bp" class="control-label col-xs-3">Boiling point (<sup>o</sup>C)</label>
+          <div class="col-xs-9">
+            <p class="form-control-static">{{vm.chemical.bp}}</p>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="text-center">
+          <button id="chem-lab-note-button" ng-click='vm.uploadEditChem(vm.chemical.id)'>Edit Chemical</button>
+          <button id="chem-lab-note-button" ng-click='vm.deleteChemical()'>Delete Chemical</button>
+        </div>
+
+      </form>
+
+  </div><!-- /col-md-4 -->
+
+</div><!-- /row
