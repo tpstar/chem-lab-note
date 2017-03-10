@@ -9,7 +9,7 @@
   <br>
 
   <a ui-sref="chemicals.detail({ chemicalId: chemical.id })"
-     data-ng-repeat="chemical in chemicals | orderBy:'-name' | filter: {name: qSearchName}">
+     data-ng-repeat="chemical in chemicals | orderBy:'-updated_at' | filter: {name: qSearchName}">
 
     <h4><span data-ng-bind="chemical.name"></span></h4>
   </a>
