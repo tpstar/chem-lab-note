@@ -13,7 +13,7 @@
 
       ReactionService.all()
         .then(function(response) {
-					console.log(response);
+					// console.log(response);
 					if (response.status === 201) {
 						$scope.reactions = response.data;
 					} else if (response.status === 406) {

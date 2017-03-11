@@ -31,6 +31,11 @@ Premium: http://www.gridgum.com
   font-size: 14px;
 }
 
+#page-wrapper {
+    padding: 0 20px;
+    border-left: 1px solid #e7e7e7;
+}
+
 
 
 
