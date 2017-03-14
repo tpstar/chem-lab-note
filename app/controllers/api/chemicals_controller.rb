@@ -37,6 +37,15 @@ class Api::ChemicalsController < ApplicationController
     render json: {message: "This chemical was deleted", status: 200}, status: 200
   end
 
+  def search
+    chemical = Chemical.find_by(name: params[:qchemname])
+    if chemical
+      render json: chemical
+    else
+      render json: {error: "Could not find the chemical!", status: 404}, status: 404
+    end
+  end
+
   private
 
   def chemical_params

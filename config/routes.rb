@@ -12,5 +12,7 @@ Rails.application.routes.draw do
 
   root 'application#angular_home'
 
-  # get '*unmatched_route', :to => 'reactions#index'
+  get 'api/chemicals/search/*qchemname', :to => 'api/chemicals#search'
+  # http://localhost:3000/api/chemicals/search/qchemname
+
 end

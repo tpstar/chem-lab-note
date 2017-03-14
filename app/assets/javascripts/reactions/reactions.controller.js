@@ -56,5 +56,6 @@
 						$state.go('reactions')
 					})
 			}
+
     }])
 }())
