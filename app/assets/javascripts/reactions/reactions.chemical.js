@@ -3,28 +3,38 @@
 
 	angular
 		.module('chemApp')
-    .directive('rxnChemical', ['ReactionService', function(ReactionService) {
-      return {
+    .directive('reactionChemical', ['ChemicalService', function(ChemicalService) {
+
+			return{
+
 				templateUrl: 'reactions/reactions_chemical.html',
-				controller: function($scope){
+
+				compile: function(){
+						return {
+								post: function(scope, iElement, iAttributes, controller){
+									if(iAttributes.chem === "reactant-1"){
+										console.log(scope);
+										// iElement.on('click', scope.btnClick);
+									}
+
+								}
+
+						}
 				},
-				controllerAs: 'ctrl',
-				link: function(scope, element, attr, ctrl) {
-					function searchChemical(qChemical) {
-						console.log("click led me to searchChemical");
-						ReactionService
-							.search("zoro")
-							.then(function(data) {
-								console.log(data);
-								// vm.chemical = data;
-							})
-					}
+
+				controller: function($scope, $element, $attrs){
+
+						$scope.searchChemical = function(qChemical){
+								console.log("qChemical is" + qChemical);
+								ChemicalService
+									.search(qChemical)
+									.then(function(data) {
+										console.log(data);
+										// vm.chemical = data;
+										})
+						}
+
 				}
-					// ChemicalService.all()
-					// 	.then(function(response) {
-					// 			$scope.chemicals = response.data;
-					// 	})
-					// var currentReactions = $scope.$parent.reactions.filter(reaction => reaction.id !== vm.reaction.id)
 			}
 
 		}])

@@ -9,7 +9,8 @@
 				getDetail,
 				create,
 				update,
-				destroy
+				destroy,
+				search
       }
 
       function all() {
@@ -64,6 +65,12 @@
 				}
 				return $http(req)
 					.then(response => console.log(response.data.message))
+					.catch(err => console.log(err))
+			}
+
+			function search(qChemical) {
+				return $http.get(`/api/chemicals/search/${qChemical}`)
+					.then(response => response.data)
 					.catch(err => console.log(err))
 			}
 
