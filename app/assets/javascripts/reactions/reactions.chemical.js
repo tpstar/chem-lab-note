@@ -12,12 +12,13 @@
 				},
 				link: function(scope, iElement, iAttributes, controller){
 					if(iAttributes.chem === "reactant-1"){
-						console.log(scope);
 						scope.searchChemical = function (){
 							ChemicalService
 								.search(scope.ngModel)
 								.then(function(data) {
-									console.log(data);
+									scope.$parent.vm.reactantNo1 = data;
+									console.log(scope);
+									console.log(scope.$parent.vm.reactantNo1);
 								})
 							}
 						} //if

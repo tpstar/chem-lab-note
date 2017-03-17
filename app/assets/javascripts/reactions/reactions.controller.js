@@ -11,6 +11,8 @@
 			vm.updateReaction = updateReaction;
 			vm.deleteReaction = deleteReaction;
 
+			vm.reactantNo1 = {};
+
       ReactionService.all()
         .then(function(response) {
 					// console.log(response);
