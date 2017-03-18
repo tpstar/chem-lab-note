@@ -11,7 +11,8 @@
 			vm.updateReaction = updateReaction;
 			vm.deleteReaction = deleteReaction;
 
-			vm.reactantNo1 = {};
+			$scope.reactantOne = {};
+			$scope.reactantTwo = {};
 
       ReactionService.all()
         .then(function(response) {
