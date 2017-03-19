@@ -13,6 +13,7 @@
 
 			$scope.reactantOne = {};
 			$scope.reactantTwo = {};
+			$scope.product     = {};
 
       ReactionService.all()
         .then(function(response) {
