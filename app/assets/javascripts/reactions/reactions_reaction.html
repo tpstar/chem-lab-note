@@ -1,0 +1,38 @@
+
+      <div class="col-lg-3 col-md-6">
+        <div reactions-chemical type="Reactant-1" class="panel panel-primary" ng-model="reactant_1">
+          <p>name: {{$parent.$parent.reactantOne.name}}</p>
+          <p>formula: {{$parent.$parent.reactantOne.formula}}</p>
+          <p>fw: {{$parent.$parent.reactantOne.fw}} <span ng-if="$parent.$parent.reactantOne.fw">g/mol</span> </p>
+          <p>density: {{$parent.$parent.reactantOne.density}} <span ng-if="$parent.$parent.reactantOne.density">g/mL</span></p>
+          <p>mp: {{$parent.$parent.reactantOne.mp}}<span ng-if="$parent.$parent.reactantOne.mp"> <sup>o</sup>C</span></p>
+          <p>bp: {{$parent.$parent.reactantOne.bp}}<span ng-if="$parent.$parent.reactantOne.bp"> <sup>o</sup>C</span></p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div reactions-chemical type="Reactant-2" class="panel panel-green" ng-model="reactant_2">
+          <p>name: {{$parent.$parent.reactantTwo.name}}</p>
+          <p>formula: {{$parent.$parent.reactantTwo.formula}}</p>
+          <p>fw: {{$parent.$parent.reactantTwo.fw}} <span ng-if="$parent.$parent.reactantTwo.fw">g/mol</span> </p>
+          <p>density: {{$parent.$parent.reactantTwo.density}} <span ng-if="$parent.$parent.reactantTwo.density">g/mL</span></p>
+          <p>mp: {{$parent.$parent.reactantTwo.mp}}<span ng-if="$parent.$parent.reactantTwo.mp"> <sup>o</sup>C</span></p>
+          <p>bp: {{$parent.$parent.reactantTwo.bp}}<span ng-if="$parent.$parent.reactantTwo.bp"> <sup>o</sup>C</span></p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div reactions-chemical type="Solvent" class="panel panel-yellow" ng-model="_solvent"></div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div reactions-chemical type="Product" class="panel panel-red" ng-model="_product">
+          <p>name: {{$parent.$parent.product.name}}</p>
+          <p>formula: {{$parent.$parent.product.formula}}</p>
+          <p>fw: {{$parent.$parent.product.fw}} <span ng-if="$parent.$parent.product.fw">g/mol</span> </p>
+          <p>density: {{$parent.$parent.product.density}} <span ng-if="$parent.$parent.product.density">g/mL</span></p>
+          <p>mp: {{$parent.$parent.product.mp}}<span ng-if="$parent.$parent.product.mp"> <sup>o</sup>C</span></p>
+          <p>bp: {{$parent.$parent.product.bp}}<span ng-if="$parent.$parent.product.bp"> <sup>o</sup>C</span></p>
+        </div>
+      </div>
+      <!-- /.col-lg-3 -->
