@@ -5,10 +5,6 @@ class CreateChemicals < ActiveRecord::Migration[5.0]
       t.string :formula
       t.float :fw
       t.float :density
-      t.float :eq
-      t.float :g
-      t.float :mL
-      t.float :mol
       t.float :mp
       t.float :bp
       t.integer :user_id

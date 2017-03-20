@@ -49,7 +49,8 @@ class Api::ChemicalsController < ApplicationController
   private
 
   def chemical_params
-    params.require(:chemical).permit(:name, :formula, :fw, :density, :eq, :g, :mL, :mol, :mp, :bp, :reaction_attributes => [:title, :date])
+    params.require(:chemical).permit(:name, :formula, :fw, :density, :mp, :bp,
+                                     :reaction_attributes => [:title, :date])
   end
 
   def find_chemical

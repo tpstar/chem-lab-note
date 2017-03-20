@@ -41,10 +41,11 @@ class Api::ReactionsController < ApplicationController
   private
 
   def reaction_params
-    params.require(:reaction).permit(:title, :date,
-      :chemical_attributes => [:name, :formula, :fw, :density, :eq, :g, :mL, :mol, :mp, :bp],
-      :sovent_attributes => [:name, :bp, :mL],
-      :condition_attribute => [:time, :temp])
+    params.require(:reaction).permit(:title, :date, :solvent_vol,
+      :chemical_attributes => [:name, :formula, :fw, :density, :mp, :bp],
+      :sovent_attributes => [:name, :bp],
+      :condition_attribute => [:time, :temp],
+      :chemical_reaction_attributes => [:eq, :g, :mL, :mol, :chemical_id])
   end
 
   def find_reaction
