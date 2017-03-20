@@ -15,6 +15,10 @@ ActiveRecord::Schema.define(version: 20170202035800) do
   create_table "chemical_reactions", force: :cascade do |t|
     t.integer  "chemical_id"
     t.integer  "reaction_id"
+    t.float    "eq"
+    t.float    "g"
+    t.float    "mL"
+    t.float    "mol"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -24,10 +28,6 @@ ActiveRecord::Schema.define(version: 20170202035800) do
     t.string   "formula"
     t.float    "fw"
     t.float    "density"
-    t.float    "eq"
-    t.float    "g"
-    t.float    "mL"
-    t.float    "mol"
     t.float    "mp"
     t.float    "bp"
     t.integer  "user_id"
@@ -47,14 +47,14 @@ ActiveRecord::Schema.define(version: 20170202035800) do
     t.string   "title"
     t.date     "date"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.float    "solvent_vol"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "solvents", force: :cascade do |t|
     t.string   "name"
     t.integer  "bp"
-    t.float    "mL"
     t.integer  "reaction_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
