@@ -15,41 +15,46 @@
 				link: function(scope, element, attribute){
 					if(attribute.type === "Reactant-1"){
 						scope.searchChemical = function (){
-							console.log(scope.ngModel.search)
 							ChemicalService
 								.search(scope.ngModel.search)
 								.then(function(data) {
-									scope.$parent.reactantOne = data;
-									console.log(scope.$parent.reactantOne);
+									scope.$parent.reactantOne.properties = data;
 								})
 						} //search chemical
 					} //if(attribute.type)
 					if(attribute.type === "Reactant-2"){
 						scope.searchChemical = function (){
 							ChemicalService
-								.search(scope.ngModel)
+								.search(scope.ngModel.search)
 								.then(function(data) {
-									scope.$parent.reactantTwo = data;
-									console.log(scope.$parent.reactantTwo);
+									scope.$parent.reactantTwo.properties = data;
 								})
 							}
 						} //if
 						if(attribute.type === "Product"){
 							scope.searchChemical = function (){
 								ChemicalService
-									.search(scope.ngModel)
+									.search(scope.ngModel.search)
 									.then(function(data) {
-										scope.$parent.product = data;
-										console.log(scope.$parent.product);
+										scope.$parent.product.properties = data;
 									})
 							}
 						} //if
 						scope.addR1Wt = function () {
-							scope.$parent.rxnChemOne.wt = scope.ngModel.reactantOneWt;
-							scope.$parent.rxnChemOne.mol = ReactionService
-								.calculateMol(scope.$parent.rxnChemOne.wt, scope.$parent.reactantOne.fw); //calculate mole
+							scope.$parent.reactantOne.rxnAttr.mol = ReactionService
+								.calculateMol(scope.$parent.reactantOne.rxnAttr.wt, scope.$parent.reactantOne.properties.fw); //calculate mole
 						}
-					} //link
+
+						scope.addR2Eq = function () {
+							scope.$parent.reactantTwo.rxnAttr.mol = ReactionService
+								.calculateMolFromEq(scope.$parent.reactantOne.rxnAttr.mol, scope.$parent.reactantTwo.rxnAttr.eq, scope.$parent.reactantOne.rxnAttr.eq)
+							console.log(scope.$parent.reactantTwo.rxnAttr.mol);
+
+							scope.$parent.reactantTwo.rxnAttr.wt = ReactionService
+								.calculateWt(scope.$parent.reactantTwo.rxnAttr.mol, scope.$parent.reactantTwo.properties.fw)
+							console.log(scope.$parent.reactantTwo.rxnAttr.wt);
+						}
+ 					} //link
 				}
 			}])
 

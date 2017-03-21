@@ -10,7 +10,9 @@
 				create,
 				update,
 				destroy,
-				calculateMol
+				calculateMol,
+				calculateMolFromEq,
+				calculateWt
       }
 
       function all() {
@@ -69,8 +71,17 @@
 			}
 
 			function calculateMol(wt, fw) {
-				return ((wt/fw).toFixed(2))
+				return (wt/fw).toFixed(2)
 			}
+
+			function calculateMolFromEq(molOne, eqTwo, eqOne) {
+				return (molOne*eqTwo/eqOne).toFixed(2)
+			}
+
+			function calculateWt(mol, fw) {
+				return (mol*fw).toFixed(1)
+			}
+
 
     }]);
 }())

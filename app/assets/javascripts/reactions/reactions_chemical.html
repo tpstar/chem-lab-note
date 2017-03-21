@@ -19,14 +19,30 @@
 
     <div ng-transclude></div>
 
+    <hr>
+
     <div ng-switch="type">
 
-      <div ng-switch-when="Reactant-1" class="input-group col-xs-12"> <!-- input box for wt of reactantOne -->
-        <p>mol: {{$parent.$parent.rxnChemOne.mol}}</p>
-        <span class="pull-left">wt: <input type="text" placeholder="wt (in grams)" ng-model="$parent.ngModel.reactantOneWt"/></span>
-        <button class btn btn-default ng-click="addR1Wt()"><span class="glyphicon glyphicon-play"></span></button>
+      <div ng-switch-when="Reactant-1" class="input-group col-xs-12"> <!-- Reactant-1 -->
+        <p>mol: {{$parent.$parent.reactantOne.rxnAttr.mol}}</p>
+        <p>
+          <span class="pull-left">wt: <input type="text" placeholder="wt (in grams)" ng-model="$parent.$parent.reactantOne.rxnAttr.wt"/></span>
+          <button class btn btn-default ng-click="addR1Wt()"><span class="glyphicon glyphicon-play"></span></button>
+        </p>
+        <span class="pull-left">eq: <input type="text" ng-model="$parent.$parent.reactantOne.rxnAttr.eq"/></span>
+
       </div>
 
-    </div>
+      <div ng-switch-when="Reactant-2" class="input-group col-xs-12"> <!-- Reactant-2 -->
+        <p>mol: {{$parent.$parent.reactantTwo.rxnAttr.mol}}</p>
+        <p>wt: <strong style="color:#5cb85c">{{$parent.$parent.reactantTwo.rxnAttr.wt}}</strong> <span ng-if="$parent.$parent.reactantTwo.rxnAttr.wt">g</span></p>
+        <p>
+          <span class="pull-left">eq: <input type="text" placeholder="eq. to reactant-1" ng-model="$parent.$parent.reactantTwo.rxnAttr.eq"/></span>
+          <button class btn btn-default ng-click="addR2Eq()"><span class="glyphicon glyphicon-play"></span></button>
+        </p>
+      </div>
+
+    </div> <!-- .ng-switch -->
+
     <div class="clearfix"></div>
   </div> <!-- .panel-footer -->
