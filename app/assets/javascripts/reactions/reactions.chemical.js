@@ -3,26 +3,27 @@
 
 	angular
 		.module('chemApp')
-    .directive('reactionsChemical', ['ChemicalService', function(ChemicalService) {
+    .directive('reactionsChemical', ['ChemicalService', 'ReactionService', function(ChemicalService, ReactionService) {
 
 			return{
 				transclude: true,
 				templateUrl: 'reactions/reactions_chemical.html',
 				scope: {
-					ngModel: '=',
-					type: '@'
+					type: '@',
+					ngModel: '='
 				},
 				link: function(scope, element, attribute){
 					if(attribute.type === "Reactant-1"){
 						scope.searchChemical = function (){
+							console.log(scope.ngModel.search)
 							ChemicalService
-								.search(scope.ngModel)
+								.search(scope.ngModel.search)
 								.then(function(data) {
 									scope.$parent.reactantOne = data;
 									console.log(scope.$parent.reactantOne);
 								})
-						}
-					} //if
+						} //search chemical
+					} //if(attribute.type)
 					if(attribute.type === "Reactant-2"){
 						scope.searchChemical = function (){
 							ChemicalService
@@ -43,6 +44,11 @@
 									})
 							}
 						} //if
+						scope.addR1Wt = function () {
+							scope.$parent.rxnChemOne.wt = scope.ngModel.reactantOneWt;
+							scope.$parent.rxnChemOne.mol = ReactionService
+								.calculateMol(scope.$parent.rxnChemOne.wt, scope.$parent.reactantOne.fw);
+						}
 					} //link
 				}
 			}])

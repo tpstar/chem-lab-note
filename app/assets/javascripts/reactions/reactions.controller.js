@@ -11,8 +11,11 @@
 			vm.updateReaction = updateReaction;
 			vm.deleteReaction = deleteReaction;
 
-			$scope.reactantOne = {};
+
+			$scope.reactantOne = {}; // Rails model Chemical attributes (:name, :formula, :fw, :density, :mp, :bp)
+			$scope.rxnChemOne = {}; // Rails model ChemicalReaction attributes (:eq, :g, :mL, :mol)
 			$scope.reactantTwo = {};
+			$scope.rxnChemTwo = {};
 			$scope.product     = {};
 
       ReactionService.all()

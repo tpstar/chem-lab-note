@@ -8,7 +8,7 @@
 
   <div class="panel-footer">
     <div class="input-group col-xs-12">
-      <input type="text" class="  search-query form-control" placeholder="Search Chemical" ng-model="ngModel"/>
+      <input type="text" class="search-query form-control" placeholder="Search Chemical" ng-model="ngModel.search"/>
       <span class="input-group-btn">
           <button class="btn btn-primary" type="button" ng-click="searchChemical()">
               <span class=" glyphicon glyphicon-search"></span>
@@ -16,7 +16,14 @@
       </span>
     </div>
     <br>
+
     <div ng-transclude></div>
 
+    <div ng-if="type === 'Reactant-1'" class="input-group col-xs-12"> <!-- input box for wt of reactantOne -->
+      <p>mol: {{$parent.$parent.rxnChemOne.mol}}</p>
+      <span class="pull-left">wt: <input type="text" placeholder="wt (in grams)" ng-model="$parent.ngModel.reactantOneWt"/></span>
+      <button class btn btn-default ng-click="addR1Wt()"><span class="glyphicon glyphicon-play"></span></button>
+    </div>
+
     <div class="clearfix"></div>
-  </div>
+  </div> <!-- .panel-footer -->

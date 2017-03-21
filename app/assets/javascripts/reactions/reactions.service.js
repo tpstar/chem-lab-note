@@ -9,7 +9,8 @@
 				getDetail,
 				create,
 				update,
-				destroy
+				destroy,
+				calculateMol
       }
 
       function all() {
@@ -67,7 +68,9 @@
 					.catch(err => console.log(err))
 			}
 
-
+			function calculateMol(wt, fw) {
+				return ((parseFloat(wt)/fw).toFixed(2))
+			}
 
     }]);
 }())
