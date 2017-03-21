@@ -69,7 +69,7 @@
 			}
 
 			function calculateMol(wt, fw) {
-				return ((parseFloat(wt)/fw).toFixed(2))
+				return ((wt/fw).toFixed(2))
 			}
 
     }]);

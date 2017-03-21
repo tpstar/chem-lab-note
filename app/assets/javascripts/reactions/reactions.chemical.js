@@ -47,7 +47,7 @@
 						scope.addR1Wt = function () {
 							scope.$parent.rxnChemOne.wt = scope.ngModel.reactantOneWt;
 							scope.$parent.rxnChemOne.mol = ReactionService
-								.calculateMol(scope.$parent.rxnChemOne.wt, scope.$parent.reactantOne.fw);
+								.calculateMol(scope.$parent.rxnChemOne.wt, scope.$parent.reactantOne.fw); //calculate mole
 						}
 					} //link
 				}

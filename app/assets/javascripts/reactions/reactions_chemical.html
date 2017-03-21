@@ -19,11 +19,14 @@
 
     <div ng-transclude></div>
 
-    <div ng-if="type === 'Reactant-1'" class="input-group col-xs-12"> <!-- input box for wt of reactantOne -->
-      <p>mol: {{$parent.$parent.rxnChemOne.mol}}</p>
-      <span class="pull-left">wt: <input type="text" placeholder="wt (in grams)" ng-model="$parent.ngModel.reactantOneWt"/></span>
-      <button class btn btn-default ng-click="addR1Wt()"><span class="glyphicon glyphicon-play"></span></button>
-    </div>
+    <div ng-switch="type">
 
+      <div ng-switch-when="Reactant-1" class="input-group col-xs-12"> <!-- input box for wt of reactantOne -->
+        <p>mol: {{$parent.$parent.rxnChemOne.mol}}</p>
+        <span class="pull-left">wt: <input type="text" placeholder="wt (in grams)" ng-model="$parent.ngModel.reactantOneWt"/></span>
+        <button class btn btn-default ng-click="addR1Wt()"><span class="glyphicon glyphicon-play"></span></button>
+      </div>
+
+    </div>
     <div class="clearfix"></div>
   </div> <!-- .panel-footer -->
