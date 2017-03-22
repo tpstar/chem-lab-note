@@ -16,6 +16,7 @@
 			$scope.reactantOne = {properies: {}, rxnAttr: {eq: 1}};
 			$scope.reactantTwo = {properies: {}, rxnAttr: {}};
 			$scope.product     = {properies: {}, rxnAttr: {}};
+			$scope.yield       = 0
 
       ReactionService.all()
         .then(function(response) {

@@ -29,8 +29,9 @@
           <span class="pull-left">wt: <input type="text" placeholder="wt (in grams)" ng-model="$parent.$parent.reactantOne.rxnAttr.wt"/></span>
           <button class btn btn-default ng-click="addR1Wt()"><span class="glyphicon glyphicon-play"></span></button>
         </p>
-        <span class="pull-left">eq: <input type="text" ng-model="$parent.$parent.reactantOne.rxnAttr.eq"/></span>
-
+        <p>
+          <span class="pull-left">eq: <input type="text" ng-model="$parent.$parent.reactantOne.rxnAttr.eq"/></span>
+        </p>
       </div>
 
       <div ng-switch-when="Reactant-2" class="input-group col-xs-12"> <!-- Reactant-2 -->
@@ -40,6 +41,15 @@
           <span class="pull-left">eq: <input type="text" placeholder="eq. to reactant-1" ng-model="$parent.$parent.reactantTwo.rxnAttr.eq"/></span>
           <button class btn btn-default ng-click="addR2Eq()"><span class="glyphicon glyphicon-play"></span></button>
         </p>
+      </div>
+
+      <div ng-switch-when="Product" class="input-group col-xs-12"> <!-- Reactant-2 -->
+        <p>mol: {{$parent.$parent.product.rxnAttr.mol}}</p>
+        <p>
+          <span class="pull-left">wt: <input type="text" placeholder="isolated wt in grams" ng-model="$parent.$parent.product.rxnAttr.wt"/></span>
+          <button class btn btn-default ng-click="addPrWt()"><span class="glyphicon glyphicon-play"></span></button>
+        </p>
+        <p>eq: {{$parent.$parent.product.rxnAttr.eq}}</p>
       </div>
 
     </div> <!-- .ng-switch -->

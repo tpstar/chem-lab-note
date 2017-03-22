@@ -12,7 +12,8 @@
 				destroy,
 				calculateMol,
 				calculateMolFromEq,
-				calculateWt
+				calculateWt,
+				calculateEq
       }
 
       function all() {
@@ -82,6 +83,9 @@
 				return (mol*fw).toFixed(1)
 			}
 
+			function calculateEq(molP, molOne, eqOne) {
+				return (molP*eqOne/molOne).toFixed(2)
+			}
 
     }]);
 }())
