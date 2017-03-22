@@ -5,6 +5,8 @@ class CreateReactions < ActiveRecord::Migration[5.0]
       t.date :date
       t.integer :user_id
       t.float :solvent_vol
+      t.float :time
+      t.integer :temp
 
       t.timestamps
     end
