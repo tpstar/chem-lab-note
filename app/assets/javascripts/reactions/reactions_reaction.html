@@ -1,9 +1,6 @@
 
       <div class="col-lg-3 col-md-6">
-        <div reactions-chemical class="panel panel-primary"
-                                type="Reactant-1"
-                                ng-model="reactant_1">
-
+        <div reactions-chemical class="panel panel-primary" type="Reactant-1" ng-model="reactant_1">
           <p>name: {{$parent.$parent.reactantOne.properties.name}}</p>
           <p>formula: {{$parent.$parent.reactantOne.properties.formula}}</p>
           <p>fw: {{$parent.$parent.reactantOne.properties.fw}} <span ng-if="$parent.$parent.reactantOne.properties.fw">g/mol</span> </p>
@@ -42,3 +39,11 @@
         </div>
       </div>
       <!-- /.col-lg-3 -->
+
+      <div class="col-lg-3 col-md-6" ng-if="yield > 0">
+        <div class="panel panel-purple">
+          <div class="panel-heading">
+            Yield: {{yield}}%
+          </div>
+        </div>
+      </div>

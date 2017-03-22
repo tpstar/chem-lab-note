@@ -64,6 +64,10 @@
 							scope.$parent.product.rxnAttr.eq = ReactionService
 								.calculateEq(scope.$parent.product.rxnAttr.mol, scope.$parent.reactantOne.rxnAttr.mol, scope.$parent.reactantOne.rxnAttr.eq);
 							console.log(scope.$parent.product.rxnAttr.eq);
+
+							scope.$parent.yield = ReactionService
+								.calculateYield(scope.$parent.reactantOne.rxnAttr.eq, scope.$parent.reactantTwo.rxnAttr.eq, scope.$parent.product.rxnAttr.eq);
+							console.log(scope.$parent.yield)
 						}
  					} //link
 				}

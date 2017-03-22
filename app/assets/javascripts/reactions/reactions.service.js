@@ -13,7 +13,8 @@
 				calculateMol,
 				calculateMolFromEq,
 				calculateWt,
-				calculateEq
+				calculateEq,
+				calculateYield
       }
 
       function all() {
@@ -83,8 +84,16 @@
 				return (mol*fw).toFixed(1)
 			}
 
-			function calculateEq(molP, molOne, eqOne) {
-				return (molP*eqOne/molOne).toFixed(2)
+			function calculateEq(molPr, molOne, eqOne) {
+				return (molPr*eqOne/molOne).toFixed(2)
+			}
+
+			function calculateYield(eqOne, eqTwo, eqPr) {
+				if (eqOne >= eqTwo) {
+					return eqPr/eqTwo
+				} else {
+					return eqPr/eqOne.toFixed(3)*100
+				}
 			}
 
     }]);
