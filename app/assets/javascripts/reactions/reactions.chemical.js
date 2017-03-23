@@ -19,6 +19,7 @@
 								.search(scope.ngModel.search)
 								.then(function(data) {
 									scope.$parent.reactantOne.properties = data;
+									// scope.$parent.vm.reaction.chemicals[0] = data;
 								})
 						} //search chemical
 					} //if(attribute.type)
@@ -68,6 +69,8 @@
 							scope.$parent.yield = ReactionService
 								.calculateYield(scope.$parent.reactantOne.rxnAttr.eq, scope.$parent.reactantTwo.rxnAttr.eq, scope.$parent.product.rxnAttr.eq);
 							console.log(scope.$parent.yield)
+
+
 						}
  					} //link
 				}

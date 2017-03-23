@@ -1,7 +1,8 @@
 
       <div class="col-lg-3 col-md-6">
         <div reactions-chemical class="panel panel-primary" type="Reactant-1" ng-model="reactant_1">
-          <p>name: {{$parent.$parent.reactantOne.properties.name}}</p>
+          <!-- <p>name: {{$parent.$parent.reactantOne.properties.name}}</p> -->
+          <p>name: {{$parent.$parent.vm.reaction.chemicals[0].name}}</p>
           <p>formula: {{$parent.$parent.reactantOne.properties.formula}}</p>
           <p>fw: {{$parent.$parent.reactantOne.properties.fw}} <span ng-if="$parent.$parent.reactantOne.properties.fw">g/mol</span> </p>
           <p>density: {{$parent.$parent.reactantOne.properties.density}} <span ng-if="$parent.$parent.reactantOne.properties.density">g/mL</span></p>
@@ -25,7 +26,18 @@
       </div>
 
       <div class="col-lg-3 col-md-6">
-        <div reactions-chemical type="Solvent" class="panel panel-yellow" ng-model="_solvent"></div>
+        <div reactions-chemical type="Solvent" class="panel panel-yellow" ng-model="_solvent">
+          <p>name: {{$parent.$parent.solvent.properties.name}}</p>
+          <p>bp: {{$parent.$parent.solvent.properties.bp}}<span ng-if="$parent.$parent.solvent.properties.bp"> <sup>o</sup>C</span></p>
+        </div>
+        <div class="text-center">
+          <h1>&#10230;</h1>
+        </div>
+        <div reactions-chemical type="Conditions" class="panel panel-yellow">
+          <div class="panel-footer">
+            <p>name: {{$parent.$parent.solvent.properties.name}}</p>
+          </div>
+        </div>
       </div>
 
       <div class="col-lg-3 col-md-6">
@@ -43,7 +55,7 @@
       <div class="col-lg-3 col-lg-offset-9 col-md-6 col-md-offset-6" ng-if="yield > 0">
         <div class="panel panel-purple">
           <div class="panel-heading">
-            Yield: {{yield}}%
+            Yield: {{vm.yield}}%
           </div>
         </div>
       </div>
