@@ -38,6 +38,7 @@
 					},
 					data: { reaction: reactionInfo }
 				}
+				console.log(req)
 				return $http(req)
 					.then(response => response.data)
 					.catch(err => console.log(err))

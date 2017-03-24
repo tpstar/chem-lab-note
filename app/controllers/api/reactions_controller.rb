@@ -8,7 +8,9 @@ class Api::ReactionsController < ApplicationController
   end
 
   def create
+    binding.pry
     reaction = current_user.reactions.build(reaction_params)
+
     if reaction.save
       render json: reaction
     else
@@ -41,9 +43,16 @@ class Api::ReactionsController < ApplicationController
   private
 
   def reaction_params
-    params.require(:reaction).permit(:title, :date, :time, :temp, :chemAmt,
-      :chemical_attributes => [:name, :formula, :fw, :density, :mp, :bp])
-      # :chemical_reaction_attributes => [:eq, :g, :mL, :mol, :chemical_id])
+    params.require(:reaction).permit(:title, :date, :time, :temp, :yield, :chemAmt => [],
+      :chemicals_attributes => [:name, :formula, :fw, :density, :mp, :bp])
+      # from front-end angular
+      # chemAmt: Array[4]
+      # chemicals: Array[4]
+      # date: "2017-03-24"
+      # temp: 26
+      # time: 30
+      # title: "neutraization"
+      # yield: 73
   end
 
   def find_reaction
@@ -51,3 +60,5 @@ class Api::ReactionsController < ApplicationController
   end
 
 end
+
+# "reaction"=><ActionController::Parameters {"chemicals"=>[{"id"=>1, "name"=>"acetic acid", "formula"=>"C2H4O2", "fw"=>60.05, "density"=>0.61, "mp"=>16, "bp"=>118, "updated_at"=>"2017-03-20T04:32:59.331Z", "user"=>{"id"=>1, "email"=>"han@email.com", "first_name"=>"Han", "last_name"=>"Lee"}, "reactions"=>[]}, {"id"=>2, "name"=>"sodium hydroxide", "formula"=>"NaOH", "fw"=>40, "density"=>2.13, "mp"=>318, "bp"=>1388, "updated_at"=>"2017-03-20T04:34:59.220Z", "user"=>{"id"=>1, "email"=>"han@email.com", "first_name"=>"Han", "last_name"=>"Lee"}, "reactions"=>[]}, {"id"=>4, "name"=>"water", "formula"=>"H2O", "fw"=>18.015, "density"=>1, "mp"=>0, "bp"=>100, "updated_at"=>"2017-03-24T02:05:28.833Z", "user"=>{"id"=>1, "email"=>"han@email.com", "first_name"=>"Han", "last_name"=>"Lee"}, "reactions"=>[]}, {"id"=>3, "name"=>"sodium chloride", "formula"=>"NaCl", "fw"=>58.44, "density"=>2.165, "mp"=>801, "bp"=>1413, "updated_at"=>"2017-03-21T21:28:06.789Z", "user"=>{"id"=>1, "email"=>"han@email.com", "first_name"=>"Han", "last_name"=>"Lee"}, "reactions"=>[]}], "chemAmt"=>[<ActionController::Parameters {"eq"=>1, "wt"=>18, "mol"=>"0.30"} permitted: false>, <ActionController::Parameters {"eq"=>1.2, "mol"=>"0.36", "wt"=>"14.4"} permitted: false>, <ActionController::Parameters {"mL"=>20} permitted: false>, <ActionController::Parameters {"wt"=>17, "mol"=>"0.29", "eq"=>"0.97"} permitted: false>], "yield"=>97, "title"=>"neutrailzation", "date"=>"2017-03-22", "temp"=>50, "time"=>30} permitted: false>, "controller"=>"api/reactions", "action"=>"create"} permitted: false>
