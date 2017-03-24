@@ -75,6 +75,14 @@ Premium: http://www.gridgum.com
   background-color: #9370DB;
 }
 
+#panel-conditions {
+
+  padding: 8px;
+  border-color: #f0ad4e;
+  color: white;
+  background-color: #f0ad4e;
+}
+
 .form-horizontal .form-group label {
   text-align: right;
   color: gray;

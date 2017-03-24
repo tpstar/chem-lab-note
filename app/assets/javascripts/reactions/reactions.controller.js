@@ -10,15 +10,12 @@
 			vm.createReaction = createReaction;
 			vm.updateReaction = updateReaction;
 			vm.deleteReaction = deleteReaction;
+			
+			vm.checkVMReaction = checkVMReaction;
 
 			vm.reaction = {chemicals: [], chemAmt: [{eq: 1}], yield: 0}
-			// Rails model Chemical attributes is attributes of reactantOne (:name, :formula, :fw, :density, :mp, :bp)
-			// Rails model ChemicalReaction is reactantOne.rxnAttr (:eq, :g, :mL, :mol)
-			// $scope.reactantOne = {properties: {}, rxnAttr: {eq: 1}};
-			// $scope.reactantTwo = {properties: {}, rxnAttr: {}};
-			// $scope.solvent     = {properties: {}, rxnAttr: {}};
-			// $scope.product     = {properties: {}, rxnAttr: {}};
-
+			// params.require(:reaction).permit(:title, :date, :time, :temp, :chemAmt,
+			// 	:chemical_attributes => [:name, :formula, :fw, :density, :mp, :bp])
 
       ReactionService.all()
         .then(function(response) {
@@ -64,6 +61,10 @@
 						$scope.$parent.reactions = currentReactions;
 						$state.go('reactions')
 					})
+			}
+
+			function checkVMReaction() {
+					console.log(vm.reaction);
 			}
 
     }])
