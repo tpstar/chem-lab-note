@@ -24,22 +24,22 @@
     <div ng-switch="type">
 
       <div ng-switch-when="Reactant-1" class="input-group col-xs-12"> <!-- Reactant-1 -->
-        <p>mol: {{$parent.$parent.reactantOne.rxnAttr.mol}}</p>
+        <p>mol: {{$parent.$parent.vm.reaction.chemAmt[0].mol}}</p>
         <p>
-          <span class="pull-left">wt: <input type="number" placeholder="wt (in grams)" ng-model="$parent.$parent.reactantOne.rxnAttr.wt"/></span>
-          <button class btn btn-default ng-click="addR1Wt()"><span class="glyphicon glyphicon-play"></span></button>
+          <span class="pull-left">wt: <input type="number" placeholder="wt (in grams)" ng-model="$parent.$parent.vm.reaction.chemAmt[0].wt"/></span>
+          <button class btn btn-default ng-click="weightToMol()"><span class="glyphicon glyphicon-play"></span></button>
         </p>
         <p>
-          <span class="pull-left">eq: <input type="number" ng-model="$parent.$parent.reactantOne.rxnAttr.eq"/></span>
+          <span class="pull-left">eq: <input type="number" ng-model="$parent.$parent.vm.reaction.chemAmt[0].eq"/></span>
         </p>
       </div>
 
       <div ng-switch-when="Reactant-2" class="input-group col-xs-12"> <!-- Reactant-2 -->
-        <p>mol: {{$parent.$parent.reactantTwo.rxnAttr.mol}}</p>
-        <p>wt: <strong style="color:#5cb85c">{{$parent.$parent.reactantTwo.rxnAttr.wt}}</strong> <span ng-if="$parent.$parent.reactantTwo.rxnAttr.wt">g</span></p>
+        <p>mol: {{$parent.$parent.vm.reaction.chemAmt[1].mol}}</p>
+        <p>wt: <strong style="color:#5cb85c">{{$parent.$parent.vm.reaction.chemAmt[1].wt}}</strong> <span ng-if="$parent.$parent.vm.reaction.chemAmt[1].wt">g</span></p>
         <p>
-          <span class="pull-left">eq: <input type="number" placeholder="eq. to reactant-1" ng-model="$parent.$parent.reactantTwo.rxnAttr.eq"/></span>
-          <button class btn btn-default ng-click="addR2Eq()"><span class="glyphicon glyphicon-play"></span></button>
+          <span class="pull-left">eq: <input type="number" placeholder="eq. to reactant-1" ng-model="$parent.$parent.vm.reaction.chemAmt[1].eq"/></span>
+          <button class btn btn-default ng-click="addEq()"><span class="glyphicon glyphicon-play"></span></button>
         </p>
       </div>
 
@@ -50,13 +50,13 @@
         </p>
       </div>
 
-      <div ng-switch-when="Product" class="input-group col-xs-12"> <!-- Reactant-2 -->
-        <p>mol: {{$parent.$parent.product.rxnAttr.mol}}</p>
+      <div ng-switch-when="Product" class="input-group col-xs-12"> <!-- Product -->
+        <p>mol: {{$parent.$parent.vm.reaction.chemAmt[3].mol}}</p>
         <p>
-          <span class="pull-left">wt: <input type="number" placeholder="isolated wt in grams" ng-model="$parent.$parent.product.rxnAttr.wt"/></span>
-          <button class btn btn-default ng-click="addPrWt()"><span class="glyphicon glyphicon-play"></span></button>
+          <span class="pull-left">wt: <input type="number" placeholder="isolated wt in grams" ng-model="$parent.$parent.vm.reaction.chemAmt[3].wt"/></span>
+          <button class btn btn-default ng-click="addProductWt()"><span class="glyphicon glyphicon-play"></span></button>
         </p>
-        <p>eq: {{$parent.$parent.product.rxnAttr.eq}}</p>
+        <p>eq: {{$parent.$parent.vm.reaction.chemAmt[3].eq}}</p>
       </div>
 
     </div> <!-- .ng-switch -->
