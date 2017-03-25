@@ -51,31 +51,31 @@
 						} //if
 
 						scope.weightToMol = function () {
-							scope.$parent.vm.reaction.chemAmt[0].mol = ReactionService
-								.calculateMol(scope.$parent.vm.reaction.chemAmt[0].wt, scope.$parent.vm.reaction.chemicals[0].fw); //calculate mole
+							scope.$parent.vm.reaction.reaction_chemicals[0].mol = ReactionService
+								.calculateMol(scope.$parent.vm.reaction.reaction_chemicals[0].wt, scope.$parent.vm.reaction.chemicals[0].fw); //calculate mole
 						}
 
 						scope.addEq = function () {
-							scope.$parent.vm.reaction.chemAmt[1].mol = ReactionService
-								.calculateMolFromEq(scope.$parent.vm.reaction.chemAmt[0].mol, scope.$parent.vm.reaction.chemAmt[1].eq, scope.$parent.vm.reaction.chemAmt[0].eq)
-							console.log(scope.$parent.vm.reaction.chemAmt[1].mol);
+							scope.$parent.vm.reaction.reaction_chemicals[1].mol = ReactionService
+								.calculateMolFromEq(scope.$parent.vm.reaction.reaction_chemicals[0].mol, scope.$parent.vm.reaction.reaction_chemicals[1].eq, scope.$parent.vm.reaction.reaction_chemicals[0].eq)
+							console.log(scope.$parent.vm.reaction.reaction_chemicals[1].mol);
 
-							scope.$parent.vm.reaction.chemAmt[1].wt = ReactionService
-								.calculateWt(scope.$parent.vm.reaction.chemAmt[1].mol, scope.$parent.vm.reaction.chemicals[1].fw)
-							console.log(scope.$parent.vm.reaction.chemAmt[1].wt);
+							scope.$parent.vm.reaction.reaction_chemicals[1].wt = ReactionService
+								.calculateWt(scope.$parent.vm.reaction.reaction_chemicals[1].mol, scope.$parent.vm.reaction.chemicals[1].fw)
+							console.log(scope.$parent.vm.reaction.reaction_chemicals[1].wt);
 						}
 
 						scope.addProductWt = function() {
-							scope.$parent.vm.reaction.chemAmt[3].mol = ReactionService
-								.calculateMol(scope.$parent.vm.reaction.chemAmt[3].wt, scope.$parent.vm.reaction.chemicals[3].fw); //calculate mole
-							console.log(scope.$parent.vm.reaction.chemAmt[3].mol);
+							scope.$parent.vm.reaction.reaction_chemicals[3].mol = ReactionService
+								.calculateMol(scope.$parent.vm.reaction.reaction_chemicals[3].wt, scope.$parent.vm.reaction.chemicals[3].fw); //calculate mole
+							console.log(scope.$parent.vm.reaction.reaction_chemicals[3].mol);
 
-							scope.$parent.vm.reaction.chemAmt[3].eq = ReactionService
-								.calculateEq(scope.$parent.vm.reaction.chemAmt[3].mol, scope.$parent.vm.reaction.chemAmt[0].mol, scope.$parent.vm.reaction.chemAmt[0].eq);
-							console.log(scope.$parent.vm.reaction.chemAmt[3].eq);
+							scope.$parent.vm.reaction.reaction_chemicals[3].eq = ReactionService
+								.calculateEq(scope.$parent.vm.reaction.reaction_chemicals[3].mol, scope.$parent.vm.reaction.reaction_chemicals[0].mol, scope.$parent.vm.reaction.reaction_chemicals[0].eq);
+							console.log(scope.$parent.vm.reaction.reaction_chemicals[3].eq);
 
 							scope.$parent.vm.reaction.yield = ReactionService
-								.calculateYield(scope.$parent.vm.reaction.chemAmt[0].eq, scope.$parent.vm.reaction.chemAmt[1].eq, scope.$parent.vm.reaction.chemAmt[3].eq);
+								.calculateYield(scope.$parent.vm.reaction.reaction_chemicals[0].eq, scope.$parent.vm.reaction.reaction_chemicals[1].eq, scope.$parent.vm.reaction.reaction_chemicals[3].eq);
 							console.log(scope.$parent.vm.reaction.yield)
 
 

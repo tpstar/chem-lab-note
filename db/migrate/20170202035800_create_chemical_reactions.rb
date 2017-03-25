@@ -1,4 +1,4 @@
-class CreateReactionChemicals < ActiveRecord::Migration[5.0]
+class CreateChemicalReactions < ActiveRecord::Migration[5.0]
   def change
     create_table :reaction_chemicals do |t|
       t.integer :chemical_id

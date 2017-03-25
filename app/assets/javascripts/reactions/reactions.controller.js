@@ -11,9 +11,7 @@
 			vm.updateReaction = updateReaction;
 			vm.deleteReaction = deleteReaction;
 
-			vm.reaction = {chemicals: [], chemAmt: [{eq: 1}], yield: 0}
-			// params.require(:reaction).permit(:title, :date, :time, :temp, :chemAmt,
-			// 	:chemical_attributes => [:name, :formula, :fw, :density, :mp, :bp])
+			vm.reaction = {chemicals: [], reaction_chemicals: [{eq: 1}], yield: 0}
 
       ReactionService.all()
         .then(function(response) {

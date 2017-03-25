@@ -12,17 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20170202035800) do
 
-  create_table "chemical_reactions", force: :cascade do |t|
-    t.integer  "chemical_id"
-    t.integer  "reaction_id"
-    t.float    "eq"
-    t.float    "g"
-    t.float    "mL"
-    t.float    "mol"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "chemicals", force: :cascade do |t|
     t.string   "name"
     t.string   "formula"
@@ -35,10 +24,13 @@ ActiveRecord::Schema.define(version: 20170202035800) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "conditions", force: :cascade do |t|
-    t.float    "time"
-    t.integer  "temp"
+  create_table "reaction_chemicals", force: :cascade do |t|
+    t.integer  "chemical_id"
     t.integer  "reaction_id"
+    t.float    "eq"
+    t.float    "g"
+    t.float    "mL"
+    t.float    "mol"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -46,18 +38,12 @@ ActiveRecord::Schema.define(version: 20170202035800) do
   create_table "reactions", force: :cascade do |t|
     t.string   "title"
     t.date     "date"
+    t.float    "time"
+    t.integer  "temp"
+    t.float    "yield"
     t.integer  "user_id"
-    t.float    "solvent_vol"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "solvents", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "bp"
-    t.integer  "reaction_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
