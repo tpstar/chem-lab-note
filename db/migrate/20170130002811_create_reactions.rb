@@ -3,9 +3,10 @@ class CreateReactions < ActiveRecord::Migration[5.0]
     create_table :reactions do |t|
       t.string :title
       t.date :date
-      t.integer :user_id
       t.float :time
       t.integer :temp
+      t.integer :user_id
+
 
       t.timestamps
     end

@@ -8,7 +8,6 @@ class Api::ReactionsController < ApplicationController
   end
 
   def create
-    binding.pry
     reaction = current_user.reactions.build(reaction_params)
 
     if reaction.save
@@ -43,8 +42,9 @@ class Api::ReactionsController < ApplicationController
   private
 
   def reaction_params
-    params.require(:reaction).permit(:title, :date, :time, :temp, :yield, :chemAmt => [],
-      :chemicals_attributes => [:name, :formula, :fw, :density, :mp, :bp])
+    params.require(:reaction).permit(:title, :date, :time, :temp, :yield,
+      # :chemAmt => [:chemical_id, :eq, :g, :mL, :mol],
+      :chemicals => [:id])
       # from front-end angular
       # chemAmt: Array[4]
       # chemicals: Array[4]
