@@ -31,11 +31,11 @@
 						templateUrl: 'reactions/reactions.detail.html',
 						controller: 'ReactionsController as vm'
 					})
-					.state('reactions.detail.edit', {
-						url: "/:reactionId/edit",
-						templateUrl: 'reactions/reactions.edit.html',
-						controller: 'ReactionsController as vm'
-					})
+					// .state('reactions.detail.edit', {
+					// 	url: "/:reactionId/edit",
+					// 	templateUrl: 'reactions/reactions.edit.html',
+					// 	controller: 'ReactionsController as vm'
+					// })
 					.state('chemicals', {
 						url: "/chemicals",
 						templateUrl: "chemicals/chemicals.html",

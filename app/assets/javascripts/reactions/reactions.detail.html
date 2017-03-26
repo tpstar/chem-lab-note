@@ -1,6 +1,41 @@
-<h3>{{vm.reaction.title}} <span ng-if="vm.reaction.date">created on {{vm.reaction.date}}</span></h3>
-<a ui-sref="reactions.detail.edit">
-  <button>Edit Reaction</button>
-</a>
-<button ng-click='vm.deleteReaction()'>Delete Reaction</button>
-<ui-view></ui-view>
+<div id="page-wrapper">
+  <div class="row">
+    <div class="col-lg-2 col-md-2">
+      <h4>Reaction</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-horizontal col-lg-10 col-md-10">
+
+          <label for="Title" class="control-label col-md-1">Title</label>
+          <div class="col-md-4">
+              <input class="form-control" type="text" ng-model='vm.reaction.title'>
+          </div>
+
+          <label for="Date" class="control-label col-md-1">Date</label>
+          <div class="col-md-4">
+              <input class="form-control" type="text" placeholder="yyyy-mm-dd" ng-model='vm.reaction.date'>
+          </div>
+
+    </div>
+  </div>
+  <hr>
+
+
+  <div reactions-reaction class="row">
+
+  </div>
+  <!-- /.row -->
+  <hr>
+
+  <div class="row">
+    <div class="col-lg-12 text-center">
+
+      <button ng-click="vm.updateReaction(vm.reaction)">Save Reaction</button>
+
+      <button ng-click='vm.deleteReaction()'>Delete Reaction</button>
+      
+    </div>
+  </div>
+</div>
+<!-- /#page-wrapper -->
