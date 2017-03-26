@@ -12,7 +12,7 @@
 				destroy,
 				calculateMol,
 				calculateMolFromEq,
-				calculateWt,
+				calculateg,
 				calculateEq,
 				calculateYield
       }
@@ -73,15 +73,15 @@
 					.catch(err => console.log(err))
 			}
 
-			function calculateMol(wt, fw) {
-				return (wt/fw).toFixed(2)
+			function calculateMol(g, fw) {
+				return (g/fw).toFixed(2)
 			}
 
 			function calculateMolFromEq(molOne, eqTwo, eqOne) {
 				return (molOne*eqTwo/eqOne).toFixed(2)
 			}
 
-			function calculateWt(mol, fw) {
+			function calculateg(mol, fw) {
 				return (mol*fw).toFixed(1)
 			}
 

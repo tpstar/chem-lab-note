@@ -3,6 +3,7 @@ class Reaction < ApplicationRecord
   validates :title, presence: true
 
   belongs_to :user
+  has_many :quantities
   has_many :reaction_chemicals
   has_many :chemicals, :through => :reaction_chemicals
 
@@ -10,15 +11,19 @@ class Reaction < ApplicationRecord
     chemical_attributes.each do |chemical_attribute|
       chemical = Chemical.find(chemical_attribute[:id])
       self.chemicals << chemical
-      binding.pry
     end
   end
 
-  def reaction_chemicals=(reaction_chemical_attributes)
-    reaction_chemical_attributes.each do |reaction_chemical_attribute|
-      # binding.pry
-      # reaction_chemical = ReactionChemical.(reaction_chemical_attribute)
-      # self.reaction_chemicals << reaction_chemical
+  def quantities=(quantity_attributes)
+    # reaction_chemical_attributes.each_with_index do |reaction_chemical_attribute, index|
+    #   reaction_chemical = Quantity.new(reaction_chemical_attribute)
+    #   self.quantities[index] = reaction_chemical
+    #   binding.pry
+    # end
+    quantity_attributes.each do |quantity_attribute|
+      binding.pry
+      quantity = Quantity.create(quantity_attribute)
+      self.quantities << quantity
     end
   end
 

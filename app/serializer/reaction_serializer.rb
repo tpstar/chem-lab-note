@@ -2,6 +2,6 @@ class ReactionSerializer < ActiveModel::Serializer
   attributes :id, :title, :date, :time, :temp
   belongs_to :user
   has_many :chemicals
-  # has_many :reaction_chemicals
+  has_many :quantities
 
 end

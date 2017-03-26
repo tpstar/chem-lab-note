@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170202035800) do
+ActiveRecord::Schema.define(version: 20170326042654) do
 
   create_table "chemicals", force: :cascade do |t|
     t.string   "name"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20170202035800) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "reaction_chemicals", force: :cascade do |t|
+  create_table "quantities", force: :cascade do |t|
     t.integer  "chemical_id"
     t.integer  "reaction_id"
     t.float    "eq"
@@ -33,6 +33,13 @@ ActiveRecord::Schema.define(version: 20170202035800) do
     t.float    "mol"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "reaction_chemicals", force: :cascade do |t|
+    t.integer "chemical_id"
+    t.integer "reaction_id"
+    t.index ["chemical_id"], name: "index_reaction_chemicals_on_chemical_id"
+    t.index ["reaction_id"], name: "index_reaction_chemicals_on_reaction_id"
   end
 
   create_table "reactions", force: :cascade do |t|

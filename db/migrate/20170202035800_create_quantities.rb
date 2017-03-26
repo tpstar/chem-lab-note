@@ -1,6 +1,6 @@
-class CreateChemicalReactions < ActiveRecord::Migration[5.0]
+class CreateQuantities < ActiveRecord::Migration[5.0]
   def change
-    create_table :reaction_chemicals do |t|
+    create_table :quantities do |t|
       t.integer :chemical_id
       t.integer :reaction_id
       t.float :eq
