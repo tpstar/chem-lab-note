@@ -11,6 +11,27 @@ Premium: http://www.gridgum.com
 
 /* SPECIFIC FOR CHEM-LAB-NOTE */
 
+.input-xs {
+  height: 22px!important;
+  padding: 2px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
+.input-group-xs {
+  margin-bottom : 12px;
+}
+
+.input-group-xs>.form-control,
+.input-group-xs>.input-group-addon,
+.input-group-xs>.input-group-btn>.btn {
+  height: 22px;
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 .panel-green {
   border-color: #5cb85c;
 }

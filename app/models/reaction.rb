@@ -21,7 +21,7 @@ class Reaction < ApplicationRecord
     #   binding.pry
     # end
     quantity_attributes.each do |quantity_attribute|
-      binding.pry
+      # binding.pry
       quantity = Quantity.create(quantity_attribute)
       self.quantities << quantity
     end
