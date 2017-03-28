@@ -65,11 +65,11 @@
 							console.log(scope.$parent.vm.reaction.quantities[1].mol);
 
 							scope.$parent.vm.reaction.quantities[1].g = ReactionService
-								.calculateg(scope.$parent.vm.reaction.quantities[1].mol, scope.$parent.vm.reaction.chemicals[1].fw)
+								.calculateWt(scope.$parent.vm.reaction.quantities[1].mol, scope.$parent.vm.reaction.chemicals[1].fw)
 							console.log(scope.$parent.vm.reaction.quantities[1].g);
 						}
 
-						scope.addProductg = function() {
+						scope.addProductWt = function() {
 							scope.$parent.vm.reaction.quantities[3].mol = ReactionService
 								.calculateMol(scope.$parent.vm.reaction.quantities[3].g, scope.$parent.vm.reaction.chemicals[3].fw); //calculate mole
 							console.log(scope.$parent.vm.reaction.quantities[3].mol);

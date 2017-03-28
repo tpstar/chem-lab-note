@@ -7,7 +7,7 @@
   </div>
 
   <div class="panel-footer">
-    <div class="input-group col-xs-12">
+    <div class="input-group input-group-sm col-xs-12">
       <input type="text" class="search-query form-control" placeholder="Search Chemical" ng-model="ngModel.search"/>
       <span class="input-group-btn">
           <button class="btn btn-primary" type="button" ng-click="searchChemical()">
@@ -99,16 +99,12 @@
           <span class="input-group-addon">wt: </span>
           <input type="number" class="form-control input-xs" placeholder="isolated g in grams" ng-model="$parent.$parent.vm.reaction.quantities[3].g"/>
           <span class="input-group-btn">
-            <button class="btn btn-xs btn-primary" ng-click="addProductg()">
+            <button class="btn btn-xs btn-primary" ng-click="addProductWt()">
               <i class="glyphicon glyphicon-play"></i>
             </button>
           </span>
         </div>
 
-        <p>
-          <span class="pull-left">wt: <input type="number" placeholder="isolated g in grams" ng-model="$parent.$parent.vm.reaction.quantities[3].g"/></span>
-          <button ng-click="addProductg()"><span class="glyphicon glyphicon-play"></span></button>
-        </p>
         <p>eq: {{$parent.$parent.vm.reaction.quantities[3].eq}}</p>
       </div>
 

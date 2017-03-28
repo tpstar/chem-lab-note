@@ -12,7 +12,7 @@
 				destroy,
 				calculateMol,
 				calculateMolFromEq,
-				calculateg,
+				calculateWt,
 				calculateEq,
 				calculateYield
       }
@@ -81,7 +81,7 @@
 				return (molOne*eqTwo/eqOne).toFixed(2)
 			}
 
-			function calculateg(mol, fw) {
+			function calculateWt(mol, fw) {
 				return (mol*fw).toFixed(1)
 			}
 

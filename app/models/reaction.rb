@@ -15,13 +15,8 @@ class Reaction < ApplicationRecord
   end
 
   def quantities=(quantity_attributes)
-    # reaction_chemical_attributes.each_with_index do |reaction_chemical_attribute, index|
-    #   reaction_chemical = Quantity.new(reaction_chemical_attribute)
-    #   self.quantities[index] = reaction_chemical
-    #   binding.pry
-    # end
+    self.quantities.delete_all
     quantity_attributes.each do |quantity_attribute|
-      # binding.pry
       quantity = Quantity.create(quantity_attribute)
       self.quantities << quantity
     end
