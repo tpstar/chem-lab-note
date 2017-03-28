@@ -60,13 +60,18 @@
 						}
 
 						scope.addEq = function () {
-							scope.$parent.vm.reaction.quantities[1].mol = ReactionService
-								.calculateMolFromEq(scope.$parent.vm.reaction.quantities[0].mol, scope.$parent.vm.reaction.quantities[1].eq, scope.$parent.vm.reaction.quantities[0].eq)
-							console.log(scope.$parent.vm.reaction.quantities[1].mol);
+							if (scope.$parent.vm.reaction.quantities[0].g) {
+								scope.$parent.vm.reaction.quantities[1].mol = ReactionService
+									.calculateMolFromEq(scope.$parent.vm.reaction.quantities[0].mol, scope.$parent.vm.reaction.quantities[1].eq, scope.$parent.vm.reaction.quantities[0].eq)
+								console.log(scope.$parent.vm.reaction.quantities[1].mol);
 
-							scope.$parent.vm.reaction.quantities[1].g = ReactionService
-								.calculateWt(scope.$parent.vm.reaction.quantities[1].mol, scope.$parent.vm.reaction.chemicals[1].fw)
-							console.log(scope.$parent.vm.reaction.quantities[1].g);
+								scope.$parent.vm.reaction.quantities[1].g = ReactionService
+									.calculateWt(scope.$parent.vm.reaction.quantities[1].mol, scope.$parent.vm.reaction.chemicals[1].fw)
+								console.log(scope.$parent.vm.reaction.quantities[1].g);
+							} else {
+								alert("Please add weight of Reactant-1 first!")
+							}
+
 						}
 
 						scope.addProductWt = function() {
