@@ -55,39 +55,55 @@
 						} //if
 
 						scope.weightToMol = function () {
-							scope.$parent.vm.reaction.quantities[0].mol = ReactionService
-								.calculateMol(scope.$parent.vm.reaction.quantities[0].g, scope.$parent.vm.reaction.chemicals[0].fw); //calculate mole
-						}
+							if (scope.$parent.vm.reaction.chemicals[0]) { //Check if Reactant-1 is present
+								scope.$parent.vm.reaction.quantities[0].mol = ReactionService
+									.calculateMol(scope.$parent.vm.reaction.quantities[0].g, scope.$parent.vm.reaction.chemicals[0].fw); //calculate mole
+							} else {
+								alert("Please choose Reactant-1 first!")
+							}
+			}
 
 						scope.addEq = function () {
-							if (scope.$parent.vm.reaction.quantities[0].g) {
-								scope.$parent.vm.reaction.quantities[1].mol = ReactionService
-									.calculateMolFromEq(scope.$parent.vm.reaction.quantities[0].mol, scope.$parent.vm.reaction.quantities[1].eq, scope.$parent.vm.reaction.quantities[0].eq)
-								console.log(scope.$parent.vm.reaction.quantities[1].mol);
+							if (scope.$parent.vm.reaction.chemicals[1]) { //Check if Reactant-2 is present
+								if (scope.$parent.vm.reaction.quantities[0].mol) { //Check if Reactant-1 and its weight are added
+									scope.$parent.vm.reaction.quantities[1].mol = ReactionService
+										.calculateMolFromEq(scope.$parent.vm.reaction.quantities[0].mol, scope.$parent.vm.reaction.quantities[1].eq, scope.$parent.vm.reaction.quantities[0].eq)
+									console.log(scope.$parent.vm.reaction.quantities[1].mol);
 
-								scope.$parent.vm.reaction.quantities[1].g = ReactionService
-									.calculateWt(scope.$parent.vm.reaction.quantities[1].mol, scope.$parent.vm.reaction.chemicals[1].fw)
-								console.log(scope.$parent.vm.reaction.quantities[1].g);
+									scope.$parent.vm.reaction.quantities[1].g = ReactionService
+										.calculateWt(scope.$parent.vm.reaction.quantities[1].mol, scope.$parent.vm.reaction.chemicals[1].fw)
+									console.log(scope.$parent.vm.reaction.quantities[1].g);
+								} else {
+									alert("Please check if Reactant-1 is chosen and it weight is added!")
+								}
 							} else {
-								alert("Please add weight of Reactant-1 first!")
+								alert("Please choose Reactant-2 first!")
 							}
+
 
 						}
 
 						scope.addProductWt = function() {
-							scope.$parent.vm.reaction.quantities[3].mol = ReactionService
-								.calculateMol(scope.$parent.vm.reaction.quantities[3].g, scope.$parent.vm.reaction.chemicals[3].fw); //calculate mole
-							console.log(scope.$parent.vm.reaction.quantities[3].mol);
+							if (scope.$parent.vm.reaction.chemicals[3]) { // Check is Product is present
+								if (scope.$parent.vm.reaction.quantities[0].mol && scope.$parent.vm.reaction.quantities[1].eq) {
+									scope.$parent.vm.reaction.quantities[3].mol = ReactionService
+										.calculateMol(scope.$parent.vm.reaction.quantities[3].g, scope.$parent.vm.reaction.chemicals[3].fw); //calculate mole
+									console.log(scope.$parent.vm.reaction.quantities[3].mol);
 
-							scope.$parent.vm.reaction.quantities[3].eq = ReactionService
-								.calculateEq(scope.$parent.vm.reaction.quantities[3].mol, scope.$parent.vm.reaction.quantities[0].mol, scope.$parent.vm.reaction.quantities[0].eq);
-							console.log(scope.$parent.vm.reaction.quantities[3].eq);
+									scope.$parent.vm.reaction.quantities[3].eq = ReactionService
+										.calculateEq(scope.$parent.vm.reaction.quantities[3].mol, scope.$parent.vm.reaction.quantities[0].mol, scope.$parent.vm.reaction.quantities[0].eq);
+									console.log(scope.$parent.vm.reaction.quantities[3].eq);
 
-							scope.$parent.vm.reaction.yield = ReactionService
-								.calculateYield(scope.$parent.vm.reaction.quantities[0].eq, scope.$parent.vm.reaction.quantities[1].eq, scope.$parent.vm.reaction.quantities[3].eq);
-							console.log(scope.$parent.vm.reaction.yield)
+									scope.$parent.vm.reaction.yield = ReactionService
+										.calculateYield(scope.$parent.vm.reaction.quantities[0].eq, scope.$parent.vm.reaction.quantities[1].eq, scope.$parent.vm.reaction.quantities[3].eq);
+									console.log(scope.$parent.vm.reaction.yield)
+								} else {
+									alert("Please check Reactant-1 and Reactant-2")
+								}
 
-
+							} else {
+								alert("Please choose Product first!")
+							}
 						}
  					} //link
 				}
