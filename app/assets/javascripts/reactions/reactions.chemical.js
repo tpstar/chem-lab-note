@@ -55,32 +55,13 @@
 						} //if
 
 						scope.weightToMol = function () {
-							if (scope.$parent.vm.reaction.chemicals[0]) { //Check if Reactant-1 is present
-								scope.$parent.vm.reaction.quantities[0].mol = ReactionService
-									.calculateMol(scope.$parent.vm.reaction.quantities[0].g, scope.$parent.vm.reaction.chemicals[0].fw); //calculate mole
-							} else {
-								alert("Please choose Reactant-1 first!")
-							}
-			}
+							ReactionService.weightToMol(scope.$parent.vm.reaction.chemicals[0], scope.$parent.vm.reaction.chemicals[1], scope.$parent.vm.reaction.chemicals[3],
+																		scope.$parent.vm.reaction.quantities[0], scope.$parent.vm.reaction.quantities[1], scope.$parent.vm.reaction.quantities[3])
+						}
 
 						scope.addEq = function () {
-							if (scope.$parent.vm.reaction.chemicals[1]) { //Check if Reactant-2 is present
-								if (scope.$parent.vm.reaction.quantities[0].mol) { //Check if Reactant-1 and its weight are added
-									scope.$parent.vm.reaction.quantities[1].mol = ReactionService
-										.calculateMolFromEq(scope.$parent.vm.reaction.quantities[0].mol, scope.$parent.vm.reaction.quantities[1].eq, scope.$parent.vm.reaction.quantities[0].eq)
-									console.log(scope.$parent.vm.reaction.quantities[1].mol);
-
-									scope.$parent.vm.reaction.quantities[1].g = ReactionService
-										.calculateWt(scope.$parent.vm.reaction.quantities[1].mol, scope.$parent.vm.reaction.chemicals[1].fw)
-									console.log(scope.$parent.vm.reaction.quantities[1].g);
-								} else {
-									alert("Please check if Reactant-1 is chosen and it weight is added!")
-								}
-							} else {
-								alert("Please choose Reactant-2 first!")
-							}
-
-
+							ReactionService.addEq(scope.$parent.vm.reaction.chemicals[0], scope.$parent.vm.reaction.chemicals[1], scope.$parent.vm.reaction.chemicals[3],
+																		scope.$parent.vm.reaction.quantities[0], scope.$parent.vm.reaction.quantities[1], scope.$parent.vm.reaction.quantities[3])
 						}
 
 						scope.addProductWt = function() {

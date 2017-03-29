@@ -14,7 +14,9 @@
 				calculateMolFromEq,
 				calculateWt,
 				calculateEq,
-				calculateYield
+				calculateYield,
+				addEq,
+				weightToMol
       }
 
       function all() {
@@ -94,6 +96,34 @@
 					return eqPr/eqTwo
 				} else {
 					return eqPr/eqOne.toFixed(3)*100
+				}
+			}
+
+			function weightToMol (reactant_1, reactant_2, product, quant_1, quant_2, quant_pr) {
+				if (reactant_1) { //Check if Reactant-1 is present
+					quant_1.mol = calculateMol(quant_1.g, reactant_1.fw); //calculate mole
+					if (quant_2.eq && reactant_2)	{
+						addEq(reactant_1, reactant_2, product, quant_1, quant_2, quant_pr)
+					}
+				} else {
+					alert("Please choose Reactant-1 first!")
+				}
+			}
+
+
+			function addEq(reactant_1, reactant_2, product, quant_1, quant_2, quant_pr) {
+				if (reactant_2) { //Check if Reactant-2 is present
+					if (quant_1.mol) { //Check if Reactant-1 and its weight are added
+						quant_2.mol = calculateMolFromEq(quant_1.mol, quant_2.eq, quant_1.eq)
+						console.log(quant_2.mol);
+
+						quant_2.g = calculateWt(quant_2.mol, reactant_2.fw)
+						console.log(quant_2.g);
+					} else {
+						alert("Please check if Reactant-1 is chosen and it weight is added!")
+					}
+				} else {
+					alert("Please choose Reactant-2 first!")
 				}
 			}
 
