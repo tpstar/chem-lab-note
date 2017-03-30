@@ -87,21 +87,19 @@ Premium: http://www.gridgum.com
   color: #df8a13;
 }
 
-.panel-purple {
-  border-color: #9370DB;
-}
-.panel-purple > .panel-heading {
-  border-color: #9370DB;
-  color: white;
-  background-color: #9370DB;
-}
 
 #panel-conditions {
-
   padding: 8px;
   border-color: #f0ad4e;
   color: white;
   background-color: #f0ad4e;
+}
+
+#panel-yield {
+  padding: 8px;
+  border-color: #d9534f;
+  color: white;
+  background-color: #d9534f;
 }
 
 .form-horizontal .form-group label {

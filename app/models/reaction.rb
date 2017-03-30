@@ -10,10 +10,14 @@ class Reaction < ApplicationRecord
   def chemicals=(chemical_attributes)
     chemical_attributes.each do |chemical_attribute|
       # self.chemicals.delete_all
-      chemical = Chemical.find(chemical_attribute[:id])
-      self.chemicals << chemical
+      # chemical = Chemical.find(chemical_attribute[:id])
+      # self.chemicals << chemical
+      new_ids << chemical_attribute[:id]
     end
+    self.chemical_ids = new_ids
+    binding.pry
   end
+  #https://ernie.io/2010/10/02/the-underused-collection_singular_ids-method/
 
   def quantities=(quantity_attributes)
     self.quantities.delete_all
