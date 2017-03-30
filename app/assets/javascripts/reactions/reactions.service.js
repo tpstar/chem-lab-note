@@ -10,11 +10,6 @@
 				create,
 				update,
 				destroy,
-				// calculateMol,
-				// calculateMolFromEq,
-				// calculateWt,
-				// calculateEq,
-				// calculateYield,
 				addEq,
 				weightToMol,
 				addProductWt
@@ -103,7 +98,8 @@
 			function weightToMol (reactant_1, reactant_2, product, quant_1, quant_2, quant_pr) {
 				if (reactant_1) { //Check if Reactant-1 properties are present
 					quant_1.mol = calculateMol(quant_1.g, reactant_1.fw); //calculate mole of Reactant-1
-					if (quant_2 && reactant_2)	{ // when Reactant-2 properties and eq are present
+					if (reactant_2 && (quant_2.eq))	{ // when Reactant-2 properties and eq are present
+						// console.log(quant_2);
 						addEq(reactant_1, reactant_2, product, quant_1, quant_2, quant_pr)
 						if (quant_pr.eq) { //Check if Product eq is present
 							addProductWt(reactant_1, reactant_2, product, quant_1, quant_2, quant_pr)
@@ -131,7 +127,7 @@
 				}
 			}
 
-			function addProductWt(reactant_1, reactant_2, product, quant_1, quant_2, quant_pr, reactionYield) {
+			function addProductWt(reactant_1, reactant_2, product, quant_1, quant_2, quant_pr, _yield) {
 				if (product) { // Check is Product is present
 					if (quant_1.mol && quant_2.eq) {
 						quant_pr.mol = calculateMol(quant_pr.g, product.fw); //calculate mole
@@ -140,8 +136,8 @@
 						quant_pr.eq = calculateEq(quant_pr.mol, quant_1.mol, quant_1.eq);
 						console.log(quant_pr.eq);
 
-						reactionYield = calculateYield(quant_1.eq, quant_2.eq, quant_pr.eq);
-						console.log(reactionYield)
+						_yield = calculateYield(quant_1.eq, quant_2.eq, quant_pr.eq);
+						console.log(_yield);
 					} else {
 						alert("Please check Reactant-1 and Reactant-2")
 					}

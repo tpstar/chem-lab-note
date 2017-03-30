@@ -11,7 +11,7 @@
 			vm.updateReaction = updateReaction;
 			vm.deleteReaction = deleteReaction;
 
-			vm.reaction = {chemicals: [], quantities: [{eq: 1}, {}, {}, {}]}
+			vm.reaction = {chemicals: [], quantities: [{eq: 1}, {}, {}, {}], yield: 0}
 
       ReactionService.all()
         .then(function(response) {
@@ -21,7 +21,6 @@
 					} else if (response.status === 406) {
 						$scope.errorMessage = "Please login or sign up first!"
 					}
-
 				})
 
 			if ($stateParams.reactionId) {
@@ -37,7 +36,7 @@
 				ReactionService
 					.create(vm.reaction)
 					.then(reaction => $scope.$parent.reactions.push(reaction)) // for display
-					.then(vm.reaction = {})
+					.then($state.go('reactions'))
 			}
 
 			function updateReaction(reactionInfo) {

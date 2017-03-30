@@ -8,6 +8,7 @@ class Reaction < ApplicationRecord
   has_many :chemicals, :through => :reaction_chemicals
 
   def chemicals=(chemical_attributes)
+    new_ids = []
     chemical_attributes.each do |chemical_attribute|
       # self.chemicals.delete_all
       # chemical = Chemical.find(chemical_attribute[:id])
@@ -15,7 +16,7 @@ class Reaction < ApplicationRecord
       new_ids << chemical_attribute[:id]
     end
     self.chemical_ids = new_ids
-    binding.pry
+
   end
   #https://ernie.io/2010/10/02/the-underused-collection_singular_ids-method/
 

@@ -1,118 +1,119 @@
-  <div class="panel-heading">
-      <div class="row">
-          <div class="col-xs-12">
-            {{type}}
-          </div>
-      </div>
-  </div>
-
-  <div class="panel-footer">
-    <div class="input-group input-group-sm col-xs-12">
-      <input type="text" class="search-query form-control" placeholder="Search Chemical" ng-model="ngModel.search"/>
-      <span class="input-group-btn">
-          <button class="btn btn-primary" type="button" ng-click="searchChemical()">
-              <span class=" glyphicon glyphicon-search"></span>
-          </button>
-      </span>
+<div class="panel-heading">
+    <div class="row">
+        <div class="col-xs-12">
+          {{type}}
+        </div>
     </div>
-    <br>
+</div>
 
-    <div ng-transclude></div>
+<div class="panel-footer">
+  <div class="input-group input-group-sm col-xs-12">
+    <input type="text" class="search-query form-control" placeholder="Search Chemical" ng-model="ngModel.search"/>
+    <span class="input-group-btn">
+        <button class="btn btn-primary" type="button" ng-click="searchChemical()">
+            <span class=" glyphicon glyphicon-search"></span>
+        </button>
+    </span>
+  </div>
+  <br>
 
-    <hr>
+  <div ng-transclude></div>
 
-    <div ng-switch="type">
+  <hr>
 
-      <div ng-switch-when="Reactant-1" class="input-group col-xs-12"> <!-- Reactant-1 -->
+  <div ng-switch="type">
 
-        <p>mol: {{$parent.$parent.vm.reaction.quantities[0].mol}}</p>
+    <div ng-switch-when="Reactant-1" class="input-group col-xs-12"> <!-- Reactant-1 -->
 
-        <div class="input-group input-group-xs">
-          <span class="input-group-addon">wt: </span>
-          <input type="number" class="form-control input-xs" placeholder="g (in grams)" ng-model="$parent.$parent.vm.reaction.quantities[0].g"/>
-          <span class="input-group-addon">g</span>
-          <span class="input-group-btn">
-            <button class="btn btn-xs btn-primary" ng-click="weightToMol()">
-              <i class="glyphicon glyphicon-play"></i>
-            </button>
-          </span>
-        </div>
+      <p>mol: {{$parent.$parent.vm.reaction.quantities[0].mol}}</p>
 
-
-        <div class="input-group input-group-xs">
-          <span class="input-group-addon">eq: </span>
-          <input type="number" class="form-control input-xs" ng-model="$parent.$parent.vm.reaction.quantities[0].eq"/>
-        </div>
-
-      </div>
-
-      <div ng-switch-when="Reactant-2" class="input-group col-xs-12"> <!-- Reactant-2 -->
-        <p>mol: {{$parent.$parent.vm.reaction.quantities[1].mol}}</p>
-        <p>wt: <strong style="color:#5cb85c">{{$parent.$parent.vm.reaction.quantities[1].g}}</strong> <span ng-if="$parent.$parent.vm.reaction.quantities[1].g">g</span></p>
-
-        <div class="input-group input-group-xs">
-          <span class="input-group-addon">eq: </span>
-          <input type="number" class="form-control input-xs" placeholder="eq. to reactant-1" ng-model="$parent.$parent.vm.reaction.quantities[1].eq"/>
-          <span class="input-group-btn">
-            <button class="btn btn-xs btn-primary" ng-click="addEq()">
-              <i class="glyphicon glyphicon-play"></i>
-            </button>
-          </span>
-        </div>
-
-      </div>
-
-      <div ng-switch-when="Solvent" class="input-group col-xs-12"> <!-- Solvent -->
-
-        <div class="input-group input-group-xs">
-          <span class="input-group-addon">vol: </span>
-          <input type="number" class="form-control input-xs" placeholder="solvent volume (mL)" ng-model="$parent.$parent.vm.reaction.quantities[2].mL"/>
-          <span class="input-group-addon">mL </span>
-        </div>
-
-        <div class="text-center">
-          <h1>&#10230;</h1>
-        </div>
-
-        <div id="panel-conditions">Conditions</div>
-        <br>
-
-        <div class="input-group input-group-xs">
-          <span class="input-group-addon">temp: </span>
-          <input type="number" class="form-control input-xs" ng-model="$parent.$parent.vm.reaction.temp"/>
-          <span class="input-group-addon"><sup>o</sup>C</span>
-        </div>
-
-
-        <div class="input-group input-group-xs">
-          <span class="input-group-addon">time: </span>
-          <input type="number" class="form-control input-xs" ng-model="$parent.$parent.vm.reaction.time"/>
-          <span class="input-group-addon">min</span>
-        </div>
-
-      </div>
-
-      <div ng-switch-when="Product" class="input-group col-xs-12"> <!-- Product -->
-        <p>mol: {{$parent.$parent.vm.reaction.quantities[3].mol}}</p>
-
-        <div class="input-group input-group-xs">
-          <span class="input-group-addon">wt: </span>
-          <input type="number" class="form-control input-xs" placeholder="isolated g in grams" ng-model="$parent.$parent.vm.reaction.quantities[3].g"/>
-          <span class="input-group-btn">
-            <button class="btn btn-xs btn-primary" ng-click="addProductWt()">
-              <i class="glyphicon glyphicon-play"></i>
-            </button>
-          </span>
-        </div>
-
-        <p>eq: {{$parent.$parent.vm.reaction.quantities[3].eq}}</p>
-        <div id="panel-yield" ng-if="$parent.$parent.vm.reaction.yield">
-          Yield: {{$parent.$parent.$parent.vm.reaction.yield}}%
-        </div>
+      <div class="input-group input-group-xs">
+        <span class="input-group-addon">wt: </span>
+        <input type="number" class="form-control input-xs" placeholder="g (in grams)" ng-model="$parent.$parent.vm.reaction.quantities[0].g"/>
+        <span class="input-group-addon">g</span>
+        <span class="input-group-btn">
+          <button class="btn btn-xs btn-primary" ng-click="weightToMol()">
+            <i class="glyphicon glyphicon-play"></i>
+          </button>
+        </span>
       </div>
 
 
-    </div> <!-- .ng-switch -->
+      <div class="input-group input-group-xs">
+        <span class="input-group-addon">eq: </span>
+        <input type="number" class="form-control input-xs" ng-model="$parent.$parent.vm.reaction.quantities[0].eq"/>
+      </div>
 
-    <div class="clearfix"></div>
-  </div> <!-- .panel-footer -->
+    </div>
+
+    <div ng-switch-when="Reactant-2" class="input-group col-xs-12"> <!-- Reactant-2 -->
+      <p>mol: {{$parent.$parent.vm.reaction.quantities[1].mol}}</p>
+      <p>wt: <strong style="color:#5cb85c">{{$parent.$parent.vm.reaction.quantities[1].g}}</strong> <span ng-if="$parent.$parent.vm.reaction.quantities[1].g">g</span></p>
+
+      <div class="input-group input-group-xs">
+        <span class="input-group-addon">eq: </span>
+        <input type="number" class="form-control input-xs" placeholder="eq. to reactant-1" ng-model="$parent.$parent.vm.reaction.quantities[1].eq"/>
+        <span class="input-group-btn">
+          <button class="btn btn-xs btn-primary" ng-click="addEq()">
+            <i class="glyphicon glyphicon-play"></i>
+          </button>
+        </span>
+      </div>
+
+    </div>
+
+    <div ng-switch-when="Solvent" class="input-group col-xs-12"> <!-- Solvent -->
+
+      <div class="input-group input-group-xs">
+        <span class="input-group-addon">vol: </span>
+        <input type="number" class="form-control input-xs" placeholder="solvent volume (mL)" ng-model="$parent.$parent.vm.reaction.quantities[2].mL"/>
+        <span class="input-group-addon">mL </span>
+      </div>
+
+      <div class="text-center">
+        <h1>&#10230;</h1>
+      </div>
+
+      <div id="panel-conditions">Conditions</div>
+      <br>
+
+      <div class="input-group input-group-xs">
+        <span class="input-group-addon">temp: </span>
+        <input type="number" class="form-control input-xs" ng-model="$parent.$parent.vm.reaction.temp"/>
+        <span class="input-group-addon"><sup>o</sup>C</span>
+      </div>
+
+
+      <div class="input-group input-group-xs">
+        <span class="input-group-addon">time: </span>
+        <input type="number" class="form-control input-xs" ng-model="$parent.$parent.vm.reaction.time"/>
+        <span class="input-group-addon">min</span>
+      </div>
+
+    </div>
+
+    <div ng-switch-when="Product" class="input-group col-xs-12"> <!-- Product -->
+      <p>mol: {{$parent.$parent.vm.reaction.quantities[3].mol}}</p>
+
+      <div class="input-group input-group-xs">
+        <span class="input-group-addon">wt: </span>
+        <input type="number" class="form-control input-xs" placeholder="isolated g in grams" ng-model="$parent.$parent.vm.reaction.quantities[3].g"/>
+        <span class="input-group-btn">
+          <button class="btn btn-xs btn-primary" ng-click="addProductWt()">
+            <i class="glyphicon glyphicon-play"></i>
+          </button>
+        </span>
+      </div>
+
+      <p>eq: {{$parent.$parent.vm.reaction.quantities[3].eq}}</p>
+
+      <div id="panel-yield">  <!-- ng-if="$parent.$parent.vm.reaction.yield"> -->
+        Yield: {{$parent.$parent.$parent.vm.reaction.yield}}%
+      </div>
+    </div>
+
+
+  </div> <!-- .ng-switch -->
+
+  <div class="clearfix"></div>
+</div> <!-- .panel-footer -->
