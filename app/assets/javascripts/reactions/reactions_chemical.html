@@ -106,7 +106,11 @@
         </div>
 
         <p>eq: {{$parent.$parent.vm.reaction.quantities[3].eq}}</p>
+        <div id="panel-conditions" ng-if="$parent.$parent.vm.reaction.yield">
+          Yield: {{$parent.$parent.$parent.vm.reaction.yield}}%
+        </div>
       </div>
+
 
     </div> <!-- .ng-switch -->
 

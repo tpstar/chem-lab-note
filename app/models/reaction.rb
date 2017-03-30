@@ -9,6 +9,7 @@ class Reaction < ApplicationRecord
 
   def chemicals=(chemical_attributes)
     chemical_attributes.each do |chemical_attribute|
+      # self.chemicals.delete_all
       chemical = Chemical.find(chemical_attribute[:id])
       self.chemicals << chemical
     end
