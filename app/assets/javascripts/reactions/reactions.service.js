@@ -137,7 +137,6 @@
 						quant_pr.eq = calculateEq(quant_pr.mol, quant_1.mol, quant_1.eq);
 						console.log(quant_pr.eq);
 
-						// rxn_yield = calculateYield(quant_1.eq, quant_2.eq, quant_pr.eq)
 					} else {
 						alert("Please choose Product first!")
 					}

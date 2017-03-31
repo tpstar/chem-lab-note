@@ -32,11 +32,12 @@
 			}
 
 			function createReaction() {
-				console.log(vm.reaction)
+
 				ReactionService
 					.create(vm.reaction)
-					// .then(reaction => $scope.$parent.reactions.push(reaction)) // for display
-					.then($state.go('reactions'))
+					.then(reaction => $scope.reactions.push(reaction)) // for display in ng
+					.then(console.log($scope))
+					.then($state.go('reactions.list'))
 			}
 
 			function updateReaction(reactionInfo) {
@@ -55,7 +56,7 @@
 					.then(function(){
 						var currentReactions = $scope.$parent.reactions.filter(reaction => reaction.id !== vm.reaction.id)
 						$scope.$parent.reactions = currentReactions;
-						$state.go('reactions')
+						$state.go('reactions.list')
 					})
 			}
 
