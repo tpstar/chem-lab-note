@@ -19,7 +19,7 @@
 								.search(scope.ngModel.search)
 								.then(function(data) {
 									scope.$parent.vm.reaction.chemicals[0] = data;
-									scope.$parent.vm.reaction.chemicals[0].chemical_id = data.id;
+									scope.$parent.vm.reaction.quantities[0].chemical_id = data.id;
 								})
 						} //search chemical
 					} //if(attribute.type)
@@ -29,7 +29,7 @@
 								.search(scope.ngModel.search)
 								.then(function(data) {
 									scope.$parent.vm.reaction.chemicals[1] = data;
-									scope.$parent.vm.reaction.chemicals[1].chemical_id = data.id;
+									scope.$parent.vm.reaction.quantities[1].chemical_id = data.id;
 								})
 							}
 						} //if
@@ -39,7 +39,7 @@
 									.search(scope.ngModel.search)
 									.then(function(data) {
 										scope.$parent.vm.reaction.chemicals[2] = data;
-										scope.$parent.vm.reaction.chemicals[2].chemical_id = data.id;
+										scope.$parent.vm.reaction.quantities[2].chemical_id = data.id;
 									})
 							}
 						} //if
@@ -49,26 +49,35 @@
 									.search(scope.ngModel.search)
 									.then(function(data) {
 										scope.$parent.vm.reaction.chemicals[3] = data;
-										scope.$parent.vm.reaction.chemicals[3].chemical_id = data.id;
+										scope.$parent.vm.reaction.quantities[3].chemical_id = data.id;
 									})
 							}
 						} //if
 
+						scope.yield = function() {
+							if(scope.$parent.vm.reaction.quantities[1].eq && scope.$parent.vm.reaction.quantities[3].eq) {
+								return ReactionService.calculateYield(scope.$parent.vm.reaction.quantities[0].eq, scope.$parent.vm.reaction.quantities[1].eq, scope.$parent.vm.reaction.quantities[3].eq);
+							}
+						}
+
 						scope.weightToMol = function () {  //In reactant-1 panel, convert weight to mol
 							ReactionService.weightToMol(scope.$parent.vm.reaction.chemicals[0], scope.$parent.vm.reaction.chemicals[1], scope.$parent.vm.reaction.chemicals[3],
 																		scope.$parent.vm.reaction.quantities[0], scope.$parent.vm.reaction.quantities[1], scope.$parent.vm.reaction.quantities[3])
+							scope.$parent.vm.reaction.yield = scope.yield();
 						}
 
 						scope.addEq = function () {
 							ReactionService.addEq(scope.$parent.vm.reaction.chemicals[0], scope.$parent.vm.reaction.chemicals[1], scope.$parent.vm.reaction.chemicals[3],
-																		scope.$parent.vm.reaction.quantities[0], scope.$parent.vm.reaction.quantities[1], scope.$parent.vm.reaction.quantities[3])
+																		scope.$parent.vm.reaction.quantities[0], scope.$parent.vm.reaction.quantities[1], scope.$parent.vm.reaction.quantities[3]);
+							scope.$parent.vm.reaction.yield = scope.yield();
 						}
 
 						scope.addProductWt = function() {
 							ReactionService.addProductWt(scope.$parent.vm.reaction.chemicals[0], scope.$parent.vm.reaction.chemicals[1], scope.$parent.vm.reaction.chemicals[3],
-																		scope.$parent.vm.reaction.quantities[0], scope.$parent.vm.reaction.quantities[1], scope.$parent.vm.reaction.quantities[3],
-																		scope.$parent.vm.reaction.yield)
+																		scope.$parent.vm.reaction.quantities[0], scope.$parent.vm.reaction.quantities[1], scope.$parent.vm.reaction.quantities[3])
+							scope.$parent.vm.reaction.yield = scope.yield();
 						}
+
  					} //link
 				}
 			}])

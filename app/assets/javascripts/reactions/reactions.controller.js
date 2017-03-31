@@ -11,7 +11,7 @@
 			vm.updateReaction = updateReaction;
 			vm.deleteReaction = deleteReaction;
 
-			vm.reaction = {chemicals: [], quantities: [{eq: 1}, {}, {}, {}], yield: 0}
+			vm.reaction = {chemicals: [], quantities: [{eq: 1}, {}, {}, {}]}
 
       ReactionService.all()
         .then(function(response) {
@@ -35,7 +35,7 @@
 				console.log(vm.reaction)
 				ReactionService
 					.create(vm.reaction)
-					.then(reaction => $scope.$parent.reactions.push(reaction)) // for display
+					// .then(reaction => $scope.$parent.reactions.push(reaction)) // for display
 					.then($state.go('reactions'))
 			}
 

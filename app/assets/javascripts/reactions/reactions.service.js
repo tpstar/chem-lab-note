@@ -12,7 +12,8 @@
 				destroy,
 				addEq,
 				weightToMol,
-				addProductWt
+				addProductWt,
+				calculateYield
       }
 
       function all() {
@@ -89,9 +90,9 @@
 
 			function calculateYield(eqOne, eqTwo, eqPr) {
 				if (eqOne >= eqTwo) {
-					return eqPr/eqTwo
+					return ((eqPr/eqTwo)*100).toFixed(1)
 				} else {
-					return eqPr/eqOne.toFixed(3)*100
+					return (eqPr/eqOne.toFixed(3)*100).toFixed(1)
 				}
 			}
 
@@ -127,7 +128,7 @@
 				}
 			}
 
-			function addProductWt(reactant_1, reactant_2, product, quant_1, quant_2, quant_pr, _yield) {
+			function addProductWt(reactant_1, reactant_2, product, quant_1, quant_2, quant_pr) {
 				if (product) { // Check is Product is present
 					if (quant_1.mol && quant_2.eq) {
 						quant_pr.mol = calculateMol(quant_pr.g, product.fw); //calculate mole
@@ -136,16 +137,11 @@
 						quant_pr.eq = calculateEq(quant_pr.mol, quant_1.mol, quant_1.eq);
 						console.log(quant_pr.eq);
 
-						_yield = calculateYield(quant_1.eq, quant_2.eq, quant_pr.eq);
-						console.log(_yield);
+						// rxn_yield = calculateYield(quant_1.eq, quant_2.eq, quant_pr.eq)
 					} else {
-						alert("Please check Reactant-1 and Reactant-2")
+						alert("Please choose Product first!")
 					}
-
-				} else {
-					alert("Please choose Product first!")
 				}
 			}
-
     }]);
 }())
