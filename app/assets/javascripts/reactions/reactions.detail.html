@@ -1,4 +1,4 @@
-<div id="page-wrapper">
+<div id="page-wrapper" ng-class="{'readOnly': vm.dataReadOnly}">
   <div class="row">
     <div class="col-lg-2 col-md-2">
       <h4>Reaction</h4>
@@ -9,13 +9,27 @@
 
           <label for="Title" class="control-label col-md-1">Title</label>
           <div class="col-md-4">
-              <input class="form-control" type="text" ng-model='vm.reaction.title' ng-readonly="vm.dataReadOnly" ng-class="{'readOnly': vm.dataReadOnly}">
+              <input class="form-control" type="text" ng-model='vm.reaction.title' ng-readonly="vm.dataReadOnly">
           </div>
 
           <label for="Date" class="control-label col-md-1">Date</label>
-          <div class="col-md-4">
-              <input class="form-control" type="text" placeholder="yyyy-mm-dd" ng-model='vm.reaction.date' ng-disabled="detail">
+          <div class="col-md-2">
+              <input class="form-control" type="text" placeholder="yyyy-mm-dd" ng-model='vm.reaction.date' ng-readonly="vm.dataReadOnly">
           </div>
+
+          <span class="reaction-edit">
+            <button class="btn btn-sm btn-info" ui-sref="reactions.edit">
+              Edit <span class="glyphicon glyphicon-edit"></span>
+            </button>
+          </span>
+
+          <span class="reaction-delete">
+            <button class="btn btn-sm btn-primary" ng-click='vm.deleteReaction()'>
+              Delete <span class="glyphicon glyphicon-minus"></span>
+            </button>
+          </span>
+
+
 
     </div>
   </div>
@@ -27,24 +41,5 @@
   </div>
   <!-- /.row -->
 
-  <div class="row">
-    <div class="col-lg-12 text-center">
-      <span class="reaction-save">
-        <button class="btn btn-sm btn-primary" ng-click="vm.updateReaction(vm.reaction)">Save Edited</button>
-      </span>
-
-      <span class="reaction-list">
-        <button class="btn btn-sm btn-primary" ui-sref="reactions.list">Cancel & List Reactions</button>
-      </span>
-
-      <span class="reaction-delete">
-        <button class="btn btn-sm btn-primary" ng-click='vm.deleteReaction()'>Delete Reaction</button>
-      </span>
-
-
-
-
-    </div>
-  </div>
 </div>
 <!-- /#page-wrapper -->

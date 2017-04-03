@@ -7,7 +7,7 @@
 </div>
 
 <div class="panel-footer">
-  <div class="input-group input-group-sm col-xs-12">
+  <div class="input-group input-group-sm col-xs-12" ng-hide="$parent.vm.dataReadOnly"> 
     <input type="text" class="search-query form-control" placeholder="Search Chemical" ng-model="ngModel.search"/>
     <span class="input-group-btn">
         <button class="btn btn-primary" type="button" ng-click="searchChemical()">
@@ -29,10 +29,11 @@
 
       <div class="input-group input-group-xs">
         <span class="input-group-addon">wt: </span>
-        <input type="number" class="form-control input-xs" placeholder="g (in grams)" ng-model="$parent.$parent.vm.reaction.quantities[0].g"/>
+        <input type="number" class="form-control input-xs" placeholder="g (in grams)"
+               ng-model="$parent.$parent.vm.reaction.quantities[0].g" ng-readonly="$parent.$parent.vm.dataReadOnly"/>
         <span class="input-group-addon">g</span>
         <span class="input-group-btn">
-          <button class="btn btn-xs btn-primary" ng-click="weightToMol()">
+          <button class="btn btn-xs btn-primary" ng-click="weightToMol()" ng-disabled="$parent.$parent.vm.dataReadOnly">
             <i class="glyphicon glyphicon-play"></i>
           </button>
         </span>
@@ -41,7 +42,8 @@
 
       <div class="input-group input-group-xs">
         <span class="input-group-addon">eq: </span>
-        <input type="number" class="form-control input-xs" ng-model="$parent.$parent.vm.reaction.quantities[0].eq"/>
+        <input type="number" class="form-control input-xs"
+               ng-model="$parent.$parent.vm.reaction.quantities[0].eq" ng-readonly="$parent.$parent.vm.dataReadOnly"/>
       </div>
 
     </div>
@@ -52,9 +54,10 @@
 
       <div class="input-group input-group-xs">
         <span class="input-group-addon">eq: </span>
-        <input type="number" class="form-control input-xs" placeholder="eq. to reactant-1" ng-model="$parent.$parent.vm.reaction.quantities[1].eq"/>
+        <input type="number" class="form-control input-xs" placeholder="eq. to reactant-1"
+               ng-model="$parent.$parent.vm.reaction.quantities[1].eq" ng-readonly="$parent.$parent.vm.dataReadOnly"/>
         <span class="input-group-btn">
-          <button class="btn btn-xs btn-primary" ng-click="addEq()">
+          <button class="btn btn-xs btn-primary" ng-click="addEq()" ng-disabled="$parent.$parent.vm.dataReadOnly">
             <i class="glyphicon glyphicon-play"></i>
           </button>
         </span>
@@ -66,7 +69,8 @@
 
       <div class="input-group input-group-xs">
         <span class="input-group-addon">vol: </span>
-        <input type="number" class="form-control input-xs" placeholder="solvent volume (mL)" ng-model="$parent.$parent.vm.reaction.quantities[2].mL"/>
+        <input type="number" class="form-control input-xs" placeholder="solvent volume (mL)"
+               ng-model="$parent.$parent.vm.reaction.quantities[2].mL" ng-readonly="$parent.$parent.vm.dataReadOnly"/>
         <span class="input-group-addon">mL </span>
       </div>
 
@@ -79,14 +83,16 @@
 
       <div class="input-group input-group-xs">
         <span class="input-group-addon">temp: </span>
-        <input type="number" class="form-control input-xs" ng-model="$parent.$parent.vm.reaction.temp"/>
+        <input type="number" class="form-control input-xs"
+               ng-model="$parent.$parent.vm.reaction.temp" ng-readonly="$parent.$parent.vm.dataReadOnly"/>
         <span class="input-group-addon"><sup>o</sup>C</span>
       </div>
 
 
       <div class="input-group input-group-xs">
         <span class="input-group-addon">time: </span>
-        <input type="number" class="form-control input-xs" ng-model="$parent.$parent.vm.reaction.time"/>
+        <input type="number" class="form-control input-xs"
+               ng-model="$parent.$parent.vm.reaction.time" ng-readonly="$parent.$parent.vm.dataReadOnly"/>
         <span class="input-group-addon">min</span>
       </div>
 
@@ -97,9 +103,10 @@
 
       <div class="input-group input-group-xs">
         <span class="input-group-addon">wt: </span>
-        <input type="number" class="form-control input-xs" placeholder="isolated g in grams" ng-model="$parent.$parent.vm.reaction.quantities[3].g"/>
+        <input type="number" class="form-control input-xs" placeholder="isolated g in grams"
+               ng-model="$parent.$parent.vm.reaction.quantities[3].g" ng-readonly="$parent.$parent.vm.dataReadOnly"/>
         <span class="input-group-btn">
-          <button class="btn btn-xs btn-primary" ng-click="addProductWt()">
+          <button class="btn btn-xs btn-primary" ng-click="addProductWt()" ng-disabled="$parent.$parent.vm.dataReadOnly">
             <i class="glyphicon glyphicon-play"></i>
           </button>
         </span>

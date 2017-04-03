@@ -13,9 +13,7 @@
 
 			vm.reaction = {chemicals: [], quantities: [{eq: 1}, {}, {}, {}]}
 
-
-
-			vm.dataReadOnly = true;
+			vm.dataReadOnly = false;
 
       ReactionService.all()
         .then(function(response) {
@@ -35,14 +33,22 @@
 					})
 			}
 
-			function createReaction() {
+			if ($state.current.name === 'reactions.detail') {
+				vm.dataReadOnly = true;
+				console.log(vm.dataReadOnly);
+			} else {
+				vm.dataReadOnly = false;
+				console.log(vm.dataReadOnly);
+			}
 
+			function createReaction() {
 				ReactionService
 					.create(vm.reaction)
 					// .then(reaction => $scope.reactions.push(reaction)) // for display in ng
 
 					.then(function(reaction) {
 						$scope.$parent.reactions.push(reaction); // for display
+						$scope.$parent.vm.dataReadOnly = false;
 						$state.go('reactions.detail', {'reactionId': reaction.id});
 					})
 			}
