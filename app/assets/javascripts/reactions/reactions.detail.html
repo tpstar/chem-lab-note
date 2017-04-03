@@ -18,13 +18,13 @@
           </div>
 
           <span class="reaction-edit">
-            <button class="btn btn-sm btn-info" ui-sref="reactions.edit">
+            <button class="btn btn-sm btn-info" ng-click='vm.editReaction()'> <!-- ui-sref="reactions.edit"> -->
               Edit <span class="glyphicon glyphicon-edit"></span>
             </button>
           </span>
 
           <span class="reaction-delete">
-            <button class="btn btn-sm btn-primary" ng-click='vm.deleteReaction()'>
+            <button class="btn btn-sm btn-danger" ng-click='vm.deleteReaction()'>
               Delete <span class="glyphicon glyphicon-minus"></span>
             </button>
           </span>

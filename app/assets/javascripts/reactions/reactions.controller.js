@@ -53,6 +53,10 @@
 					})
 			}
 
+			function editReaction() {
+				vm.dataReadOnly = false;
+			}
+
 			function updateReaction(reactionInfo) {
 				ReactionService
 					.update(reactionInfo)
