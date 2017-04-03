@@ -13,6 +13,10 @@
 
 			vm.reaction = {chemicals: [], quantities: [{eq: 1}, {}, {}, {}]}
 
+
+
+			vm.dataReadOnly = true;
+
       ReactionService.all()
         .then(function(response) {
 					// console.log(response);
@@ -35,9 +39,12 @@
 
 				ReactionService
 					.create(vm.reaction)
-					.then(reaction => $scope.reactions.push(reaction)) // for display in ng
-					.then(console.log($scope))
-					.then($state.go('reactions.list'))
+					// .then(reaction => $scope.reactions.push(reaction)) // for display in ng
+
+					.then(function(reaction) {
+						$scope.$parent.reactions.push(reaction); // for display
+						$state.go('reactions.detail', {'reactionId': reaction.id});
+					})
 			}
 
 			function updateReaction(reactionInfo) {

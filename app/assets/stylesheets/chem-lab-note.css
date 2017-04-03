@@ -44,6 +44,12 @@ Premium: http://www.gridgum.com
   border-color: #5cb85c;
   background-color: #5cb85c;
 }
+
+.reaction-save .btn-primary{
+  border-color: #5cb85c;
+  background-color: #5cb85c;
+}
+
 .panel-green > a {
   color: #5cb85c;
 }
@@ -62,6 +68,12 @@ Premium: http://www.gridgum.com
   border-color: #d9534f;
   background-color: #d9534f;
 }
+
+.reaction-delete .btn-primary{
+  border-color: #d9534f;
+  background-color: #d9534f;
+}
+
 .panel-red > a {
   color: #d9534f;
 }
@@ -80,6 +92,12 @@ Premium: http://www.gridgum.com
   border-color: #f0ad4e;
   background-color: #f0ad4e;
 }
+
+.reaction-list .btn-primary{
+  border-color: #f0ad4e;
+  background-color: #f0ad4e;
+}
+
 .panel-yellow > a {
   color: #f0ad4e;
 }

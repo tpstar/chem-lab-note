@@ -29,13 +29,17 @@
 					.state('reactions.detail', {
 						url: "/:reactionId",
 						templateUrl: 'reactions/reactions.detail.html',
+						controller: 'ReactionsController as vm',
+						// resolve: {inDetail: function() {return true}}
+						// controller: function($scope) {
+							// $scope.$parent.$parent.vm.inDetail = true;
+						// }
+					})
+					.state('reactions.edit', {
+						url: "/:reactionId/edit",
+						templateUrl: 'reactions/reactions.edit.html',
 						controller: 'ReactionsController as vm'
 					})
-					// .state('reactions.detail.edit', {
-					// 	url: "/:reactionId/edit",
-					// 	templateUrl: 'reactions/reactions.edit.html',
-					// 	controller: 'ReactionsController as vm'
-					// })
 					.state('chemicals', {
 						url: "/chemicals",
 						templateUrl: "chemicals/chemicals.html",
