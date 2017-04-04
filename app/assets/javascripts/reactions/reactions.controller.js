@@ -10,6 +10,8 @@
 			vm.createReaction = createReaction;
 			vm.updateReaction = updateReaction;
 			vm.deleteReaction = deleteReaction;
+			vm.editReaction   = editReaction;
+			vm.reactionDetail = reactionDetail;
 
 			vm.reaction = {chemicals: [], quantities: [{eq: 1}, {}, {}, {}]}
 
@@ -35,10 +37,10 @@
 
 			if ($state.current.name === 'reactions.detail') {
 				vm.dataReadOnly = true;
-				console.log(vm.dataReadOnly);
+				// console.log(vm.dataReadOnly);
 			} else {
 				vm.dataReadOnly = false;
-				console.log(vm.dataReadOnly);
+				// console.log(vm.dataReadOnly);
 			}
 
 			function createReaction() {
@@ -57,6 +59,10 @@
 				vm.dataReadOnly = false;
 			}
 
+			function reactionDetail() {
+				vm.dataReadOnly = true;
+			}reactionDetail
+
 			function updateReaction(reactionInfo) {
 				ReactionService
 					.update(reactionInfo)
@@ -64,6 +70,7 @@
 						// console.log(data)
 						$scope.$parent.vm.reaction = data
 						//bind vm.reaction in parent reaction.detail to edited reaction data
+						reactionDetail();
 					})
 			}
 

@@ -17,18 +17,19 @@
               <input class="form-control" type="text" placeholder="yyyy-mm-dd" ng-model='vm.reaction.date' ng-readonly="vm.dataReadOnly">
           </div>
 
-          <span class="reaction-edit">
-            <button class="btn btn-sm btn-info" ng-click='vm.editReaction()'> <!-- ui-sref="reactions.edit"> -->
-              Edit <span class="glyphicon glyphicon-edit"></span>
-            </button>
-          </span>
+          <div ng-show="vm.dataReadOnly">
+            <span class="reaction-edit">
+              <button class="btn btn-sm btn-info" ng-click='vm.editReaction()'>
+                Edit <span class="glyphicon glyphicon-edit"></span>
+              </button>
+            </span>
 
-          <span class="reaction-delete">
-            <button class="btn btn-sm btn-danger" ng-click='vm.deleteReaction()'>
-              Delete <span class="glyphicon glyphicon-minus"></span>
-            </button>
-          </span>
-
+            <span class="reaction-delete">
+              <button class="btn btn-sm btn-danger" ng-click='vm.deleteReaction()'>
+                Delete <span class="glyphicon glyphicon-minus"></span>
+              </button>
+            </span>
+          </div>
 
 
     </div>
@@ -40,6 +41,15 @@
 
   </div>
   <!-- /.row -->
-
+  
+  <div class="row">
+    <div ng-hide="vm.dataReadOnly">
+      <div class="col-lg-12 text-center">
+        <button class="btn btn-sm btn-primary" ng-click="vm.updateReaction(vm.reaction)">Save Reaction</button>
+        <button class="btn btn-sm " ng-click='vm.reactionDetail()'>Cancel</button>
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
 </div>
 <!-- /#page-wrapper -->
