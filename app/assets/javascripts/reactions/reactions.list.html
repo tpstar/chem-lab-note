@@ -4,11 +4,24 @@
       <h3>List of Reactions</h3>
     </div>
   </div>
+  <br>
   <div class="row">
-    <a ui-sref="reactions.detail({ reactionId: reaction.id })"
-       data-ng-repeat="reaction in reactions">
-
-      <h3><span data-ng-bind="reaction.title"></span></h3>
-    </a>
+    <div class="col-lg-6">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search by Reaction Name" ng-model="searchReaction">
+        <span class="input-group-btn">
+          <button class="btn btn-secondary" type="button">Search</button>
+        </span>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-lg-6">
+      <a ui-sref="reactions.detail({ reactionId: reaction.id })"
+         data-ng-repeat="reaction in reactions | filter:searchReaction">
+        <h3><span data-ng-bind="reaction.title"></span></h3>
+      </a>
+    </div>
   </div>
 </div>
