@@ -3,8 +3,8 @@
 
 	angular
 		.module('chemApp')
-    .controller('ReactionsController', ['ReactionService', '$stateParams', '$scope', '$state',
-			function(ReactionService, $stateParams, $scope, $state) {
+    .controller('ReactionsController', ['ReactionService', '$stateParams', '$scope', '$state', '$filter',
+			function(ReactionService, $stateParams, $scope, $state, $filter) {
       var vm = this;
 
 			vm.createReaction = createReaction;
@@ -12,6 +12,7 @@
 			vm.deleteReaction = deleteReaction;
 			vm.editReaction   = editReaction;
 			vm.reactionDetail = reactionDetail;
+			vm.searchReaction = searchReaction;
 
 			vm.reaction = {chemicals: [], quantities: [{eq: 1}, {}, {}, {}]}
 
@@ -82,6 +83,10 @@
 						$scope.$parent.reactions = currentReactions;
 						$state.go('reactions.list')
 					})
+			}
+
+			function searchReaction(date) {
+				console.log($filter('reactionDateAfter')($scope.$parent.reactions, date));
 			}
 
     }])

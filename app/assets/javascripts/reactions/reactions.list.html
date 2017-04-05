@@ -8,19 +8,35 @@
   <div class="row">
     <div class="col-lg-6">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search by Reaction Name" ng-model="searchReaction">
+        <input type="text" class="form-control" placeholder="Search by Reaction Title" ng-model="searchReaction">
         <span class="input-group-btn">
           <button class="btn btn-secondary" type="button">Search</button>
         </span>
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="input-group">
+        List reactions having a date on or after:
+        <input type="text" class="form-control" placeholder="Search by Date" ng-model="searchReactionByDate">
+        <span class="input-group-btn">
+          <button class="btn btn-secondary" type="button" ng-click="vm.searchReaction(searchReactionByDate)">Search</button>
+        </span>
+      </div>
+    </div>
+  </div>
+
   <br>
   <div class="row">
     <div class="col-lg-6">
       <a ui-sref="reactions.detail({ reactionId: reaction.id })"
-         data-ng-repeat="reaction in reactions | filter:searchReaction">
-        <h3><span data-ng-bind="reaction.title"></span></h3>
+         data-ng-repeat="reaction in reactions">
+
+          <h3><span data-ng-bind="reaction.title"></span> </h3>
+          <h5> on <span data-ng-bind="reaction.date"></span></h5>
+
       </a>
     </div>
   </div>
