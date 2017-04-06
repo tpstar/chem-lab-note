@@ -12,7 +12,11 @@
 			vm.deleteReaction = deleteReaction;
 			vm.editReaction   = editReaction;
 			vm.reactionDetail = reactionDetail;
+
+
 			vm.searchByDate   = searchByDate;
+			vm.clearTitle     = clearTitle;
+			vm.clearDate      = clearDate;
 
 			vm.reaction = {chemicals: [], quantities: [{eq: 1}, {}, {}, {}]}
 
@@ -85,17 +89,19 @@
 					})
 			}
 
-			// function searchByDate(startDate, endDate) {
-			// 	var filteredReactions = $filter('reactionDateFilter')($scope.$parent.reactions, startDate, endDate)
-			// 	console.log(filteredReactions);
-			// 	return filteredReactions;
-			// }
 
 			function searchByDate(val) {
 				var filteredReactionBoolean = $filter('reactionDateFilter')(val, $scope.startDate, $scope.endDate);
-				if (val.date === "2017-04-01") {
-					return true;
-				}
+				return filteredReactionBoolean;
+			}
+
+			function clearTitle() {
+				delete $scope.searchTitle
+			}
+
+			function clearDate() {
+				delete $scope.startDate;
+				delete $scope.endDate;
 			}
 
     }])

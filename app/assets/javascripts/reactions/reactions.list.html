@@ -7,40 +7,55 @@
   <br>
   <div class="row">
     <div class="col-lg-6">
+      <h4>Search by Title:</h4>
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search by Reaction Title" ng-model="searchReaction">
+        <input type="text" class="form-control" placeholder="Search by Reaction Title" ng-model="searchTitle">
         <span class="input-group-btn">
-          <button class="btn btn-secondary" type="button">Search</button>
+          <button class="btn btn-secondary" type="button" ng-click="vm.clearTitle()"><i class="fa fa-times" aria-hidden="true"></i></button>
         </span>
       </div>
     </div>
   </div>
+  <br>
 
   <div class="row">
-    <div class="col-lg-6">
-      <div class="input-group">
-        Search by Date:
-        <input type="text" class="form-control" placeholder="From" ng-model="startDate">
-        <input type="text" class="form-control" placeholder="End" ng-model="endDate">
-        <span class="input-group-btn">
-          <!-- <button class="btn btn-secondary" type="button" ng-click="byDate = vm.searchByDate(startDate, endDate)">Search</button> -->
-          <button class="btn btn-secondary" type="button" ng-click="byDate = vm.searchByDate">Search</button>
+
+    <div class="col-lg-9">
+      <h4>Search by Date:</h4>
+      <form action="" class="form-inline">
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Start (yyyy-mm-dd)" ng-model="startDate">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="End Date (yyyy-mm-dd)" ng-model="endDate">
+            <span class="input-group-btn">
+          </div>
+        </div>
+
+          <button class="btn btn-secondary" type="button" ng-click="vm.clearDate()">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </button>
+
         </span>
-        </span>
-      </div>
+      </form>
     </div>
   </div>
 
   <br>
   <div class="row">
-    <div class="col-lg-6">
-      <a ui-sref="reactions.detail({ reactionId: reaction.id })"
-         data-ng-repeat="reaction in reactions | filter:byDate">
+    <div class="col-md-12">
+        <a ui-sref="reactions.detail({ reactionId: reaction.id })"
+           data-ng-repeat="reaction in reactions | filter:searchTitle | filter:vm.searchByDate">
 
-          <h3><span data-ng-bind="reaction.title"></span> </h3>
-          <h5> on <span data-ng-bind="reaction.date"></span></h5>
+             <h4><span data-ng-bind="reaction.title"></span> </h4>
 
-      </a>
+             <h5> on <span data-ng-bind="reaction.date"></span></h5>
+
+        </a>
+      </div>
     </div>
   </div>
 </div>

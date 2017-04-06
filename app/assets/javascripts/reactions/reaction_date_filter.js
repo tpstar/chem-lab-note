@@ -17,7 +17,7 @@
 					var reactionDate = parseDate(reaction.date).getTime();
 	        return (reactionDate >= fromDate && reactionDate <= toDate);
 				} else {
-					return false;
+					return true;
 				}//if (startDate && endDate)
 			}
 		})
