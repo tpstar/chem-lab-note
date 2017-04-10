@@ -1,24 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+CHEM-LAB-NOTE
 
-Things you may want to cover:
+This app provides a website that let you record your Chemistry lab experiment online.
 
-* Ruby version
+It is a single page web app having a JSON api with Ruby on Rails back-end framework and AngularJS for the front-end.
 
-* System dependencies
+Please read a blog post at https://medium.com/@tpstar/online-chemistry-lab-notebook-83649efb010 for more detail description.
 
-* Configuration
+Usage
+To use this app,
+1) clone,
+1) bundle install
+2) rake bower:install
+3) rake db: migrate, and
+4) rake db:seed
 
-* Database creation
+Contribution
+Bug reports and pull requests are welcome on GitHub at https://github.com/tpstar/chem-lab-note. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+License
+The app is available as open source under the terms of the MIT License.
