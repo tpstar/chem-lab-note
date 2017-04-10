@@ -14,7 +14,7 @@ Chemical.create(name: "methylene chloride", formula: "CH2Cl2", fw: 84.93, densit
 Chemical.create(name: "benzoic acid", formula: "C7H6O2", fw: 122.12, mp: 123, bp: 249, user_id: 1)
 Chemical.create(name: "sodium benzoate", formula: "C6H5COONa", fw: 144.10, user_id: 1)
 
-Reaction.create(title: "sodium benzoate synthesis", date: "2017-02-03" user_id: 1)
-Reaction.create(title: "acetyl chloride synthesis", date: "2017-03-04" user_id: 1)
-Reaction.create(title: "oligomerization of ethylene", date: "2017-03-26" user_id: 1)
-Reaction.create(title: "esterification of acetic acid", date: "2017-04-01" user_id: 1)
+Reaction.create(title: "sodium benzoate synthesis", date: "2017-02-03", user_id: 1)
+Reaction.create(title: "acetyl chloride synthesis", date: "2017-03-04", user_id: 1)
+Reaction.create(title: "oligomerization of ethylene", date: "2017-03-26", user_id: 1)
+Reaction.create(title: "esterification of acetic acid", date: "2017-04-01", user_id: 1)
