@@ -11,6 +11,9 @@ Premium: http://www.gridgum.com
 
 /* SPECIFIC FOR CHEM-LAB-NOTE */
 
+.tab {
+  margin-left: 40px;
+}
 
 .readOnly input{
   color: #778899;

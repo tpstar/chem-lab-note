@@ -5,12 +5,16 @@
           <h4> Post a Chemical</h4>
       </div>
       <br>
-      <form class="form-horizontal" ng-submit='vm.createChemical()'>
+      <form class="form-horizontal" ng-submit='vm.createChemical()' name="form">
 
         <div class="form-group">
           <label for="Name" class="control-label col-xs-4">Name</label>
           <div class="col-xs-8">
-              <input class="form-control" type="text" placeholder="e.g. acetic acid" ng-model='vm.chemical.name'>
+              <input class="form-control" type="text" placeholder="e.g. acetic acid" ng-model='vm.chemical.name'
+                     name="name" required="required">
+                <div ng-messages="form.name.$error" ng-if="form.name.$touched">
+                  <div ng-message="required" style="color:maroon">Name is required!</div>
+                </div>
           </div>
         </div>
 

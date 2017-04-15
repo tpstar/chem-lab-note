@@ -49,15 +49,18 @@
 			}
 
 			function createReaction() {
-				ReactionService
-					.create(vm.reaction)
-					// .then(reaction => $scope.reactions.push(reaction)) // for display in ng
+				if (vm.reaction.title) {
+					ReactionService
+						.create(vm.reaction)
+						.then(function(reaction) {
+							$scope.$parent.reactions.push(reaction); // for display
+							$scope.$parent.vm.dataReadOnly = false;
+							$state.go('reactions.detail', {'reactionId': reaction.id});
+						})
+				} else {
+					alert("Please add title!")
+				}
 
-					.then(function(reaction) {
-						$scope.$parent.reactions.push(reaction); // for display
-						$scope.$parent.vm.dataReadOnly = false;
-						$state.go('reactions.detail', {'reactionId': reaction.id});
-					})
 			}
 
 			function editReaction() {
