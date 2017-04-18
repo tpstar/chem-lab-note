@@ -48,7 +48,7 @@
   <div class="row">
     <div class="col-md-12">
         <a ui-sref="reactions.detail({ reactionId: reaction.id })"
-           data-ng-repeat="reaction in reactions | filter:searchTitle | filter:vm.searchByDate">
+           data-ng-repeat="reaction in reactions | orderBy:'-updated_at' | filter:searchTitle | filter:vm.searchByDate">
 
              <h4><span data-ng-bind="reaction.title"></span> </h4>
 
