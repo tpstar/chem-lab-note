@@ -18,7 +18,11 @@
 			vm.clearTitle     = clearTitle;
 			vm.clearDate      = clearDate;
 
-			vm.reaction = {chemicals: [], quantities: [{eq: 1}, {}, {}, {}]}
+			vm.upvote = upvote;
+			vm.downvote = downvote;
+			vm.sortByUpvotes = sortByUpvotes;
+
+			vm.reaction = {chemicals: [], quantities: [{eq: 1}, {}, {}, {}], upvotes: 0}
 
 			vm.dataReadOnly = false;
 
@@ -72,6 +76,7 @@
 			}reactionDetail
 
 			function updateReaction(reactionInfo) {
+				console.log(reactionInfo);
 				ReactionService
 					.update(reactionInfo)
 					.then(function(data) {
@@ -105,6 +110,24 @@
 			function clearDate() {
 				delete $scope.startDate;
 				delete $scope.endDate;
+			}
+
+			function upvote(reaction) {
+				reaction.upvotes = reaction.upvotes || 0
+				reaction.upvotes++;
+				// console.log(reaction.upvote);
+			}
+
+			function downvote(reaction) {
+				reaction.upvotes = reaction.upvotes || 0
+				reaction.upvotes--;
+				// console.log(reaction.upvote);
+			}
+
+			function sortByUpvotes() {
+				$scope.reactions.sort(function(a,b) {
+					return b.upvotes - a.upvotes;
+				})
 			}
 
     }])

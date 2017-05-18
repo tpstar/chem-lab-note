@@ -11,7 +11,7 @@
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search by Reaction Title" ng-model="searchTitle">
         <span class="input-group-btn">
-          <button class="btn btn-secondary" type="button" ng-click="vm.clearTitle()"><i class="fa fa-times" aria-hidden="true"></i></button>
+          <button class="btn btn-secondary" type="button" ng-click="vm.searchTitle()"><i class="fa fa-times" aria-hidden="true"></i></button>
         </span>
       </div>
     </div>
@@ -35,27 +35,42 @@
           </div>
         </div>
 
-          <button class="btn btn-secondary" type="button" ng-click="vm.clearDate()">
+          <button class="btn btn-secondary" type="button" ng-click="vm.searchDate()">
             <i class="fa fa-times" aria-hidden="true"></i>
           </button>
 
         </span>
+        <br></br>
+        <!-- <button class="btn btn-secondary" type="button" ng-click="vm.sortByUpvotes()">
+          Sort By Upvotes
+        </button> -->
       </form>
     </div>
   </div>
 
   <br>
   <div class="row">
-    <div class="col-md-12">
-        <a ui-sref="reactions.detail({ reactionId: reaction.id })"
-           data-ng-repeat="reaction in reactions | orderBy:'-updated_at' | filter:searchTitle | filter:vm.searchByDate">
+    <ul class="col-md-12">
+        <li
+           data-ng-repeat="reaction in reactions | orderBy:vm.sortByUpvotes() | filter:searchTitle | filter:vm.searchByDate">
 
              <h4><span data-ng-bind="reaction.title"></span> </h4>
 
              <h5> on <span data-ng-bind="reaction.date"></span></h5>
 
-        </a>
-      </div>
+             <button class="btn btn-secondary" type="button" ng-click="vm.upvote(reaction)">
+               up
+             </button>
+             <button class="btn btn-secondary" type="button" ng-click="vm.downvote(reaction)">
+               down
+             </button>
+             upvotes: {{reaction.upvotes || 0}}
+             <button class="btn btn-secondary" type="button" ng-click="vm.updateReaction(reaction)">
+               save
+             </button>
+
+        </li>
+      </ul>
     </div>
   </div>
 </div>
