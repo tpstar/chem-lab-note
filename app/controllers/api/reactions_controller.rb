@@ -42,7 +42,7 @@ class Api::ReactionsController < ApplicationController
   private
 
   def reaction_params
-    params.require(:reaction).permit(:title, :date, :time, :temp, :yield, :upvotes,
+    params.require(:reaction).permit(:title, :date, :time, :temp, :yield, 
       :quantities => [:chemical_id, :eq, :g, :mL, :mol],
       :chemicals => [:id])
   end
