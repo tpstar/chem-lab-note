@@ -1,4 +1,4 @@
-{
+{ "name": "chem-lab-note",
   "vendor": {
     "name": "bower-rails generated vendor assets",
     "dependencies": {
