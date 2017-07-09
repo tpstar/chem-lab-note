@@ -1,0 +1,16 @@
+<div class="col-md-8 col-md-offset-1 col-sm-8 col-sm-offset-1 mb">
+
+  <label for="search-by-chemical-name"><h4>Search by Chemical Name</h4></label>
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon3">Name</span>
+    <input type="text" class="form-control" aria-describedby="basic-addon3" ng-model="qSearchName">
+  </div>
+
+  <br>
+
+  <a ui-sref="chemicals.detail({ chemicalId: chemical.id })"
+     data-ng-repeat="chemical in chemicals | orderBy:'-updated_at' | filter: {name: qSearchName}">
+
+    <h4><span data-ng-bind="chemical.name"></span></h4>
+  </a>
+</div>

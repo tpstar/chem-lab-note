@@ -1,0 +1,45 @@
+
+      <div class="col-lg-3 col-md-6">
+        <div reactions-chemical class="panel panel-primary" type="Reactant-1" chemical="reactant_1">
+          <!-- <p>name: {{$parent.$parent.reactantOne.properties.name}}</p> -->
+          <p>name: {{$parent.$parent.vm.reaction.chemicals[0].name}}</p>
+          <p>formula: {{$parent.$parent.vm.reaction.chemicals[0].formula}}</p>
+          <p>fw: {{$parent.$parent.vm.reaction.chemicals[0].fw}} <span ng-if="$parent.$parent.vm.reaction.chemicals[0].fw">g/mol</span> </p>
+          <p>density: {{$parent.$parent.vm.reaction.chemicals[0].density}} <span ng-if="$parent.$parent.vm.reaction.chemicals[0].density">g/mL</span></p>
+          <p>mp: {{$parent.$parent.vm.reaction.chemicals[0].mp}}<span ng-if="$parent.$parent.vm.reaction.chemicals[0].mp"> <sup>o</sup>C</span></p>
+          <p>bp: {{$parent.$parent.vm.reaction.chemicals[0].bp}}<span ng-if="$parent.$parent.vm.reaction.chemicals[0].bp"> <sup>o</sup>C</span></p>
+        </div>
+
+
+
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div reactions-chemical type="Reactant-2" class="panel panel-green" chemical="reactant_2">
+          <p>name: {{$parent.$parent.vm.reaction.chemicals[1].name}}</p>
+          <p>formula: {{$parent.$parent.vm.reaction.chemicals[1].formula}}</p>
+          <p>fw: {{$parent.$parent.vm.reaction.chemicals[1].fw}} <span ng-if="$parent.$parent.vm.reaction.chemicals[1].fw">g/mol</span> </p>
+          <p>density: {{$parent.$parent.vm.reaction.chemicals[1].density}} <span ng-if="$parent.$parent.vm.reaction.chemicals[1].density">g/mL</span></p>
+          <p>mp: {{$parent.$parent.vm.reaction.chemicals[1].mp}}<span ng-if="$parent.$parent.vm.reaction.chemicals[1].mp"> <sup>o</sup>C</span></p>
+          <p>bp: {{$parent.$parent.vm.reaction.chemicals[1].bp}}<span ng-if="$parent.$parent.vm.reaction.chemicals[1].bp"> <sup>o</sup>C</span></p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div reactions-chemical type="Solvent" class="panel panel-yellow" chemical="_solvent">
+          <p>name: {{$parent.$parent.vm.reaction.chemicals[2].name}}</p>
+          <p>bp: {{$parent.$parent.vm.reaction.chemicals[2].bp}}<span ng-if="$parent.$parent.vm.reaction.chemicals[2].bp"> <sup>o</sup>C</span></p>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <div reactions-chemical type="Product" class="panel panel-red" chemical="_product">
+          <p>name: {{$parent.$parent.vm.reaction.chemicals[3].name}}</p>
+          <p>formula: {{$parent.$parent.vm.reaction.chemicals[3].formula}}</p>
+          <p>fw: {{$parent.$parent.vm.reaction.chemicals[3].fw}} <span ng-if="$parent.$parent.vm.reaction.chemicals[3].fw">g/mol</span> </p>
+          <p>density: {{$parent.$parent.vm.reaction.chemicals[3].density}} <span ng-if="$parent.$parent.vm.reaction.chemicals[3].density">g/mL</span></p>
+          <p>mp: {{$parent.$parent.vm.reaction.chemicals[3].mp}}<span ng-if="$parent.$parent.vm.reaction.chemicals[3].mp"> <sup>o</sup>C</span></p>
+          <p>bp: {{$parent.$parent.vm.reaction.chemicals[3].bp}}<span ng-if="$parent.$parent.vm.reaction.chemicals[3].bp"> <sup>o</sup>C</span></p>
+        </div>
+      </div>
+      <!-- /.col-lg-3 -->

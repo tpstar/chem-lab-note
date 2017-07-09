@@ -1,0 +1,36 @@
+<div class="row mt">
+
+  <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 mb">
+    <div class="white-panel pn">
+      <div class="white-header">
+          <h4>LOG IN</h4>
+      </div>
+
+      <p><i class="fa fa-user fa-lg" aria-hidden="true"></i></p>
+      <form ng-submit="login()" name="form">
+        <div class="input-group margin-bottom-sm">
+          <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+          <input class="form-control" type="email" placeholder="Email address" ng-model="user.email"
+                 name="email" required="required">
+            <div ng-messages="form.email.$error" ng-if="form.email.$touched">
+              <div ng-message="required" style="color:maroon">Your email is required!</div>
+            </div>
+        </div>
+
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+          <input class="form-control" type="password"  placeholder="Password" ng-model="user.password"
+                 name="password" required="required">
+            <div ng-messages="form.password.$error" ng-if="form.password.$touched">
+              <div ng-message="required" style="color:maroon">Your password is required!</div>
+            </div>
+        </div>
+        <br>
+        <input type="submit" class="btn btn-default" value="Log In">
+      </form>
+
+
+    </div>
+  </div><!-- /col-md-4 -->
+
+</div><!-- /row -->
