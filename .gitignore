@@ -21,4 +21,4 @@
 .byebug_history
 
 #Ignore my vendor files
-/vendor/assets 
+#/vendor/assets
