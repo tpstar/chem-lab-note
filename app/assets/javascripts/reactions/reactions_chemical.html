@@ -12,7 +12,7 @@
     ng-model="chemical.search" ng-readonly="$parent.vm.dataReadOnly"/>
     <span class="input-group-btn">
         <button class="btn btn-primary" type="button" ng-click="searchChemical()" ng-disabled="$parent.vm.dataReadOnly">
-            <span class=" glyphicon glyphicon-search"></span>
+            <span><i class="fa fa-search" aria-hidden="true"></i></span>
         </button>
     </span>
   </div>
@@ -35,7 +35,7 @@
         <span class="input-group-addon">g</span>
         <span class="input-group-btn">
           <button class="btn btn-xs btn-primary" ng-click="weightToMol()" ng-disabled="$parent.$parent.vm.dataReadOnly">
-            <i class="glyphicon glyphicon-play"></i>
+            <i class="fa fa-play" aria-hidden="true"></i>
           </button>
         </span>
       </div>
