@@ -12,8 +12,7 @@
     ng-model="chemical.search" ng-readonly="$parent.vm.dataReadOnly"/>
     <span class="input-group-btn">
         <button class="btn btn-primary" type="button" ng-click="searchChemical()" ng-disabled="$parent.vm.dataReadOnly">
-            <!-- <span><i class="fa fa-search" aria-hidden="true"></i></span> -->
-            <span>Search</span>
+            <span><i class="fa fa-search" aria-hidden="true"></i></span>
         </button>
     </span>
   </div>
@@ -36,8 +35,7 @@
         <span class="input-group-addon">g</span>
         <span class="input-group-btn">
           <button class="btn btn-xs btn-primary" ng-click="weightToMol()" ng-disabled="$parent.$parent.vm.dataReadOnly">
-            <!-- <i class="fa fa-play" aria-hidden="true"></i> -->
-            Play
+            <i class="fa fa-play" aria-hidden="true"></i>
           </button>
         </span>
       </div>
@@ -61,8 +59,7 @@
                ng-model="$parent.$parent.vm.reaction.quantities[1].eq" ng-readonly="$parent.$parent.vm.dataReadOnly"/>
         <span class="input-group-btn">
           <button class="btn btn-xs btn-primary" ng-click="addEq()" ng-disabled="$parent.$parent.vm.dataReadOnly">
-            <!-- <i class="glyphicon glyphicon-play"></i> -->
-            Play
+            <i class="fa fa-play" aria-hidden="true"></i>
           </button>
         </span>
       </div>
@@ -112,8 +109,7 @@
         <span class="input-group-addon">g</span>
         <span class="input-group-btn">
           <button class="btn btn-xs btn-primary" ng-click="addProductWt()" ng-disabled="$parent.$parent.vm.dataReadOnly">
-            <!-- <i class="glyphicon glyphicon-play"></i> -->
-            Play
+            <i class="fa fa-play" aria-hidden="true"></i>
           </button>
         </span>
       </div>
