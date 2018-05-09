@@ -1,8 +1,101 @@
 
 /* Import fonts */
-@import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
 
-/* SPECIFIC FOR CHEM-LAB-NOTE */
+
+/* ------------------------------------------------*/
+/* BASIC SETUP */
+/* ------------------------------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; /* to include border and padding in the width */
+}
+
+html,
+body {
+    background: #fff;
+    color: #555;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-weight:300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden; /* hide something that stretches beyond the screen */
+}
+
+.clearfix {zoom: 1; }
+.clearfix:after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+/* ------------------------------------------------*/
+/* REUSABLE COMPONENTS */
+/* ------------------------------------------------*/
+
+.row {
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+/* HEADER */
+
+.header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1002;
+}
+
+.navbar {
+    background: #424A5D;
+    border-bottom: 1px solid #5B6376;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+    float: left;
+    margin: 10px 0 8px;
+}
+
+/* Main navi */
+
+.main-nav {
+    float: right;
+    list-style: none; /* get rid of bullet points */
+    margin-top: 20px;
+}
+
+.main-nav li {
+    display: inline-block; /* so they can be side by side */
+    margin-left: 32px;
+}
+
+
+.main-nav li a:link,
+.main-nav li a:visited {
+    font-weight: 300;
+    padding: 8px 8px;
+    color: #E5F1E4;
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 120%;
+}
+.main-nav li a:hover,
+.main-nav li a:active {
+    color: #424A5D;
+    background-color: #9BC995;
+}
+
+
+
+/* old */
 
 .tab {
   margin-left: 40px;
@@ -378,7 +471,7 @@ ul.top-menu > li > .top-right-menu {
 
 #sidebar h5 {
 	color: #f2f2f2;
-	font-weight: 700;
+	font-weight: 300;
 }
 
 #sidebar ul li {
@@ -544,17 +637,7 @@ ul.sidebar-menu li a.active i {
     padding: 0 15px;
 }
 
-.header {
-    position: fixed;
-    left: 0;
-    right: 0;
-    z-index: 1002;
-}
 
-.black-bg {
-    background: #ffd777;
-    border-bottom: 1px solid #c9aa5f;
-}
 
 .wrapper {
     display: inline-block;

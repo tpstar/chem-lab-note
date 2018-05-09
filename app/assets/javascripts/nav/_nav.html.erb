@@ -1,0 +1,12 @@
+<header class="header navbar" ng-controller="NavCtrl">
+  <div class="row">
+    <%= image_tag("chem-lab-note-logo.png", size: "150x120", alt: "chem lab note logo", class: "logo") %>
+
+
+    <ul class="main-nav">
+      <li ng-hide="signedIn()"><a ui-sref="login">Log In</a></li>
+      <li ng-hide="signedIn()"><a class="top-right-menu" ui-sref="register">Register</a></li>
+      <li ng-show="signedIn()"><a ng-click="logout()">Log Out</a></li>
+    </ul>
+  </div>
+</header>
