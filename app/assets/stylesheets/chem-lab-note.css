@@ -46,21 +46,23 @@ body {
 
 .header {
     position: fixed;
+    top: 0;
     left: 0;
-    right: 0;
-    z-index: 1002;
-}
-
-.navbar {
+    width: 100%;
+    min-height: 60px;
+    padding: 0 15px;
     background: #424A5D;
     border-bottom: 1px solid #5B6376;
 }
 
+
+
+
 .logo {
-    height: 60px;
+    height: 50px;
     width: auto;
     float: left;
-    margin: 10px 0 8px;
+    margin: 5px 0 4px;
 }
 
 /* Main navi */
@@ -68,7 +70,7 @@ body {
 .main-nav {
     float: right;
     list-style: none; /* get rid of bullet points */
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .main-nav li {
@@ -94,6 +96,34 @@ body {
 }
 
 
+/* MAIN CONTENT CONFIGURATION */
+#main-content {
+  background-image: -webkit-linear-gradient(rgb(208, 216, 255, 0.4), rgb(208, 216, 255, 0.4)), /* make background hazy */
+                url(img/chem-reaction.jpg);
+  background-image: -moz-linear-gradient(rgb(208, 216, 255, 0.4), rgb(208, 216, 255, 0.4)), /* make background hazy */
+                  url(img/chem-reaction.jpg);
+  background-image: -o-linear-gradient(rgb(208, 216, 255, 0.4), rgb(208, 216, 255, 0.4)), /* make background hazy */
+                  url(img/chem-reaction.jpg);
+  background-image: linear-gradient(rgb(208, 216, 255, 0.4), rgb(208, 216, 255, 0.4)), /* make background hazy */
+                  url(img/chem-reaction.jpg);
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* fill whole page with header */
+  background-attachment: fixed;
+}
+
+.wrapper {
+  display: inline-block;
+  margin-top: 60px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-top: 0px;
+  width: 100%;
+}
 
 /* old */
 
@@ -622,53 +652,10 @@ ul.sidebar-menu li a.active i {
 }
 
 
-.mail-info, .mail-info:hover {
-    margin: -3px 6px 0 0;
-    font-size: 11px;
-}
-
-/* MAIN CONTENT CONFIGURATION */
-#main-content {
-    margin-left: 210px;
-}
-
-.header, .footer {
-    min-height: 60px;
-    padding: 0 15px;
-}
 
 
 
-.wrapper {
-    display: inline-block;
-    margin-top: 60px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 15px;
-    padding-top: 0px;
-    width: 100%;
-}
 
-a.logo {
-    font-size: 20px;
-    color: #ffffff;
-    float: left;
-    margin-top: 15px;
-    text-transform: uppercase;
-}
-
-a.logo b {
-    font-weight: 900;
-}
-
-a.logo:hover, a.logo:focus {
-    text-decoration: none;
-    outline: none;
-}
-
-a.logo span {
-    color: #68dff0;
-}
 
 
 /*notification*/
@@ -1630,14 +1617,7 @@ PANELS CONFIGURATIONS
 	font-size: 12px;
 }
 
-/* Calendar Configuration */
-#calendar {
-	color: white;
-	padding: 0px !important;
-}
-.calendar-month-header {
-	background: #43b1a9;
-}
+
 
 /* TODO PANEL */
 .steps{
