@@ -1,6 +1,6 @@
 angular.module('chemApp')
-  .controller('NavCtrl', ['$scope', 'Auth',
-    function($scope, Auth) {
+  .controller('NavCtrl', ['$scope', '$state', 'Auth',
+    function($scope, $state, Auth) {
 
       $scope.signedIn = Auth.isAuthenticated;
       $scope.logout = Auth.logout;
@@ -24,6 +24,7 @@ angular.module('chemApp')
 
       $scope.$on('devise:logout', function(e, user) {
         $scope.user = {};
+        $state.go('home');
       })
 
     }]);

@@ -3,13 +3,13 @@
 
 	angular
 		.module('chemApp')
-    .controller('HomeController', ['$scope', 'Auth',
-			function($scope, Auth) {
+    .controller('HomeController', ['$scope', '$state', 'Auth',
+			function($scope, $state, Auth) {
       var vm = this;
 
 			$scope.register = function(){
 				Auth.register($scope.user)
-					.then(() => $state.go('home'))
+					.then(() => $state.go('reactions.new'))
 			}
 
     }])
