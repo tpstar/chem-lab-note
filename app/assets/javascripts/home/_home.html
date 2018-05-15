@@ -1,4 +1,4 @@
-<div class="col-md-8 col-md-offset-1 col-sm-8 col-sm-offset-1 mb">
+<!-- <div class="col-md-8 col-md-offset-1 col-sm-8 col-sm-offset-1 mb">
   <h3>Reactions</h3>
   <div class="tab">
     <a ui-sref="reactions.new"> <h4>Create Reaction</h4> </a>
@@ -9,4 +9,51 @@
     <a ui-sref="chemicals.new"> <h4>Create Chemical</h4> </a>
     <a ui-sref="chemicals.list"> <h4>List Chemicals</h4> </a>
   </div>
-</div>
+</div> -->
+
+<div class="row">
+  <div class="col span-1-of-2">
+    <div class="front-page-text">
+      <h1>Welcome to <span>Chem Lab Note</span></h1>
+      <h2>Place for chemists to keep their lab notes online</h2>
+    </div>
+  </div>
+  <div class="col span-1-of-2">
+    <div class="signup">
+      <div class="signup-header">
+          <h3>Join Now</h3>
+      </div>
+
+      <form ng-submit="register()" name="form">
+
+          <!-- <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span> -->
+          <input type="email" class="form-control" placeholder="Email" ng-model="user.email"
+                 name="email" required="required">
+            <!-- <div ng-messages="form.email.$error" ng-if="form.email.$touched">
+              <div ng-message="required" style="color:maroon">Your email is required!</div>
+            </div> -->
+          <!-- <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span> -->
+          <input type="text" class="form-control" placeholder="First name" ng-model="user.first_name"
+                 name="first_name" required="required">
+            <!-- <div ng-messages="form.first_name.$error" ng-if="form.first_name.$touched">
+              <div ng-message="required" style="color:maroon">Your first_name is required!</div>
+            </div> -->
+          <!-- <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span> -->
+          <input type="text" class="form-control" placeholder="Last name" ng-model="user.last_name"
+                 name="last_name" required="required">
+            <!-- <div ng-messages="form.last_name.$error" ng-if="form.last_name.$touched">
+             <div ng-message="required" style="color:maroon">Your last_name is required!</div>
+            </div> -->
+          <!-- <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span> -->
+          <input type="password" class="form-control" placeholder="Password" ng-model="user.password"
+                 name="password" required="required">
+          <!-- <div ng-messages="form.password.$error" ng-if="form.password.$touched">
+           <div ng-message="required" style="color:maroon">Your password is required!</div>
+          </div> -->
+        <!-- </div> -->
+        <br>
+        <input type="submit" class="button" value="Sign me up!">
+      </form>
+    </div> <!-- .signup -->
+  </div> <!-- .col -->
+</div> <!-- .row -->
