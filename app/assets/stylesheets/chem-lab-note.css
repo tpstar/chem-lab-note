@@ -133,19 +133,21 @@ body {
     margin: 9px 0 4px;
 
     animation-delay: 1s;
-    animation-timing-function: ease-out;
+    animation-timing-function: ease-out; /* fast start slow end */
     animation-duration: 1s; /* flip logo */
     animation-name: flipping;
 }
 
 @keyframes flipping { /* flip .logo */
   0% {
+    opacity: 0;
     transform: rotateX(180deg);
   }
   80% {
     transform: rotateX(390deg);
   }
   100% {
+    opacity: 1;
     transform: rotateX(360deg);
   }
 }
