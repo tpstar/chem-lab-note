@@ -130,7 +130,18 @@ body {
     height: 50px;
     width: auto;
     float: left;
-    margin: 5px 0 4px;
+    margin: 9px 0 4px;
+    animation-duration: 2s; /* flip logo */
+    animation-name: flipping;
+}
+
+@keyframes flipping { /* flip .logo */
+  from {
+    transform: rotateX(180deg);
+  }
+  to {
+    transform: rotateX(360deg);
+  }
 }
 
 /* Main navi */
@@ -239,7 +250,7 @@ input {
 	padding: 4px;
 	-webkit-appearance: none;
 
-	background: rgba(232, 234, 246, 0.9);
+	background: rgba(232, 234, 246, 0.4);
 	border: none;
 	border-radius: 0;
 	border-bottom: 1px solid #3F51B5;
@@ -251,7 +262,6 @@ input {
 input:focus {
   outline: none;
   border-bottom: 2px solid #42A5F5;
-  margin-bottom: 15px;
 }
 
 /* Button */
