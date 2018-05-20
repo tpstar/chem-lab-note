@@ -131,15 +131,21 @@ body {
     width: auto;
     float: left;
     margin: 9px 0 4px;
-    animation-duration: 2s; /* flip logo */
+
+    animation-delay: 1s;
+    animation-timing-function: ease-out;
+    animation-duration: 1s; /* flip logo */
     animation-name: flipping;
 }
 
 @keyframes flipping { /* flip .logo */
-  from {
+  0% {
     transform: rotateX(180deg);
   }
-  to {
+  80% {
+    transform: rotateX(390deg);
+  }
+  100% {
     transform: rotateX(360deg);
   }
 }
