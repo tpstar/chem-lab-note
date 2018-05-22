@@ -1,6 +1,20 @@
-
 /* Import fonts */
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
+
+/* Colors */
+$color-white: #fff;
+
+$color-blue-gray-1: #424A5D;
+$color-blue-gray-2: #4F576A;
+$color-blue-gray-3: #E8EAF6;
+
+$color-light-blue: #D0D8FF;
+
+$color-green-1: #E5F1E4;
+$color-green-2: #C2DFBF;
+$color-green-3: #9AC995;
+$color-green-4: #6DAB66;
+$color-green-5: #458D3E;
 
 
 /* ------------------------------------------------*/
@@ -18,15 +32,17 @@
 html {
     /* set 1 rem to 10px */
     /* font-size: 10px;  */
-    font-size: 62.5%; /* user font size is 16px, 62.5% of 16px is 10 px */
+    /* user font size is 16px, 62.5% of 16px is 10 px */
+    font-size: 62.5%;
 }
 
 body {
-    background: #fff;
-    color: #424A5D;
-    font-family: 'Roboto', 'Arial', sans-serif;
-    font-weight:300;
-    /* font-size: 16px; */
+    background: $color-white;
+    color: $color-blue-gray-1;
+    // font-family: 'Roboto', 'Arial', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    // font-family: 'Lato', sans-serif;
+    font-weight:400;
     box-sizing: border-box;
 }
 
@@ -38,80 +54,6 @@ body {
 	display: table;
 }
 
-/* ------------------------------------------------*/
-/* REUSABLE COMPONENTS */
-/* ------------------------------------------------*/
-
-/*  SECTIONS  ============================================================================= */
-
-/* .section {
-	clear: both;
-  font-size: 20px;
-} */
-
-/*  GROUPING  ============================================================================= */
-
-.row {
-  max-width: 132rem;
-  margin: 0 auto;
-  zoom: 1; /* For IE 6/7 (trigger hasLayout) */
-}
-
-.row:before,
-.row:after {
-    content:"";
-    display:table;
-}
-
-.row:after {
-    clear:both;
-}
-
-
-
-/*  GRID COLUMN SETUP   ==================================================================== */
-
-.col {
-	display: block;
-	float:left;
-	margin: 1% 0 1% 1.6%;
-}
-
-.col:first-child { margin-left: 0; } /* all browsers except IE6 and lower */
-
-
-/*  REMOVE MARGINS AS ALL GO FULL WIDTH AT 480 PIXELS */
-
-@media only screen and (max-width: 480px) {
-	.col {
-		/*margin: 1% 0 1% 0%;*/
-        margin: 0;
-	}
-}
-
-
-/*  GRID OF TWO   ============================================================================= */
-
-
-.span-2-of-2 {
-	width: 100%;
-}
-
-.span-1-of-2 {
-	width: 49.2%;
-}
-
-/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
-
-@media only screen and (max-width: 480px) {
-	.span-2-of-2 {
-		width: 100%;
-	}
-	.span-1-of-2 {
-		width: 100%;
-	}
-}
-
 /* HEADER */
 
 .header {
@@ -121,8 +63,8 @@ body {
     width: 100%;
     min-height: 6rem;
     padding: 0 1.5rem;
-    background: #424A5D;
-    border-bottom: 0.1rem solid #5B6376;
+    background: $color-blue-gray-1;
+    border-bottom: 0.1rem solid $color-blue-gray-2;
 
     backface-visibility: hidden; /* fix the logo to move up a little after flipping */
 }
@@ -163,43 +105,36 @@ body {
     float: right;
     list-style: none; /* get rid of bullet points */
     margin: 1rem 0;
+    li {
+        display: inline-block; /* so they can be side by side */
+        margin-left: 3.2rem;
+        a:link,
+        a:visited {
+            padding: 1rem 0.8rem;
+            color: $color-green-1;
+            display: inline-block;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 1.6rem;
+        }
+        a:hover,
+        a:active {
+            color: $color-blue-gray-1;
+            background-color: $color-green-3;
+        }
+    }
 }
-
-.main-nav li {
-    display: inline-block; /* so they can be side by side */
-    margin-left: 3.2rem;
-}
-
-
-.main-nav li a:link,
-.main-nav li a:visited {
-    font-weight: 300;
-    padding: 1rem 0.8rem;
-    color: #E5F1E4;
-    display: inline-block;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 1.6rem;
-}
-.main-nav li a:hover,
-.main-nav li a:active {
-    color: #424A5D;
-    background-color: #9BC995;
-}
-
-
-
 
 /* Front Page */
 
 #main-content {
-  background-image: -webkit-linear-gradient(rgb(208, 216, 255, 0.7), rgb(208, 216, 255, 0.7)), /* make background hazy */
+  background-image: -webkit-linear-gradient(rgba($color-light-blue, 0.7), rgba($color-light-blue, 0.7)), /* make background hazy */
                 url(img/chem-reaction.jpg);
-  background-image: -moz-linear-gradient(rgb(208, 216, 255, 0.7), rgb(208, 216, 255, 0.7)), /* make background hazy */
+  background-image: -moz-linear-gradient(rgba($color-light-blue, 0.7), rgba($color-light-blue, 0.7)), /* make background hazy */
                   url(img/chem-reaction.jpg);
-  background-image: -o-linear-gradient(rgb(208, 216, 255, 0.7), rgb(208, 216, 255, 0.7)), /* make background hazy */
+  background-image: -o-linear-gradient(rgba($color-light-blue, 0.7), rgba($color-light-blue, 0.7)), /* make background hazy */
                   url(img/chem-reaction.jpg);
-  background-image: linear-gradient(rgb(208, 216, 255, 0.7), rgb(208, 216, 255, 0.7)), /* make background hazy */
+  background-image: linear-gradient(rgba($color-light-blue, 0.7), rgba($color-light-blue, 0.7)), /* make background hazy */
                   url(img/chem-reaction.jpg);
 
   -webkit-background-size: cover;
@@ -210,51 +145,49 @@ body {
   background-attachment: fixed;
 }
 
-/* .wrapper {
-  display: inline-block;
-  margin-top: 60px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 15px;
-  padding-top: 0px;
-  width: 100%;
-} */
-
 .front-page-text {
   margin-top: 40%;
-  padding: 0 10% 0 10%;
+  padding: 0 5% 0 10%;
+  color: $color-blue-gray-2;
+
+  h1 {
+    font-size: 3.8rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+
+    span {
+      font-weight: 600;
+      background-image: linear-gradient(to right, $color-green-4, $color-green-5);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+  }
+
+  h2 {
+    font-size: 2.8rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
 }
 
-h1 span {
-  background-image: linear-gradient(to right, #6DAB66, #468D3E);
-  -webkit-background-clip: text;
-  color: transparent;
-}
 
-h2 {
-  line-height: 1.5;
-}
 
 /**** Sign Up Box ****/
 
 .signup {
-  margin: 25% 10% 20% 10%;
-  background-color: rgba(232, 234, 246, 0.4);
+  margin: 30% 10% 20%;
+  background-color: rgba($color-blue-gray-3, 0.4);
   box-shadow: 0px 1px 1px rgba(63, 81, 181, 0.4); /* #3F51B5 */
   padding-top: 1rem;
   text-align: center;
-}
 
-.signup-header {
-	text-align: center;
+  h3 {
+    margin: 2rem 0 3rem;
+    font-size: 2rem;
+  }
 }
-
 
 /* FORM */
-
-.signup h3 {
-  margin-bottom: 3rem;
-}
 
 form {
   margin: 0 auto;
@@ -264,23 +197,25 @@ form {
 
 input {
   display: block;
+  width: 100%;
+  font-size: 1.6rem;
   margin-bottom: 2rem;
-	padding: 0.4rem;
+	padding: 0.8rem;
 	-webkit-appearance: none;
 
-	background: rgba(232, 234, 246, 0.4);
+	background: rgba($color-blue-gray-3, 0.6);
 	border: none;
 	border-radius: 0;
 	/* border-bottom: 1px solid #3F51B5; */
   transition: 0.2s ease;
+
+  &:focus {
+    outline: none;
+    /* border-bottom: 2px solid #42A5F5; */
+  }
 }
 
-/* input[type="password"]:focus */
 
-input:focus {
-  outline: none;
-  /* border-bottom: 2px solid #42A5F5; */
-}
 
 /* Button */
 
@@ -288,27 +223,27 @@ input:focus {
   display: inline-block;
   padding: 1.2rem 2.4rem;
   margin: 1.5rem 0 2.5rem 0;
-  background-color: rgba(109, 171, 102, 0.3);
+  // background-color: rgba(109, 171, 102, 0.3);
+  background-image: linear-gradient(to right, rgba($color-green-4, 0.5), rgba($color-green-5, 0.5));
   border-radius: 2px;
-  /* width: 100%; */
+
   transition: all .2s;
   font-size: 1.6rem;
-  font-weight: 400;
   /* border-bottom: 2px solid #3160B6; */
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
+  }
+
+  &:focus,
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+  }
 }
 
-.signup-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
-}
 
-
-
-.signup-btn:focus,
-.signup-btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
-}
 
 
 
@@ -410,7 +345,7 @@ input:focus {
 .form-horizontal .form-group label {
   text-align: right;
   color: gray;
-  font-weight: bold;
+  font-weight: 500;
 }
 #chem-lab-note-button{
   background: #68dff0;
