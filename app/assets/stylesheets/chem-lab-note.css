@@ -226,7 +226,9 @@ body {
 }
 
 h1 span {
-  color: #468D3E;
+  background-image: linear-gradient(to right, #6DAB66, #468D3E);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 h2 {
