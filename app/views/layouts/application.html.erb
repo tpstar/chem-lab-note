@@ -16,17 +16,10 @@
     <div ng-include="'nav/_nav.html'"></div>
 
     <!-- <div ng-include="'sidebar/_sidebar.html'"></div> -->
-
-
-    <section id="main-content">
-        <section class="wrapper">
-          <div class="row">
-
-              <ui-view></ui-view>
-
-            </div> <!--row-->
-          </section>
-      </section>
-
+    <div class="main">
+      <div class="main-view">
+        <ui-view></ui-view>
+      </div>
+    </div>
   </body>
 </html>

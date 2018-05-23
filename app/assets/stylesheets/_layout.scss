@@ -1,60 +1,62 @@
+//GRID
+$grid-width: 140rem;
+$gutter-vertical: 8rem;
+$gutter-horizontal: 6rem;
+
+//MiXIN
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
 /*  SECTIONS  ============================================================================= */
 
-/* .section {
-	clear: both;
-  font-size: 20px;
-} */
+// .section {
+//   @include clearfix;
+// }
 
 /*  GROUPING  ============================================================================= */
 
 .row {
-  max-width: 132rem;
-  margin: 0 auto;
-  zoom: 1; /* For IE 6/7 (trigger hasLayout) */
-}
+    max-width: $grid-width;
+    margin: 0 auto;
 
-.row:before,
-.row:after {
-    content:"";
-    display:table;
-}
+    @include clearfix;
 
-.row:after {
-    clear:both;
-}
+    [class^="col-"] {
+        float: left;
 
+        &:not(:last-child) {
+            margin-right: $gutter-horizontal;
+        }
+    }
 
+    .col-1-of-2 {
+        width: calc((100% - #{$gutter-horizontal}) / 2);
+    }
 
-/*  GRID COLUMN SETUP   ==================================================================== */
+    .col-1-of-3 {
+        width: calc((100% - 2*#{$gutter-horizontal}) / 3);
+    }
 
-.col {
-	display: block;
-	float:left;
-	margin: 1% 0 1% 1.6%;
-}
+    .col-2-of-3 {
+        width: calc(((100% - 2*#{$gutter-horizontal}) / 3)*2 + #{$gutter-horizontal});
+    }
 
-.col:first-child { margin-left: 0; } /* all browsers except IE6 and lower */
+    .col-1-of-4 {
+        width: calc((100% - 3*#{$gutter-horizontal}) / 4);
+    }
 
+    .col-2-of-4 {
+        width: calc((((100% - 3*#{$gutter-horizontal}) / 4))*2 + #{$gutter-horizontal});
+    }
 
-/*  REMOVE MARGINS AS ALL GO FULL WIDTH AT 480 PIXELS */
-
-@media only screen and (max-width: 480px) {
-	.col {
-		/*margin: 1% 0 1% 0%;*/
-        margin: 0;
-	}
-}
-
-
-/*  GRID OF TWO   ============================================================================= */
-
-
-.span-2-of-2 {
-	width: 100%;
-}
-
-.span-1-of-2 {
-	width: 49.2%;
+    .col-3-of-4 {
+        width: calc((((100% - 3*#{$gutter-horizontal}) / 4))*3 + #{$gutter-horizontal}*2);
+    }
 }
 
 /*  GO FULL WIDTH AT LESS THAN 480 PIXELS */

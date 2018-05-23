@@ -46,12 +46,8 @@ body {
     box-sizing: border-box;
 }
 
-
-.clearfix {zoom: 1; }
-.clearfix:after {
-	content: "";
-	clear: both;
-	display: table;
+h3 {
+  font-size: 2rem;
 }
 
 /* HEADER */
@@ -109,7 +105,8 @@ body {
         display: inline-block; /* so they can be side by side */
         margin-left: 3.2rem;
         a:link,
-        a:visited {
+        a:visited,
+        .alink {
             padding: 1rem 0.8rem;
             color: $color-green-1;
             display: inline-block;
@@ -125,9 +122,12 @@ body {
     }
 }
 
-/* Front Page */
+/* Main Page */
 
-#main-content {
+
+.main {
+  // padding-top: 7rem; //empty header space height (min 6rem);
+
   background-image: -webkit-linear-gradient(rgba($color-light-blue, 0.7), rgba($color-light-blue, 0.7)), /* make background hazy */
                 url(img/chem-reaction.jpg);
   background-image: -moz-linear-gradient(rgba($color-light-blue, 0.7), rgba($color-light-blue, 0.7)), /* make background hazy */
@@ -136,17 +136,20 @@ body {
                   url(img/chem-reaction.jpg);
   background-image: linear-gradient(rgba($color-light-blue, 0.7), rgba($color-light-blue, 0.7)), /* make background hazy */
                   url(img/chem-reaction.jpg);
-
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   background-position: center;
   height: 100vh; /* fill whole page with header */
   background-attachment: fixed;
+
+  .main-view {
+    padding-top: 6rem;
+  }
 }
 
 .front-page-text {
-  margin-top: 40%;
+  margin-top: 38%;
   padding: 0 5% 0 10%;
   color: $color-blue-gray-2;
 
@@ -160,6 +163,7 @@ body {
       background-image: linear-gradient(to right, $color-green-4, $color-green-5);
       -webkit-background-clip: text;
       color: transparent;
+      text-shadow: .5rem 1rem 1.5rem rgba(#555, 0.5);
     }
   }
 
@@ -175,7 +179,7 @@ body {
 /**** Sign Up Box ****/
 
 .signup {
-  margin: 30% 10% 20%;
+  margin: 28% 10% 20%;
   background-color: rgba($color-blue-gray-3, 0.4);
   box-shadow: 0px 1px 1px rgba(63, 81, 181, 0.4); /* #3F51B5 */
   padding-top: 1rem;
@@ -183,7 +187,6 @@ body {
 
   h3 {
     margin: 2rem 0 3rem;
-    font-size: 2rem;
   }
 }
 
@@ -222,7 +225,7 @@ input {
 .signup-btn {
   display: inline-block;
   padding: 1.2rem 2.4rem;
-  margin: 1.5rem 0 2.5rem 0;
+  margin: 1.5rem 0 4rem 0;
   // background-color: rgba(109, 171, 102, 0.3);
   background-image: linear-gradient(to right, rgba($color-green-4, 0.5), rgba($color-green-5, 0.5));
   border-radius: 2px;
@@ -243,6 +246,7 @@ input {
   }
 }
 
+/* New Reaction Page */
 
 
 
@@ -363,6 +367,6 @@ input {
 }
 
 #page-wrapper {
-    padding: 0 20px;
-    border-left: 1px solid #e7e7e7;
+    padding: 2rem;
+    // border-left: 1px solid #e7e7e7;
 }
