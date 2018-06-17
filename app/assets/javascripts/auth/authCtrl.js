@@ -7,11 +7,11 @@ angular.module('chemApp')
         Auth.login($scope.user)
           .then(function(user) {
             console.log(user);
-            $state.go('home');
+            $state.go('reactions.new');
         })
       }
       $scope.register = function(){
         Auth.register($scope.user)
-          .then(() => $state.go('home'))
+          .then(() => $state.go('reactions.new'))
       }
     }]);

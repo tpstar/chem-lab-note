@@ -50,6 +50,13 @@ h3 {
   font-size: 2rem;
 }
 
+h4 {
+  font-size: 1.6rem;
+}
+
+/* UTILITIES */
+.u-margin-bottom-big { margin-bottom: 10rem; }
+
 /* HEADER */
 
 .header {
@@ -163,7 +170,7 @@ h3 {
       background-image: linear-gradient(to right, $color-green-4, $color-green-5);
       -webkit-background-clip: text;
       color: transparent;
-      text-shadow: .5rem 1rem 1.5rem rgba(#555, 0.5);
+      text-shadow: .5rem 1rem 1.5rem rgba(#555, 0.2);
     }
   }
 
@@ -187,6 +194,9 @@ h3 {
 
   h3 {
     margin: 2rem 0 3rem;
+  }
+  h4 {
+    color: #777;
   }
 }
 
@@ -223,15 +233,17 @@ input {
 /* Button */
 
 .signup-btn {
+  color: $color-blue-gray-1;
   display: inline-block;
+  text-decoration: none;
   padding: 1.2rem 2.4rem;
-  margin: 1.5rem 0 4rem 0;
-  // background-color: rgba(109, 171, 102, 0.3);
+  margin: 1.5rem 0 2rem 0;
   background-image: linear-gradient(to right, rgba($color-green-4, 0.5), rgba($color-green-5, 0.5));
   border-radius: 2px;
 
   transition: all .2s;
   font-size: 1.6rem;
+  width: 100%;
   /* border-bottom: 2px solid #3160B6; */
 
   &:hover {
