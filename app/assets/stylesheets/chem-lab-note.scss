@@ -185,11 +185,11 @@ h4 {
 
 /**** Sign Up Box ****/
 
-.signup {
+.signup-login {
   margin: 28% 10% 20%;
   background-color: rgba($color-blue-gray-3, 0.4);
   box-shadow: 0px 1px 1px rgba(63, 81, 181, 0.4); /* #3F51B5 */
-  padding-top: 1rem;
+  padding: 1rem 0 1.5rem;
   text-align: center;
 
   h3 {
@@ -206,11 +206,15 @@ form {
   margin: 0 auto;
   width: 80%;
   padding: 0 5%;
+  i {
+    color: $color-green-4;
+  }
 }
 
 input {
-  display: block;
-  width: 100%;
+  // display: block;
+  width: calc(100% - 33px);
+  margin-left: 10px;
   font-size: 1.6rem;
   margin-bottom: 2rem;
 	padding: 0.8rem;
@@ -228,12 +232,10 @@ input {
   }
 }
 
-
-
 /* Button */
 
-.signup-btn {
-  color: $color-blue-gray-1;
+.big-button {
+
   display: inline-block;
   text-decoration: none;
   padding: 1.2rem 2.4rem;
@@ -245,6 +247,15 @@ input {
   font-size: 1.6rem;
   width: 100%;
   /* border-bottom: 2px solid #3160B6; */
+  &--prim {
+    color: $color-blue-gray-3;
+    background-image: linear-gradient(to right, rgba($color-green-4, 0.8), rgba($color-green-5, 0.9));
+  }
+
+  &--sec {
+    color: $color-blue-gray-1;
+    background-image: linear-gradient(to right, rgba($color-green-4, 0.5), rgba($color-green-5, 0.5));
+  }
 
   &:hover {
     transform: translateY(-3px);
@@ -253,6 +264,7 @@ input {
 
   &:focus,
   &:active {
+    outline: none;
     transform: translateY(-1px);
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
   }

@@ -8,7 +8,7 @@ ruby '2.3.0'
 # end
 
 # Font Awesome gives scalable vector icons that can instantly be customized
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '~> 5.0.13' # works with Font Awesome v5
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 
