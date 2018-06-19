@@ -3,19 +3,40 @@
       <h3>Join Now</h3>
   </div>
 
+
   <form ng-submit="register()" name="form">
-    <i class="fas fa-envelope fa-2x"></i>
-    <input type="email" class="form-control" placeholder="Email" ng-model="user.email"
-           name="email" required="required">
-    <i class="fas fa-user fa-2x"></i>
-    <input type="text" class="form-control" placeholder="First name" ng-model="user.first_name"
-           name="first_name" required="required">
-    <i class="fas fa-user fa-2x"></i>
-    <input type="text" class="form-control" placeholder="Last name" ng-model="user.last_name"
-           name="last_name" required="required">
-    <i class="fas fa-key fa-2x"></i>
-    <input type="password" class="form-control" placeholder="Password" ng-model="user.password"
-           name="password" required="required">
+    <div class="form-row">
+      <input type="email" placeholder="Email address" ng-model="user.email"
+             name="email" id="email" class="form-row__input" required="required">
+      <label for="email" class="form-row__label"><i class="fas fa-envelope"></i> Email address</label>
+      <div ng-messages="form.email.$error" ng-if="form.email.$touched">
+        <div ng-message="required" class="form-row__warning">Your email is required!</div>
+      </div>
+    </div>
+    <div class="form-row">
+      <input type="text" placeholder="First name" ng-model="user.first_name"
+             name="first_name" required="required" id="first_name" class="form-row__input" required="required">
+      <label for="first_name" class="form-row__label"><i class="fas fa-user"></i>First name</label>
+      <div ng-messages="form.first_name.$error" ng-if="form.first_name.$touched">
+        <div ng-message="required" class="form-row__warning">Your first name is required!</div>
+      </div>
+    </div>
+    <div class="form-row">
+      <input type="text" placeholder="Last name" ng-model="user.last_name"
+             name="last_name" required="required" id="last_name" class="form-row__input" required="required">
+      <label for="last_name" class="form-row__label"><i class="fas fa-user"></i>Last name</label>
+      <div ng-messages="form.last_name.$error" ng-if="form.last_name.$touched">
+        <div ng-message="required" class="form-row__warning">Your last name is required!</div>
+      </div>
+    </div>
+    <div class="form-row form-row--last">
+      <input type="password"  placeholder="Password" ng-model="user.password"
+            name="password" id="password" class="form-row__input" required="required">
+      <label for="password" class="form-row__label"><i class="fas fa-key"></i>Password</label>
+      <div ng-messages="form.password.$error" ng-if="form.password.$touched">
+        <div ng-message="required" class="form-row__warning">Your password is required!</div>
+      </div>
+    </div>
     <input type="submit" class="big-button big-button--prim" value="Sign me up!">
     <div>
         <h4>---Alreday a member?---</h4>

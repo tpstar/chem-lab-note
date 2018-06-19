@@ -6,7 +6,7 @@ angular.module('chemApp')
         // console.log("I am in authCtrl")
         Auth.login($scope.user)
           .then(function(user) {
-            console.log(user);
+            // console.log(user);
             $state.go('reactions.new');
         })
       }

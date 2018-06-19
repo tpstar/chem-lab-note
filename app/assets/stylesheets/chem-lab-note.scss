@@ -16,6 +16,7 @@ $color-green-3: #9AC995;
 $color-green-4: #6DAB66;
 $color-green-5: #458D3E;
 
+$color-warning: #FF851B;
 
 /* ------------------------------------------------*/
 /* BASIC SETUP */
@@ -211,26 +212,60 @@ form {
   }
 }
 
-input {
-  // display: block;
-  width: calc(100% - 33px);
-  margin-left: 10px;
-  font-size: 1.6rem;
-  margin-bottom: 2rem;
-	padding: 0.8rem;
-	-webkit-appearance: none;
+.form-row {
+  position: relative;
+  margin-bottom: 3rem;
 
-	background: rgba($color-blue-gray-3, 0.6);
-	border: none;
-	border-radius: 0;
-	/* border-bottom: 1px solid #3F51B5; */
-  transition: 0.2s ease;
+  &__input {
+    display: block;
+    width: 100%;
+    // width: calc(100% - 33px);
+    // margin-left: 10px;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+  	padding: 0.8rem;
+  	-webkit-appearance: none;
+  	background: rgba($color-blue-gray-3, 0.6);
+  	border: none;
+  	border-radius: 2px;
+    // transition: 0.2s ease;
 
-  &:focus {
-    outline: none;
-    /* border-bottom: 2px solid #42A5F5; */
+    &:focus {
+      outline: none;
+      &::-webkit-input-placeholder { color: transparent }
+    }
+  }
+  &__label {
+    position: absolute;
+    opacity: 0;
+    font-size: 1.6rem;
+    transition: 0.2s ease;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  &__input:focus + &__label {
+    font-size: 1.2rem;
+    bottom: 100%;
+    opacity: 1;
+  }
+
+  &__warning {
+    position: absolute;
+    bottom: -50%;
+    right: 0;
+    font-size: 1.2rem;
+    color: $color-warning;
+  }
+
+  &--last {
+    margin-bottom: 2rem;
   }
 }
+
+
+
 
 /* Button */
 

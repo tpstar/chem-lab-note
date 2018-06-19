@@ -5,20 +5,24 @@
 
   <form ng-submit="login()" name="form">
 
-    <i class="fas fa-envelope fa-2x"></i>
-    <input type="email" placeholder="Email address" ng-model="user.email"
-           name="email" required="required">
-    <div ng-messages="form.email.$error" ng-if="form.email.$touched">
-      <div ng-message="required" style="color:maroon">Your email is required!</div>
+    <div class="form-row">
+      <input type="email" placeholder="Email address" ng-model="user.email"
+             name="email" id="email" class="form-row__input" required="required">
+      <label for="email" class="form-row__label"><i class="fas fa-envelope"></i> Email address</label>
+      <div ng-messages="form.email.$error" ng-if="form.email.$touched">
+        <div ng-message="required" class="form-row__warning">Your email is required!</div>
+      </div>
     </div>
 
-    <i class="fas fa-key fa-2x"></i>
-    <input class="form-control" type="password"  placeholder="Password" ng-model="user.password"
-           name="password" required="required">
-    <div ng-messages="form.password.$error" ng-if="form.password.$touched">
-      <div ng-message="required" style="color:maroon">Your password is required!</div>
+    <div class="form-row form-row--last">
+      <input type="password"  placeholder="Password" ng-model="user.password"
+             name="password" id="password" class="form-row__input" required="required">
+      <label for="password" class="form-row__label"><i class="fas fa-key"></i>Password</label>
+      <div ng-messages="form.password.$error" ng-if="form.password.$touched">
+        <div ng-message="required" class="form-row__warning">Your password is required!</div>
+      </div>
     </div>
-    
+
     <input type="submit" class="big-button big-button--prim" value="Log In">
     <div>
         <h4>---Don't have an account?---</h4>
