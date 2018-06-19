@@ -239,7 +239,7 @@ form {
     position: absolute;
     opacity: 0;
     font-size: 1.6rem;
-    transition: 0.2s ease;
+    transition: 0.3s cubic-bezier(.18,-0.25,.63,1.52);
     bottom: 0;
     left: 0;
     z-index: 1;
